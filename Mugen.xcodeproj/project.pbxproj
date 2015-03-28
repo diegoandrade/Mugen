@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5B19E8E1AC711B6003788DB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5B19E8D1AC711B6003788DB /* main.cpp */; };
+		B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */; };
+		B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C01AC7133C00E64F62 /* trackball.c */; };
+		B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */; };
+		B58EA0C91AC7135500E64F62 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C81AC7135500E64F62 /* main.cpp */; };
+		B58EA0CB1AC7137100E64F62 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CA1AC7137100E64F62 /* GLUT.framework */; };
+		B58EA0CD1AC7137800E64F62 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CC1AC7137800E64F62 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +28,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B58EA0BB1AC7133C00E64F62 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		B58EA0BC1AC7133C00E64F62 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSRF.cpp; sourceTree = "<group>"; };
+		B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadSRF.h; sourceTree = "<group>"; };
+		B58EA0C01AC7133C00E64F62 /* trackball.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trackball.c; sourceTree = "<group>"; };
+		B58EA0C11AC7133C00E64F62 /* trackball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackball.h; sourceTree = "<group>"; };
+		B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VerticesOutput.cpp; sourceTree = "<group>"; };
+		B58EA0C31AC7133C00E64F62 /* VerticesOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticesOutput.h; sourceTree = "<group>"; };
+		B58EA0C81AC7135500E64F62 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B58EA0CA1AC7137100E64F62 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		B58EA0CC1AC7137800E64F62 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B5B19E8A1AC711B6003788DB /* Mugen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mugen; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5B19E8D1AC711B6003788DB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58EA0CD1AC7137800E64F62 /* OpenGL.framework in Frameworks */,
+				B58EA0CB1AC7137100E64F62 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +58,8 @@
 		B5B19E811AC711B6003788DB = {
 			isa = PBXGroup;
 			children = (
+				B58EA0CC1AC7137800E64F62 /* OpenGL.framework */,
+				B58EA0CA1AC7137100E64F62 /* GLUT.framework */,
 				B5B19E8C1AC711B6003788DB /* Mugen */,
 				B5B19E8B1AC711B6003788DB /* Products */,
 			);
@@ -57,7 +76,15 @@
 		B5B19E8C1AC711B6003788DB /* Mugen */ = {
 			isa = PBXGroup;
 			children = (
-				B5B19E8D1AC711B6003788DB /* main.cpp */,
+				B58EA0C81AC7135500E64F62 /* main.cpp */,
+				B58EA0BB1AC7133C00E64F62 /* Common.h */,
+				B58EA0BC1AC7133C00E64F62 /* LICENSE */,
+				B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */,
+				B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */,
+				B58EA0C01AC7133C00E64F62 /* trackball.c */,
+				B58EA0C11AC7133C00E64F62 /* trackball.h */,
+				B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */,
+				B58EA0C31AC7133C00E64F62 /* VerticesOutput.h */,
 			);
 			path = Mugen;
 			sourceTree = "<group>";
@@ -118,7 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5B19E8E1AC711B6003788DB /* main.cpp in Sources */,
+				B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */,
+				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,
+				B58EA0C91AC7135500E64F62 /* main.cpp in Sources */,
+				B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +232,7 @@
 		B5B19E921AC711B6003788DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +240,7 @@
 		B5B19E931AC711B6003788DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +264,7 @@
 				B5B19E931AC711B6003788DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
