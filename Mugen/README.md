@@ -1,2 +1,0 @@
-# Mugen
-NRoSy Field Demo

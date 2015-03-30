@@ -28,8 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
 		B58EA0BB1AC7133C00E64F62 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		B58EA0BC1AC7133C00E64F62 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSRF.cpp; sourceTree = "<group>"; };
 		B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadSRF.h; sourceTree = "<group>"; };
 		B58EA0C01AC7133C00E64F62 /* trackball.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trackball.c; sourceTree = "<group>"; };
@@ -76,9 +76,9 @@
 		B5B19E8C1AC711B6003788DB /* Mugen */ = {
 			isa = PBXGroup;
 			children = (
+				B5192FE71AC748390098FA67 /* AllColor.h */,
 				B58EA0C81AC7135500E64F62 /* main.cpp */,
 				B58EA0BB1AC7133C00E64F62 /* Common.h */,
-				B58EA0BC1AC7133C00E64F62 /* LICENSE */,
 				B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */,
 				B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */,
 				B58EA0C01AC7133C00E64F62 /* trackball.c */,

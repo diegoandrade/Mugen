@@ -34,6 +34,9 @@ public:
     
     void ReadSRFFile(char* file);
     void init();
+    
+    int numberOfVerticesInFile;
+    int numberOfFacesInFile;
 
     
 };

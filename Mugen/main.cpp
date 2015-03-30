@@ -1,3 +1,4 @@
+
 // ----------------------------------------------------------------------------
 /**
  File: main.cpp
@@ -61,6 +62,7 @@
 #include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #include <OpenGL/glext.h>
+#include "AllColor.h"
 
 #include <math.h>
 #include <stdlib.h>
@@ -93,8 +95,8 @@ p3.z = p1.x*p2.y - p1.y*p2.x
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #endif
 
-#define HEIGHT 600
-#define WIDTH 800
+#define HEIGHT 666
+#define WIDTH 999
 
 /*
  Open Gl Variables
@@ -196,7 +198,7 @@ recVec gOrigin = {0.0, 0.0, 0.0};
 
 #pragma mark ---- User's Objects ----
 point_t currentPointXYZ;
-ReadSRF objReafSRF;
+ReadSRF objReadSRF;
 
 
 //myPoint3D S;
@@ -241,7 +243,7 @@ point_t * d3 ;
 void gCameraReset(void)
 {
     gCamera.aperture = 25;
-    gCamera.focalLength = 30; //THIS IS THE DEFAULT ZOOM
+    gCamera.focalLength = 60; //THIS IS THE DEFAULT ZOOM
     gCamera.rotPoint = gOrigin;
     
     gCamera.viewPos.x = 0.0;
@@ -558,8 +560,17 @@ void init (void)
     
     glClearColor(0.0,0.0,0.0,0.0);         /* Background recColor */
     
+    //init SRF
+    objReadSRF.ReadSRFFile("hola");
+    
     gCameraReset ();
     
+    
+    glPolygonOffset (1.0, 1.0);
+    SetLighting(1); //Lighting function
+    
+    glEnable(GL_LIGHTING);
+
     
     
     
@@ -577,6 +588,27 @@ void reshape (int w, int h)
 
 
 #pragma mark <F> main display function
+
+//FTOIO :  function to be on its owned
+void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
+{
+    /*glLineWidth(3.0);
+    glColor3fv(Ivory4);
+    glBegin( GL_TRIANGLES ); // Draw a triangle
+    glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
+    glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
+    glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
+    glEnd();*/
+    
+    glLineWidth(2.0);
+    glColor3fv(DarkOrchid);
+    glBegin( GL_LINE_STRIP ); // Draw a triangle
+    glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
+    glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
+    glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
+    glEnd();
+    
+}
 
 void maindisplay(void)
 {
@@ -626,14 +658,45 @@ void maindisplay(void)
     
     drawGLText (gCamera.screenWidth, gCamera.screenHeight);
     
-   
     
+    glColor3fv(LightGoldenrod1);
+    
+    glPointSize(3.0);
+    
+    glBegin( GL_POINTS );
+    glColor3f( 0.95f, 0.207, 0.031f );
+    for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
+    {
+        glVertex3f( objReadSRF.VertexLocation[i].x, objReadSRF.VertexLocation[i].y, objReadSRF.VertexLocation[i].z);
+        //cout << objReadSRF.VertexLocation[i].x << "\n";
+    }
+    glEnd();
+    
+   
+    for ( int i = 0; i < objReadSRF.numberOfFacesInFile; i++ )
+    {
+        trianglesInFile(objReadSRF.VertexLocation[i].id1,
+                        objReadSRF.VertexLocation[i].id2,
+                        objReadSRF.VertexLocation[i].id3,
+                        objReadSRF.VertexLocation);
+    }
+    
+    /* clear window */
+    //glClear(GL_COLOR_BUFFER_BIT);
+    
+    /* draw scene */
+    //glutSolidTeapot(.5);
+    
+    /* flush drawing routines to the window */
+    glFlush();
     glutSwapBuffers();
     
     
     
     
 }
+
+
 
 
 
@@ -784,36 +847,11 @@ void key(unsigned char inkey, int px, int py)
             gShowInfo =  1 - gShowInfo;
             glutPostRedisplay();
             break;
-        case 'c': // Control points
-        case 'C':
-            gShowSplineControlPoints =  1 - gShowSplineControlPoints;
-            glutPostRedisplay();
-            break;
-        case 'y': //starts simulation
-        case 'Y':
-            sSimulationInBSplinePatch =  1 - sSimulationInBSplinePatch;
-            glutPostRedisplay();
-            break; // print point spline
-        case 's':
-        case 'S':
-            gVectorSimulation =  1 - gVectorSimulation;
-            glutPostRedisplay();
-            break; // print point spline
-        case 'm':
-        case 'M':
-            sSimulationInternalBSplinePatch =  1 - sSimulationInternalBSplinePatch;
-            glutPostRedisplay();
-            break; // print point spline
-        case 'b':
-        case 'B': //Shows the boundaries
-            GgShowBoundariers =  1 - GgShowBoundariers;
-            glutPostRedisplay();
-            break; // print point spline
         case 'r':
         case 'R': //Read SRF
-            objReafSRF.ReadSRFFile((char*) "meshd.srf");
+            //objReadSRF.ReadSRFFile((char*) "meshd.srf");
             glutPostRedisplay();
-            glutPostRedisplay();
+            //glutPostRedisplay();
             break; // print point spline
             
         default:   break;
@@ -896,7 +934,7 @@ int main (int argc, const char * argv[])
 {
     glutInit(&argc, (char **)argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH); // non-stereo for main window
-    glutInitWindowPosition (300, 50);
+    glutInitWindowPosition (100, 50);
     glutInitWindowSize (WIDTH, HEIGHT);
     gMainWindow = glutCreateWindow("N-RoSy IMPLEMENTATION CMU");
     
@@ -910,8 +948,8 @@ int main (int argc, const char * argv[])
     
     glutMouseFunc (mouse);
     glutMotionFunc(drag);
-    glutSpaceballMotionFunc(spaceballmotion);
-    glutSpaceballRotateFunc(spaceballrotate);
+    //glutSpaceballMotionFunc(spaceballmotion);
+    //glutSpaceballRotateFunc(spaceballrotate);
     
     glutMainLoop();
     return 0;
