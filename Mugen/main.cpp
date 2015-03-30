@@ -67,6 +67,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 //Includes for costume classes
 #include "Common.h"
@@ -243,7 +244,7 @@ point_t * d3 ;
 void gCameraReset(void)
 {
     gCamera.aperture = 25;
-    gCamera.focalLength = 60; //THIS IS THE DEFAULT ZOOM
+    gCamera.focalLength = 30; //THIS IS THE DEFAULT ZOOM
     gCamera.rotPoint = gOrigin;
     
     gCamera.viewPos.x = 0.0;
@@ -590,25 +591,59 @@ void reshape (int w, int h)
 #pragma mark <F> main display function
 
 //FTOIO :  function to be on its owned
+void outputTexto(double x, double y, double z, char *string)
+{
+    glColor3fv(Green2);
+    glRasterPos3f(x, y, z);
+    int len, i;
+    len = (int)strlen(string);
+    for (i = 0; i < len; i++) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
+    }
+}
+
+//FTOIO :  function to be on its owned
 void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 {
-    /*glLineWidth(3.0);
+    glLineWidth(3.0);
     glColor3fv(Ivory4);
     glBegin( GL_TRIANGLES ); // Draw a triangle
     glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
     glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
     glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
-    glEnd();*/
+    glEnd();
     
     glLineWidth(2.0);
     glColor3fv(DarkOrchid);
-    glBegin( GL_LINE_STRIP ); // Draw a triangle
+    glBegin( GL_LINES); // Draw a triangle
     glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
+    glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
+    glEnd();
+    
+    glBegin( GL_LINES); // Draw a triangle
     glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
     glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
     glEnd();
     
+    glBegin( GL_LINES); // Draw a triangle
+    glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
+    glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
+    glEnd();
+    
+    char buffer [100];
+    
+    sprintf(buffer, "%d", id1);
+    outputTexto(vertex[id1].x, vertex[id1].y, vertex[id1].z+1, buffer);
+    
+    sprintf(buffer, "%d", id2);
+    outputTexto(vertex[id2].x, vertex[id2].y, vertex[id2].z+1, buffer);
+    
+    sprintf(buffer, "%d", id3);
+    outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z+1, buffer);
+    
 }
+
+
 
 void maindisplay(void)
 {
@@ -661,7 +696,7 @@ void maindisplay(void)
     
     glColor3fv(LightGoldenrod1);
     
-    glPointSize(3.0);
+    glPointSize(4.0);
     
     glBegin( GL_POINTS );
     glColor3f( 0.95f, 0.207, 0.031f );
@@ -680,6 +715,7 @@ void maindisplay(void)
                         objReadSRF.VertexLocation[i].id3,
                         objReadSRF.VertexLocation);
     }
+
     
     /* clear window */
     //glClear(GL_COLOR_BUFFER_BIT);

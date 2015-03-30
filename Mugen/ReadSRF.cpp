@@ -52,7 +52,7 @@ void ReadSRF::ReadSRFFile(char* file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Box Sync/Mugen/Mugen/data/meshanid.srf"); //AQUI this is a hardcoded direction change this
+        ifstream myfile ("/Users/diegoandrade/Box Sync/Mugen/Mugen/data/meshd_sq.srf"); //AQUI this is a hardcoded direction change this
         if (myfile.is_open())
         {
             bool foundGE = false;
@@ -137,6 +137,9 @@ void ReadSRF::ReadSRFFile(char* file)
         VertexLocation = vert;
         numberOfVerticesInFile = vertexCounter;
         numberOfFacesInFile = faceCounter;
+        
+         cout << "numberOfVerticesInFile: " << numberOfVerticesInFile << '\n';
+         cout << "numberOfFacesInFile: " << numberOfFacesInFile << '\n';
         
         /*for(int i =0; i<vertexCounter ; i++)
         {
