@@ -29,16 +29,27 @@ public:
     
     //Vertex and Location Output from SRF files
     VerticesOutput* VertexLocation;
-    vector <VerticesOutput> VertexConnectivity;
-    vector <VerticesOutput> VertexConnectivityList;
-    
+       
     void ReadSRFFile(char* file);
     void init();
-    
+      
     int numberOfVerticesInFile;
     int numberOfFacesInFile;
-
     
+    int* boundary;
+    int* interior;
+    
+    int boundaryPicesCounter;
+    
+    int interiorCounter;
+    int boundaryCounter;
+    int boundarySize;
+    
+    int tokenSize;
+    
+    int* getVerticesConnectedTo (int idx, VerticesOutput* vert);
+    int numberOfVerticesConnectedTo;
+
 };
 
 

@@ -564,6 +564,13 @@ void init (void)
     //init SRF
     objReadSRF.ReadSRFFile("hola");
     
+    int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
+    
+    for(int i=0; i<objReadSRF.numberOfVerticesConnectedTo; i++)
+    {
+        cout << "values: " << temp[i] << "\n";
+    }
+    
     gCameraReset ();
     
     
@@ -605,7 +612,7 @@ void outputTexto(double x, double y, double z, char *string)
 //FTOIO :  function to be on its owned
 void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 {
-    glLineWidth(3.0);
+    glLineWidth(1.0);
     glColor3fv(Ivory4);
     glBegin( GL_TRIANGLES ); // Draw a triangle
     glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
@@ -642,6 +649,10 @@ void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
     outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z+1, buffer);
     
 }
+
+//FTOIO :  function to be on its owned
+//void perimtrLines(int id1, int id2, int id3, VerticesOutput* vertex )
+
 
 
 
@@ -714,6 +725,27 @@ void maindisplay(void)
                         objReadSRF.VertexLocation[i].id2,
                         objReadSRF.VertexLocation[i].id3,
                         objReadSRF.VertexLocation);
+    }
+    
+    
+    for (int i=0;i<objReadSRF.boundarySize-1; i++)
+    {
+
+            
+
+            
+           glLineWidth(5.0);
+            glColor3fv(Firebrick);
+            glBegin( GL_LINES); // Draw a triangle
+                glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i]].x,
+                           objReadSRF.VertexLocation[objReadSRF.boundary[i]].y,
+                           objReadSRF.VertexLocation[objReadSRF.boundary[i]].z);
+            
+                glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].x,
+                       objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].y,
+                       objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].z);
+            glEnd();
+  
     }
 
     

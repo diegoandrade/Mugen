@@ -29,3 +29,5 @@ VerticesOutput::VerticesOutput(string V, double v1, double v2, double v3)
     
 }
 
+
+

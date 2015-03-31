@@ -12,42 +12,94 @@
 
 ReadSRF::ReadSRF()
 {
-    //VertexConnectivityList[100]=new *VerticesOutput();
+
     numberOfVerticesInFile=0;
     numberOfFacesInFile=0;
+    
+
+    boundary = (int *)malloc(1000*sizeof(int));
+    interior = (int *)malloc(100*sizeof(int));
+    boundaryCounter = 0;
+    boundarySize = 0;
+    interiorCounter = 0;
+    boundaryPicesCounter =0; //part in the boundary use to draw the perimeter
+    tokenSize = 0;
+    
+    numberOfVerticesConnectedTo=0;
+    
 }
 
 ReadSRF::~ReadSRF()
 {
-   // float *dist = (float *)malloc(100 * sizeof(float)); //format to initialize a pointer
    VertexLocation = (VerticesOutput *)malloc(1000*sizeof(VerticesOutput));
-    //init();
 }
 
 void ReadSRF::init()
 {
-    /*
-    for(int j=0;j<100;j++){
-        VertexLocation[j].x= 0.0;
-        VertexLocation[j].y= 0.0;
-        VertexLocation[j].z= 0.0;
-        
-        VertexLocation[j].value1 = 0.0;
-        VertexLocation[j].value2 = 0.0;
-        VertexLocation[j].value3 = 0.0;
-    }*/
+
 }
 
+int * ReadSRF::getVerticesConnectedTo(int idl, VerticesOutput* vert)
+{
+    int* temp = (int *)malloc(numberOfFacesInFile*sizeof(int));
+    int j = 0;
+    
+    for(int i=0; i<numberOfFacesInFile  ; i++)
+    {
+         //cout << "i: " <<i << "\t";
+        if(idl == vert[i].id1)
+        {
+            temp[j]= vert[i].id2;
+            temp[j+1]= vert[i].id3;
+            cout << "idl: " <<idl << "\t";
+            cout << "connection 1: " << temp[j] << "\t";
+            cout << "connection 2: " << temp[j+1] << "\n" ;
+            j=j+2;
+        }
+        else if(idl == vert[i].id2)
+        {
+            temp[j]= vert[i].id1;
+            temp[j+1]= vert[i].id3;
+            cout << "idl: " <<idl << "\t";
+            cout << "connection 1: " << temp[j] << "\t";
+            cout << "connection 2: " << temp[j+1] << "\n" ;
+            j=j+2;
+        }
+        else if (idl == vert[i].id3)
+        {
+            
+            temp[j]= vert[i].id1;
+            temp[j+1]= vert[i].id2;
+            cout << "idl: " <<idl << "\t";
+            cout << "connection 1: " << temp[j] << "\t";
+            cout << "connection 2: " << temp[j+1] << "\n" ;
+            j=j+2;
+        }
+       
+
+        
+    }
+    numberOfVerticesConnectedTo = j;
+    return temp;
+}
 
 void ReadSRF::ReadSRFFile(char* file)
 {
-   VerticesOutput* vert = (VerticesOutput *)malloc(10000*sizeof(VerticesOutput)); //AQUI majke sure the size is correct
+
+    VerticesOutput* vert = (VerticesOutput *)malloc(10000*sizeof(VerticesOutput)); //AQUI majke sure the size is correct
+    
+   
+
+    
     int vertexCounter = 0;
     int faceCounter = 0;
+
+
     
     string tempValue = "";
     
     std::string::size_type sz;   // alias of size_t
+    
   
     try
     {
@@ -56,12 +108,13 @@ void ReadSRF::ReadSRFFile(char* file)
         if (myfile.is_open())
         {
             bool foundGE = false;
+            bool foundGF = false;
             bool foundF = false;
             
             
-            while ( getline (myfile,line) && foundGE ==false)
+            while ( getline (myfile,line) && foundGF ==false)
             {
-                 istringstream iss(line);
+                istringstream iss(line);
                 
                 vector<string> tokens;
                 copy(istream_iterator<string>(iss),
@@ -79,10 +132,27 @@ void ReadSRF::ReadSRFFile(char* file)
                     //cout << "FOUND FACE" << '\n';
                     foundF = true;
                 }
-                else if (tokens[0] == "GE")
+                else if (tokens[0] == "GE" )
                 {
-                    //cout << "FOUND GE" << '\n';
+                    cout << "FOUND GE" << '\n';
+                    for(int i=2;i<tokens.size();i++){
+                         cout << "numer of tokens:" << tokens[i] <<'\n';
+                        tempValue = tokens[i];
+                        boundary[boundarySize] = stoi(tempValue, &sz);
+                        tokenSize = (int)tokens.size(); //used to create the perimeter
+                        boundarySize++;
+                        
+                        
+                        
+                    }
+                                    
+                    boundaryPicesCounter++;
                     foundGE = true;
+                }
+                else if (tokens[0] == "GF" )
+                {
+                    //cout << "FOUND GF" << '\n';
+                    foundGF = true;
                 }
                 else if (tokens[0] == "E")
                 {
@@ -101,12 +171,11 @@ void ReadSRF::ReadSRFFile(char* file)
                     vert[faceCounter].id3 = stoi(tempValue, &sz);
                     faceCounter++;
                     
-                    
-                    
                 }
                 else if (tokens[0] == "N")
                 {
                     //cout << "FOUND NORMAL" << '\n';
+                    
                     vert[vertexCounter].nx = stod(tokens[4]);
                     vert[vertexCounter].ny = stod(tokens[5]);
                     vert[vertexCounter].nz = stod(tokens[6]);
@@ -138,16 +207,53 @@ void ReadSRF::ReadSRFFile(char* file)
         numberOfVerticesInFile = vertexCounter;
         numberOfFacesInFile = faceCounter;
         
-         cout << "numberOfVerticesInFile: " << numberOfVerticesInFile << '\n';
-         cout << "numberOfFacesInFile: " << numberOfFacesInFile << '\n';
+        cout << "numberOfVerticesInFile: " << numberOfVerticesInFile << '\n';
+        cout << "numberOfFacesInFile: " << numberOfFacesInFile << '\n';
+        cout << "Boundary members: " << boundarySize << '\n';
         
-        /*for(int i =0; i<vertexCounter ; i++)
+        cout << "----------------------------------" <<  '\n';
+        
+        for(int i =0; i< boundarySize ; i++)
         {
-            cout << "values on x: " << vert[i].x << '\n';
-            cout << "values on X: " << VertexLocation[i].x << '\n';
+            cout << i <<  "  Boundary members:  " << boundary[i] << '\n';
             
-        }*/
+        }
         
+        for(int i=0; i<numberOfVerticesInFile; i++)
+        {
+            for(int j=0; j<boundarySize; j++)
+            {
+               
+                if(boundary[j]==i)
+                {
+                    
+                    cout << "Boundary is contained there[ "<< j << "]: "<< boundary[j] << "\n";
+                    boundaryCounter++;
+                    break;
+                }
+           
+                
+            }
+            if(i>= boundaryCounter)
+            {
+                interior[i-boundaryCounter] = i;
+                 cout << "Interior points[ "<<  i << "]: "<< interior[i-boundaryCounter]<< "\n";
+                cout << vert[i].nx << "pl \n";
+                interiorCounter++;
+            }
+            
+            
+        }
+        
+        
+        cout << "----------------------------------" <<  '\n';
+        cout << "Interior Counter " << interiorCounter<< '\n';
+        cout << "Boundary Counter " << boundaryCounter << '\n';
+        
+       
+ 
+        
+
         
     }
     
