@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */; };
+		B583EE681ACE37630093795C /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE661ACE37630093795C /* Vector3D.cpp */; };
 		B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */; };
 		B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C01AC7133C00E64F62 /* trackball.c */; };
 		B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */; };
@@ -31,6 +33,10 @@
 		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
 		B583EE611ACE308C0093795C /* meshanid.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshanid.srf; sourceTree = "<group>"; };
 		B583EE621ACE308C0093795C /* meshd_sq.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd_sq.srf; sourceTree = "<group>"; };
+		B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorRepresentationOGL.cpp; sourceTree = "<group>"; };
+		B583EE641ACE36910093795C /* VectorRepresentationOGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorRepresentationOGL.h; sourceTree = "<group>"; };
+		B583EE661ACE37630093795C /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
+		B583EE671ACE37630093795C /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		B58EA0BB1AC7133C00E64F62 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSRF.cpp; sourceTree = "<group>"; };
 		B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadSRF.h; sourceTree = "<group>"; };
@@ -98,6 +104,10 @@
 				B58EA0C11AC7133C00E64F62 /* trackball.h */,
 				B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */,
 				B58EA0C31AC7133C00E64F62 /* VerticesOutput.h */,
+				B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */,
+				B583EE641ACE36910093795C /* VectorRepresentationOGL.h */,
+				B583EE661ACE37630093795C /* Vector3D.cpp */,
+				B583EE671ACE37630093795C /* Vector3D.h */,
 			);
 			path = Mugen;
 			sourceTree = "<group>";
@@ -159,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */,
+				B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */,
 				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,
 				B58EA0C91AC7135500E64F62 /* main.cpp in Sources */,
 				B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */,
+				B583EE681ACE37630093795C /* Vector3D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
