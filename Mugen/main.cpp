@@ -76,6 +76,7 @@
 
 //GEOMETRY CLASSES
 #include "ReadSRF.h"
+#include "VectorRepresentationOGL.h"
 
 /*
  Costume #define pre-processor directives
@@ -114,60 +115,20 @@ GLfloat gWorldRotation [4] = {180, 0.0, 1.0, 0.0}; //{155.0, 0.0, -1.0, 0.0};
 GLboolean gDolly = GL_FALSE;
 GLboolean gPan = GL_FALSE;
 
-
 GLboolean gShowHelp = GL_TRUE;
 GLboolean gShowInfo = GL_TRUE;
 GLboolean gShowSplineControlPoints = GL_TRUE;
 GLboolean gTrackBall = GL_FALSE;
-GLboolean gVectorSimulation = GL_FALSE; //shows the vector simulation
-GLboolean GgShowBoundariers = GL_FALSE; //shows the vector simulation
-GLboolean gReadSRF = GL_TRUE;
 
-GLboolean sSimulationInBSplinePatch= GL_FALSE;
-GLboolean sSimulationInternalBSplinePatch= GL_FALSE;
-GLboolean sFlag=GL_TRUE;
+GLboolean gInit = GL_FALSE;
 
 static GLboolean WIRE=0;		// draw mesh in wireframe?
 
 int gLastKey = ' ';
 int gMainWindow = 0;
-int k_loop=0;
-int kinternal_loop=0;
-int IMAX = 6;
-int JMAX = 6;
-int number_of_bubbles = IMAX; //(int) (distance_geometry)/(int) IMAX *2;
-
-int numberOfBubblesl0 = NUMBER_OF_BUBBLES_L0; //bottom boundary
-int numberOfBubblesl1 = NUMBER_OF_BUBBLES_L1; //bottom boundary
-int numberOfBubblesl2 = NUMBER_OF_BUBBLES_L2; //bottom boundary
-int numberOfBubblesl3 = NUMBER_OF_BUBBLES_L3; //bottom boundary
-
-
 
 float a=HEIGHT;
 float b=WIDTH;
-
-float distance_geometry =4.48386; //here measure the correct circumference / lenght
-float nodeformationRadius = distance_geometry/(float)number_of_bubbles*0.5; //here change
-float initialBubbleRadius = nodeformationRadius;//10-0.0523;//7-0.083;//1/(float)7/(float)2;
-
-float l0_bd, l1_bd,l2_bd ,l3_bd; // lenghts for each boundary
-
-float * w; //weights
-
-point_t * l0_curve_definition; //saves all points for curve l0 in boundary
-point_t * l1_curve_definition;
-point_t * l2_curve_definition;
-point_t * l3_curve_definition;
-
-point_t * DeltaVector;
-
-Spoint1D * l0_uv_curve_definition; //saves teh values for the l0 in parametric space
-Spoint1D * l1_uv_curve_definition; //saves teh values for the l0 in parametric space
-Spoint1D * l2_uv_curve_definition; //saves teh values for the l0 in parametric space
-Spoint1D * l3_uv_curve_definition; //saves teh values for the l0 in parametric space
-
-
 
 /*
  Costume Structures
@@ -194,28 +155,8 @@ recVec gOrigin = {0.0, 0.0, 0.0};
 
 
 #pragma mark ---- User's Objects ----
-point_t currentPointXYZ;
 ReadSRF objReadSRF;
-
-
-//myPoint3D S;
-
-
-//bubble B1,B2,B3;
-bubble ** PointMat; //matrix saves all the data for all the points in the surface
-bubble ** PointMat2; //matrix saves all the data for all the points in the surface
-
-bubble * l0c; //
-bubble * l1c;
-bubble * l2c;
-bubble * l3c;
-
-bubble * vectorSimulationAllPoints = new bubble [1000]; //it has a maximum number of 1000 bubbles CHANGE
-
-point_t * d0 ;
-point_t * d1 ;
-point_t * d2 ;
-point_t * d3 ;
+VectorRepresentationOGL objVRep; //Vectors used for NRoSy representation
 
 #pragma mark ---- gCamera control ----
 
@@ -316,19 +257,6 @@ void drawBubble ()
     
 }
 
-
-GLuint createDL() {
-    GLuint snowManDL;
-    
-    // Create the id for the list
-    snowManDL = glGenLists(1);
-    
-    glNewList(snowManDL,GL_COMPILE);
-    drawBubble();
-    glEndList();
-    
-    return(snowManDL);
-}
 
 #pragma mark ---- Utilities ----
 
@@ -470,16 +398,7 @@ void drawGLText (GLint window_width, GLint window_height)
         sprintf (outString, "Number in the surface: %0.1d",temp3);
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         
-        sprintf (outString, "Animation Current Iteration Boundary: %0.1d",k_loop);
-        drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
-        
-        sprintf (outString, "Animation Current Iteration Surface: %0.1d",kinternal_loop);
-        drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
-        
         sprintf (outString, "Max Number of Iterations for Runge Kutta: %0.1d", NUM_ITERATIONS);
-        drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
-        
-        sprintf (outString, "Number of Bubbles in the Simulation: %0.1d", IMAX*IMAX);
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         
         sprintf (outString, "Carnegie Mellon University 2012 : Diego Andrade");
@@ -557,11 +476,19 @@ void init (void)
     
     glClearColor(0.0,0.0,0.0,0.0);         /* Background recColor */
     
-    //init SRF
-    objReadSRF.ReadSRFFile("hola");
     
-    int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
-    objReadSRF.getVerticesConnectedInOrder(temp);
+    if (!gInit)
+    {
+        objReadSRF.ReadSRFFile("hola");
+    
+        //int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
+        //objReadSRF.getVerticesConnectedInOrder(temp);
+    
+        const char* myFile = "/Users/diegoandrade/Box Sync/Mugen/Mugen/data/sq4.rosy";
+        objVRep.getVectors(myFile);
+        
+        gInit =!gInit;
+    }
     
     
 
@@ -652,9 +579,16 @@ void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 
 //FTOIO :  function to be on its owned
 //void perimtrLines(int id1, int id2, int id3, VerticesOutput* vertex )
+void DrawNRoSyField(int idx, VerticesOutput* vertex, VerticesOutput* unitVec)
+{
+    glLineWidth(3.0);
+    glColor3fv(Cornsilk2);
+    glBegin( GL_LINES ); // Draw a triangle
+    glVertex3f(  vertex[idx].x,   vertex[idx].y,   vertex[idx].z );
+    glVertex3f(  vertex[idx].x-unitVec[idx].x,  vertex[idx].y-unitVec[idx].y,  vertex[idx].z-unitVec[idx].z );
+    glEnd();
 
-
-
+}
 
 void maindisplay(void)
 {
@@ -730,10 +664,6 @@ void maindisplay(void)
     
     for (int i=0;i<objReadSRF.boundarySize-1; i++)
     {
-
-            
-
-            
            glLineWidth(5.0);
             glColor3fv(Firebrick);
             glBegin( GL_LINES); // Draw a triangle
@@ -747,6 +677,11 @@ void maindisplay(void)
             glEnd();
   
     }
+    
+    for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
+    {
+        DrawNRoSyField(i, objReadSRF.VertexLocation, objVRep.objNRoSyVer);
+    }
 
     
     /* clear window */
@@ -759,13 +694,7 @@ void maindisplay(void)
     glFlush();
     glutSwapBuffers();
     
-    
-    
-    
 }
-
-
-
 
 
 void special(int key, int px, int py)

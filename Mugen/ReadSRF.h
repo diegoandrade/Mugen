@@ -33,7 +33,7 @@ public:
     //Vertex and Location Output from SRF files
     VerticesOutput* VertexLocation;
        
-    void ReadSRFFile(char* file);
+    void ReadSRFFile(const char* file);
     void init();
       
     int numberOfVerticesInFile;

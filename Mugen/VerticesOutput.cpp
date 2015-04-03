@@ -8,9 +8,23 @@
 
 #include "VerticesOutput.h"
 
+VerticesOutput::VerticesOutput()
+{
+    
+    
+}
+
 VerticesOutput::~VerticesOutput()
 {
     
+    
+}
+
+VerticesOutput::VerticesOutput(double v1, double v2, double v3)
+{
+    this->a = v1;
+    this->b = v2;
+    this->c = v3;
     
 }
 

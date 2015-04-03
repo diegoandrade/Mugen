@@ -13,6 +13,8 @@
 #include <iostream>
 
 #include "Vector3D.h"
+#include "ReadSRF.h"
+#include "VerticesOutput.h"
 
 using namespace std;
 
@@ -20,18 +22,21 @@ class VectorRepresentationOGL
 {
     
 public:
-    double x , y, z ;
-    double nx, ny, nz;
-    int id1, id2, id3;
+    VerticesOutput*  vertexLocation; //initialize in a different way
+    
     
 public:
     
     VectorRepresentationOGL();
     ~VectorRepresentationOGL();
     
-    Vector3D* getVectors(char* file);
-    Vector3D* getPoints(char* file);
+    void getVectors(const char* file);
+    void getPoints(const char* file);
     
+    ReadSRF* objRSRF = new ReadSRF();
+    VerticesOutput*  objNRoSyVer = new VerticesOutput(); //vector info for NRosy
+    
+   
     
     
     

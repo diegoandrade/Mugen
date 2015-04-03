@@ -28,8 +28,16 @@ public:
     
     VerticesOutput(string V, int v1, int v2, int v3);
     VerticesOutput(string V, double v1, double v2, double v3);
+    VerticesOutput(double v1, double v2, double v3);
     
-   
+    union{
+        struct{
+            double a, b, c;
+        };
+        //struct{
+            //double x, y, z;
+        //};
+    };  double elements[3];
 
     
 };
