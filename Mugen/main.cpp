@@ -76,10 +76,6 @@
 
 //GEOMETRY CLASSES
 #include "ReadSRF.h"
-//#include "grid.h" //Creates a Transfinite Interpolation to place the BBpacking on top
-
-//#include "AllColor.h"
-
 
 /*
  Costume #define pre-processor directives
@@ -565,13 +561,17 @@ void init (void)
     objReadSRF.ReadSRFFile("hola");
     
     int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
+    objReadSRF.getVerticesConnectedInOrder(temp);
     
-    for(int i=0; i<objReadSRF.numberOfVerticesConnectedTo; i++)
-    {
-        cout << "values: " << temp[i] << "\n";
-    }
+    
+
     
     gCameraReset ();
+    
+    
+
+    
+  
     
     
     glPolygonOffset (1.0, 1.0);

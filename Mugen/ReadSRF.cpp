@@ -83,6 +83,26 @@ int * ReadSRF::getVerticesConnectedTo(int idl, VerticesOutput* vert)
     return temp;
 }
 
+int* ReadSRF::getVerticesConnectedInOrder (int* vert)
+{
+    int* tmp = (int *)malloc(numberOfVerticesConnectedTo*sizeof(int));
+    std::set<int> s;
+    for(int i=0; i< numberOfVerticesConnectedTo; i++)
+    {
+        cout << "values: " << vert[i] << "\n";
+        s.insert(vert[i]);
+    }
+        
+    //std::ofstream of("sorted_numbers.txt");
+    for (auto i : s){
+        cout << " - values: " << i << "\n";
+        //of << i << '\n';
+        tmp[i]=i;
+    }
+    
+    return tmp;
+}
+
 void ReadSRF::ReadSRFFile(char* file)
 {
 

@@ -29,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
+		B583EE611ACE308C0093795C /* meshanid.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshanid.srf; sourceTree = "<group>"; };
+		B583EE621ACE308C0093795C /* meshd_sq.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd_sq.srf; sourceTree = "<group>"; };
 		B58EA0BB1AC7133C00E64F62 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSRF.cpp; sourceTree = "<group>"; };
 		B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadSRF.h; sourceTree = "<group>"; };
@@ -55,9 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B583EE601ACE308C0093795C /* data */ = {
+			isa = PBXGroup;
+			children = (
+				B583EE611ACE308C0093795C /* meshanid.srf */,
+				B583EE621ACE308C0093795C /* meshd_sq.srf */,
+			);
+			name = data;
+			path = Mugen/data;
+			sourceTree = "<group>";
+		};
 		B5B19E811AC711B6003788DB = {
 			isa = PBXGroup;
 			children = (
+				B583EE601ACE308C0093795C /* data */,
 				B58EA0CC1AC7137800E64F62 /* OpenGL.framework */,
 				B58EA0CA1AC7137100E64F62 /* GLUT.framework */,
 				B5B19E8C1AC711B6003788DB /* Mugen */,

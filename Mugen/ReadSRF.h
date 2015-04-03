@@ -17,6 +17,9 @@
 #include <algorithm>
 #include <iterator>
 
+//use to sort arrays
+#include <set>
+
 #include "VerticesOutput.h"
 
 using namespace std;
@@ -49,6 +52,8 @@ public:
     
     int* getVerticesConnectedTo (int idx, VerticesOutput* vert);
     int numberOfVerticesConnectedTo;
+    
+    int* getVerticesConnectedInOrder (int* vert);
 
 };
 
