@@ -40,13 +40,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "ReadSRF::ReadSRFFile(char const*)"
                   moduleName = "Mugen"
-                  urlString = "file:///Users/diegoandrade/Box%20Sync/Mugen/Mugen/ReadSRF.cpp"
-                  timestampString = "449769660.949402"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diegoandrade/Documents/Mugen/Mugen/ReadSRF.cpp"
+                  timestampString = "451425615.618292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
                   endingLineNumber = "303"
-                  offsetFromSymbolStart = "5084">
+                  offsetFromSymbolStart = "5123">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -54,13 +55,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "ReadSRF::ReadSRFFile(char const*)"
                   moduleName = "Mugen"
-                  urlString = "file:///Users/diegoandrade/Box%20Sync/Mugen/Mugen/ReadSRF.cpp"
-                  timestampString = "449769660.949668"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diegoandrade/Documents/Mugen/Mugen/ReadSRF.cpp"
+                  timestampString = "451425615.618586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
                   endingLineNumber = "303"
-                  offsetFromSymbolStart = "5115">
+                  offsetFromSymbolStart = "5154">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -68,13 +70,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "ReadSRF::ReadSRFFile(char const*)"
                   moduleName = "Mugen"
-                  urlString = "file:///Users/diegoandrade/Box%20Sync/Mugen/Mugen/ReadSRF.cpp"
-                  timestampString = "449769660.949867"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diegoandrade/Documents/Mugen/Mugen/ReadSRF.cpp"
+                  timestampString = "451425615.618818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
                   endingLineNumber = "303"
-                  offsetFromSymbolStart = "5187">
+                  offsetFromSymbolStart = "5236">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -82,13 +85,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "ReadSRF::ReadSRFFile(char const*)"
                   moduleName = "Mugen"
-                  urlString = "file:///Users/diegoandrade/Box%20Sync/Mugen/Mugen/ReadSRF.cpp"
-                  timestampString = "449769660.95006"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diegoandrade/Documents/Mugen/Mugen/ReadSRF.cpp"
+                  timestampString = "451425615.638296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
                   endingLineNumber = "303"
-                  offsetFromSymbolStart = "7946">
+                  offsetFromSymbolStart = "7949">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -96,13 +100,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "ReadSRF::ReadSRFFile(char const*)"
                   moduleName = "Mugen"
-                  urlString = "file:///Users/diegoandrade/Box%20Sync/Mugen/Mugen/ReadSRF.cpp"
-                  timestampString = "449769660.950279"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diegoandrade/Documents/Mugen/Mugen/ReadSRF.cpp"
+                  timestampString = "451425615.642163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
                   endingLineNumber = "303"
-                  offsetFromSymbolStart = "9100">
+                  offsetFromSymbolStart = "9103">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -114,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "449769459.806659"
+            timestampString = "451425073.741611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "700"
+            endingLineNumber = "700"
             landmarkName = "maindisplay(void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -178,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "449769325.030867"
+            timestampString = "451425073.741611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "522"
+            endingLineNumber = "522"
             landmarkName = "init (void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -321,54 +326,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mugen/VectorRepresentationOGL.cpp"
-            timestampString = "449768984.95478"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "VectorRepresentationOGL::getVectors(const char* fileName)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mugen/VectorRepresentationOGL.cpp"
-            timestampString = "449768984.95478"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "VectorRepresentationOGL::getVectors(const char* fileName)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mugen/VectorRepresentationOGL.cpp"
-            timestampString = "449768984.95478"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "VectorRepresentationOGL::getVectors(const char* fileName)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Mugen/VerticesOutput.cpp"
             timestampString = "449766371.509802"
             startingColumnNumber = "9223372036854775807"
@@ -418,11 +375,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "449768984.95478"
+            timestampString = "451425073.741611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
             landmarkName = "init (void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -441,6 +398,102 @@
             endingLineNumber = "59"
             landmarkName = "VectorRepresentationOGL::getVectors(const char* fileName)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mugen/main.cpp"
+            timestampString = "451425349.644626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "779"
+            endingLineNumber = "779"
+            landmarkName = "maindisplay(void)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PickingObject.cpp"
+            timestampString = "451394985.464242"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "PickingObject::isInThisTriangle(Vector3D A, Vector3D B, Vector3D C, Vector3D P)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PickingObject.cpp"
+            timestampString = "451395412.040584"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "PickingObject::isInThisTriangle(Vector3D A, Vector3D B, Vector3D C, Vector3D P)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PickingObject.cpp"
+            timestampString = "451422257.445504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "PickingObject::idxVertex (int id0, int id1, int id2, VerticesOutput* VertexLocation, Vector3D P)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mugen/main.cpp"
+            timestampString = "451425145.484527"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "764"
+            endingLineNumber = "764"
+            landmarkName = "maindisplay(void)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mugen/main.cpp"
+            timestampString = "451425557.418321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "773"
+            endingLineNumber = "773"
+            landmarkName = "maindisplay(void)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

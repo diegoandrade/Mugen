@@ -53,6 +53,17 @@
 //  Copyright (c) 2012 Carnegie Mellon University. All rights reserved.
 //
 
+
+//undef DEBUG
+//define DEBUG
+
+#ifdef DEBUG
+#  define D(x) x
+#else
+#  define D(x)
+#endif // DEBUG
+
+
 #include <stdio.h>
 
 
@@ -77,6 +88,9 @@
 //GEOMETRY CLASSES
 #include "ReadSRF.h"
 #include "VectorRepresentationOGL.h"
+
+//Picking obejct class
+#include "PickingObject.h"
 
 /*
  Costume #define pre-processor directives
@@ -130,6 +144,13 @@ int gMainWindow = 0;
 float a=HEIGHT;
 float b=WIDTH;
 
+GLboolean isInsideTriangle = GL_TRUE;
+bool wasTheVertexFound = false;
+
+int ii = 0;
+int idForTriangle = 0;
+int idForClosestVertex = 0;
+
 /*
  Costume Structures
  */
@@ -157,6 +178,7 @@ recVec gOrigin = {0.0, 0.0, 0.0};
 #pragma mark ---- User's Objects ----
 ReadSRF objReadSRF;
 VectorRepresentationOGL objVRep; //Vectors used for NRoSy representation
+PickingObject objPicking;
 
 #pragma mark ---- gCamera control ----
 
@@ -484,7 +506,7 @@ void init (void)
         //int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
         //objReadSRF.getVerticesConnectedInOrder(temp);
     
-        const char* myFile = "/Users/diegoandrade/Box Sync/Mugen/Mugen/data/sq4.rosy";
+        const char* myFile = "/Users/diegoandrade/Documents/Mugen/Mugen/data/sq3.rosy";
         objVRep.getVectors(myFile);
         
         gInit =!gInit;
@@ -539,6 +561,7 @@ void outputTexto(double x, double y, double z, char *string)
 //FTOIO :  function to be on its owned
 void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 {
+    
     glLineWidth(1.0);
     glColor3fv(Ivory4);
     glBegin( GL_TRIANGLES ); // Draw a triangle
@@ -653,12 +676,16 @@ void maindisplay(void)
     glEnd();
     
    
+    
+    
+    
     for ( int i = 0; i < objReadSRF.numberOfFacesInFile; i++ )
     {
-        trianglesInFile(objReadSRF.VertexLocation[i].id1,
+        trianglesInFile(objReadSRF.VertexLocation[i].id0,
+                        objReadSRF.VertexLocation[i].id1,
                         objReadSRF.VertexLocation[i].id2,
-                        objReadSRF.VertexLocation[i].id3,
                         objReadSRF.VertexLocation);
+        
     }
     
     
@@ -682,6 +709,74 @@ void maindisplay(void)
     {
         DrawNRoSyField(i, objReadSRF.VertexLocation, objVRep.objNRoSyVer);
     }
+    
+    //Test to see if a point is inside a triangle
+    
+    Vector3D A (objReadSRF.VertexLocation[2].x, objReadSRF.VertexLocation[2].y, objReadSRF.VertexLocation[2].z);
+    Vector3D B (objReadSRF.VertexLocation[4].x, objReadSRF.VertexLocation[4].y, objReadSRF.VertexLocation[4].z);
+    Vector3D C (objReadSRF.VertexLocation[39].x, objReadSRF.VertexLocation[39].y, objReadSRF.VertexLocation[39].z);
+    Vector3D P ((A.x+B.x+C.x)/3,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
+    //Vector3D P (,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
+    
+    int idxForVertexSelected;
+
+    // Replace with pick function to select the point from the mouse to the surface
+    if (isInsideTriangle == GL_TRUE)
+    {
+        
+        D(cout << "Triangle Idx 2, 4, 39" <<'\n');
+        D(cout << "P x: " << P.x << " y: " << P.y << " z: " << P.z <<'\n');
+        D(cout << "A x: " << A.x << " y: " << A.y << " z: " << A.z <<'\n');
+        D(cout << "B x: " << B.x << " y: " << B.y << " z: " << B.z <<'\n');
+        D(cout << "C x: " << C.x << " y: " << C.y << " z: " << C.z <<'\n');
+        
+        glPointSize(6);
+        glBegin( GL_POINTS );
+        glColor3f( 1.0f, 0.207, 0.41f );
+        glVertex3f( P.x, P.y, P.z);
+        glEnd();
+        
+      
+        bool isInThisTriangle = objPicking.isInThisTriangle(A, B, C, P);
+        double distanceAP = objPicking.distanceToPoint(A,P);
+        double distanceBP = objPicking.distanceToPoint(B,P);
+        double distanceCP = objPicking.distanceToPoint(C,P);
+
+        
+        
+        D(cout << "Is the point in the triangle ? " << isInThisTriangle <<'\n');
+        D(cout << "Distance A P ? " << distanceAP <<'\n');
+        D(cout << "Distance B P ? " << distanceBP <<'\n');
+        D(cout << "Distance C P ? " << distanceCP <<'\n');
+    }
+    
+    //to find inside of what triangle the point P is located
+    while (wasTheVertexFound!=true)
+    {
+        idForTriangle = objPicking.idxVertex(objReadSRF.VertexLocation[ii].id0,
+                                                  objReadSRF.VertexLocation[ii].id1,
+                                                  objReadSRF.VertexLocation[ii].id2,
+                                                  objReadSRF.VertexLocation,
+                                                  P);
+        
+        wasTheVertexFound=objPicking.isInThisTriangleFlag;
+        
+        ++ii; //It could go overflow be careful here if P is not inside the surface!!!! Make sure always to have the point on top of the surface it is a condition necessary
+        
+        D(cout << ii << " wasTheVertexFound ? " << wasTheVertexFound <<'\n');
+        
+        D(cout << " id0 " << objReadSRF.VertexLocation[ii].id0 << " id1 " << objReadSRF.VertexLocation[ii].id1 << " id2 " << objReadSRF.VertexLocation[ii].id2<< '\n');
+
+        
+    }
+    
+    idForClosestVertex = objPicking.idxClosestVertex(ii, objReadSRF.VertexLocation, P);
+    
+    D(cout << " The Closest vertex is ? " << idForClosestVertex << " in triangle :" << ii << '\n');
+    
+  
+    
+   // isInsideTriangle = GL_FALSE;
 
     
     /* clear window */

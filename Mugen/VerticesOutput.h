@@ -19,16 +19,16 @@ class VerticesOutput
 public:
     double x , y, z ;
     double nx, ny, nz;
-    int id1, id2, id3;
+    int id0, id1, id2;
        
 public:
     
     VerticesOutput();
     ~VerticesOutput();
     
-    VerticesOutput(string V, int v1, int v2, int v3);
-    VerticesOutput(string V, double v1, double v2, double v3);
-    VerticesOutput(double v1, double v2, double v3);
+    VerticesOutput(string V, int v0, int v1, int v2);
+    VerticesOutput(string V, double v0, double v1, double v2);
+    VerticesOutput(double v0, double v1, double v2);
     
     union{
         struct{

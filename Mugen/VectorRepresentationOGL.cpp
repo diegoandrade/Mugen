@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 CMU. All rights reserved.
 //
 
-//#undef DEBUG
-#define DEBUG
+#undef DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 #  define D(x) x
@@ -80,50 +80,11 @@ void VectorRepresentationOGL::getVectors(const char* fileName)
         objNRoSyVer[i].z = Kc;
         
         D( cout << i+1 << " Ka: " << Ka << "\tKb: " << Kb << "\tKc: " << Kc << endl);
+        
 
     }
     
     fclose(inFile);
     
-    
-    
-   /* try
-    {
-        string line;
-        ifstream myfile ("/Users/diegoandrade/Box Sync/Mugen/Mugen/data/sq4.rosy"); //AQUI this is a hardcoded direction change this
-        
-        if (myfile.is_open()){
-
-            while ( getline (myfile,line) )
-            {
-                istringstream iss(line);
-                
-                vector<string> tokens;
-                copy(istream_iterator<string>(iss),
-                     istream_iterator<string>(),
-                     back_inserter(tokens));
-
-                
-                
-                
-    
-                
-            }
-            myfile.close();
-            
-            
-        }
-        
-        else cout << "Unable to open file";
-    
-    
-        
-    }
-  
-    catch(...)
-    {
-        
-    
-    }*/
     
 }

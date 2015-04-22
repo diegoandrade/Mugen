@@ -1,0 +1,109 @@
+//
+//  PickingObject.cpp
+//  Mugen
+//
+//  Created by Diego Andrade on 4/22/15.
+//  Copyright (c) 2015 CMU. All rights reserved.
+//
+
+#include "PickingObject.h"
+
+PickingObject::PickingObject()
+{
+    isInThisTriangleFlag = false;
+
+}
+
+PickingObject::~PickingObject()
+{
+    
+}
+
+bool PickingObject::isInThisTriangle(Vector3D A, Vector3D B, Vector3D C, Vector3D P)
+{
+    bool isInThisTriangle = false;
+    
+    
+    //Compute vectors
+    v0 = C - A;
+    v1 = B - A;
+    v2 = P - A;
+    
+    // Compute dot products
+    double dot00 = dot(v0, v0);
+    double dot01 = dot(v0, v1);
+    double dot02 = dot(v0, v2);
+    double dot11 = dot(v1, v1);
+    double dot12 = dot(v1, v2);
+    
+    // Compute barycentric coordinates
+    double invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+    double u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+    double v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+    
+    // Check if point is in triangle
+    if((u >= 0) && (v >= 0) && (u + v < 1))
+    {
+        isInThisTriangle = true;
+        return isInThisTriangle;
+    }
+    else
+        return isInThisTriangle;
+}
+
+//Euclidena Distance
+double PickingObject::distanceToPoint(Vector3D A, Vector3D P)
+{
+    
+    double distance = sqrt((A.x-P.x)*(A.x-P.x)+(A.y-P.y)*(A.y-P.y)+(A.z-P.z)*(A.z-P.z));
+    
+    return distance;
+}
+
+int PickingObject::idxVertex (int id0, int id1, int id2, VerticesOutput* VertexLocation, Vector3D P)
+{
+    int idForVertex = 0;
+    
+    V0.a = VertexLocation[id0].x; V0.b = VertexLocation[id0].y; V0.c = VertexLocation[id0].z;
+    v1.a = VertexLocation[id1].x; V1.b = VertexLocation[id1].y; V1.c = VertexLocation[id1].z;
+    V2.a = VertexLocation[id2].x; V2.b = VertexLocation[id2].y; V2.c = VertexLocation[id2].z;
+    
+    isInThisTriangleFlag = isInThisTriangle(V0, V1, V2, P);
+    
+    return idForVertex;
+}
+
+int PickingObject::idxClosestVertex(int idTriangle, VerticesOutput *VertexLocation, Vector3D P)
+{
+    int idV = 0;
+    int id0 = VertexLocation[idTriangle].id0;
+    int id1 = VertexLocation[idTriangle].id0;
+    int id2 = VertexLocation[idTriangle].id2;
+    
+    V0.a = VertexLocation[id0].x;
+    V0.b = VertexLocation[id0].y;
+    V0.c = VertexLocation[id0].z;
+    
+    V1.a = VertexLocation[id1].x;
+    V1.b = VertexLocation[id1].y;
+    V1.c = VertexLocation[id1].z;
+    
+    V2.a = VertexLocation[id2].x;
+    V2.b = VertexLocation[id2].y;
+    V2.c = VertexLocation[id2].z;
+    
+    double d0 = distanceToPoint(V0,P);
+    double d1 = distanceToPoint(V1,P);
+    double d2 = distanceToPoint(V2,P);
+    
+    if(d0<d1)
+        idV = id0;
+    else if (d1<d2)
+        idV = id1;
+    else
+        idV = id2;
+    
+    return idV;
+}
+
+

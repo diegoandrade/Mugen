@@ -139,7 +139,7 @@ void ReadSRF::ReadSRFFile(const char* file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Box Sync/Mugen/Mugen/data/meshd_sq.srf"); //AQUI this is a hardcoded direction change this
+        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshd_sq.srf"); //AQUI this is a hardcoded direction change this
         if (myfile.is_open())
         {
             bool foundGE = false;

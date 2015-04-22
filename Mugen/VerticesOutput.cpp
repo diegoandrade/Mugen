@@ -20,26 +20,26 @@ VerticesOutput::~VerticesOutput()
     
 }
 
-VerticesOutput::VerticesOutput(double v1, double v2, double v3)
+VerticesOutput::VerticesOutput(double v0, double v1, double v2)
 {
-    this->a = v1;
-    this->b = v2;
-    this->c = v3;
+    this->a = v0;
+    this->b = v1;
+    this->c = v2;
     
 }
 
-VerticesOutput::VerticesOutput(string V, int v1, int v2, int v3)
+VerticesOutput::VerticesOutput(string V, int v0, int v1, int v2)
 {
 
     
 }
 
 
-VerticesOutput::VerticesOutput(string V, double v1, double v2, double v3)
+VerticesOutput::VerticesOutput(string V, double v0, double v1, double v2)
 {
-    this->x = v1;
-    this->y = v2;
-    this->z = v3;
+    this->x = v0;
+    this->y = v1;
+    this->z = v2;
     
 }
 

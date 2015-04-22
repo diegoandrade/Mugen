@@ -15,6 +15,7 @@
 		B58EA0C91AC7135500E64F62 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C81AC7135500E64F62 /* main.cpp */; };
 		B58EA0CB1AC7137100E64F62 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CA1AC7137100E64F62 /* GLUT.framework */; };
 		B58EA0CD1AC7137800E64F62 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CC1AC7137800E64F62 /* OpenGL.framework */; };
+		B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,9 @@
 		B58EA0C81AC7135500E64F62 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B58EA0CA1AC7137100E64F62 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		B58EA0CC1AC7137800E64F62 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PickingObject.cpp; path = ../PickingObject.cpp; sourceTree = "<group>"; };
+		B5A953F21AE7961A00D6CB31 /* PickingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickingObject.h; path = ../PickingObject.h; sourceTree = "<group>"; };
+		B5A953F41AE7A49800D6CB31 /* sq3.rosy */ = {isa = PBXFileReference; lastKnownFileType = text; path = sq3.rosy; sourceTree = "<group>"; };
 		B5B19E8A1AC711B6003788DB /* Mugen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mugen; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +70,7 @@
 		B583EE601ACE308C0093795C /* data */ = {
 			isa = PBXGroup;
 			children = (
+				B5A953F41AE7A49800D6CB31 /* sq3.rosy */,
 				B583EE611ACE308C0093795C /* meshanid.srf */,
 				B583EE621ACE308C0093795C /* meshd_sq.srf */,
 			);
@@ -95,6 +100,8 @@
 		B5B19E8C1AC711B6003788DB /* Mugen */ = {
 			isa = PBXGroup;
 			children = (
+				B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */,
+				B5A953F21AE7961A00D6CB31 /* PickingObject.h */,
 				B5192FE71AC748390098FA67 /* AllColor.h */,
 				B58EA0C81AC7135500E64F62 /* main.cpp */,
 				B58EA0BB1AC7133C00E64F62 /* Common.h */,
@@ -170,6 +177,7 @@
 			files = (
 				B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */,
 				B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */,
+				B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */,
 				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,
 				B58EA0C91AC7135500E64F62 /* main.cpp in Sources */,
 				B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */,
