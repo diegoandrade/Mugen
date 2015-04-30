@@ -54,7 +54,7 @@
 //
 
 
-//undef DEBUG
+#undef DEBUG
 //define DEBUG
 
 #ifdef DEBUG
@@ -151,6 +151,8 @@ int ii = 0;
 int idForTriangle = 0;
 int idForClosestVertex = 0;
 
+int mx,my; // variable to hold mouse location
+
 /*
  Costume Structures
  */
@@ -179,6 +181,10 @@ recVec gOrigin = {0.0, 0.0, 0.0};
 ReadSRF objReadSRF;
 VectorRepresentationOGL objVRep; //Vectors used for NRoSy representation
 PickingObject objPicking;
+
+//used for picking
+Vector3D org;
+Vector3D vec;
 
 #pragma mark ---- gCamera control ----
 
@@ -423,7 +429,7 @@ void drawGLText (GLint window_width, GLint window_height)
         sprintf (outString, "Max Number of Iterations for Runge Kutta: %0.1d", NUM_ITERATIONS);
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         
-        sprintf (outString, "Carnegie Mellon University 2012 : Diego Andrade");
+        sprintf (outString, "Carnegie Mellon University 2015 : Diego Andrade");
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         
         
@@ -539,10 +545,30 @@ void reshape (int w, int h)
     gCamera.screenWidth = w;
     gCamera.screenHeight = h;
     glutPostRedisplay();
+    
 }
 
 
-
+Vector3D GetOGLPos(int x, int y)
+{
+    GLint viewport[4];
+    GLdouble modelview[16];
+    GLdouble projection[16];
+    GLfloat winX, winY, winZ;
+    GLdouble posX, posY, posZ;
+    
+    glGetDoublev( GL_MODELVIEW_MATRIX, modelview );
+    glGetDoublev( GL_PROJECTION_MATRIX, projection );
+    glGetIntegerv( GL_VIEWPORT, viewport );
+    
+    winX = (float)x;
+    winY = (float)viewport[3] - (float)y;
+    glReadPixels( x, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ );
+    
+    gluUnProject( winX, winY, winZ, modelview, projection, viewport, &posX, &posY, &posZ);
+    
+    return Vector3D (posX, posY, posZ);
+}
 
 #pragma mark <F> main display function
 
@@ -641,7 +667,8 @@ void maindisplay(void)
         ymin = xmin / aspect;
         ymax = xmax / aspect;
     }
-    glFrustum(xmin, xmax, ymin, ymax, zNear, zFar);
+    
+    glFrustum(xmin, xmax, ymin, ymax, zNear, zFar); // changes the projection to perpective
     
     
     gluLookAt (gCamera.viewPos.x, gCamera.viewPos.y, gCamera.viewPos.z,
@@ -718,7 +745,7 @@ void maindisplay(void)
     Vector3D P ((A.x+B.x+C.x)/3,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
     //Vector3D P (,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
     
-    int idxForVertexSelected;
+    //int idxForVertexSelected;
 
     // Replace with pick function to select the point from the mouse to the surface
     if (isInsideTriangle == GL_TRUE)
@@ -771,6 +798,9 @@ void maindisplay(void)
     }
     
     idForClosestVertex = objPicking.idxClosestVertex(ii, objReadSRF.VertexLocation, P);
+    
+
+
     
     D(cout << " The Closest vertex is ? " << idForClosestVertex << " in triangle :" << ii << '\n');
     
@@ -854,7 +884,8 @@ void drag(int x, int y)
 {
     a = x/1.0;
     b = 300.0 - (y/1.0);
-    glutPostRedisplay();}
+    glutPostRedisplay();
+}
 
 void mouseTrackball (int x, int y)
 {
@@ -867,14 +898,17 @@ void mouseTrackball (int x, int y)
 
 void mouse (int button, int state, int x, int y)
 {
-    if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN)) {
+    if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN))
+    {
         if (gDolly) { // if we are currently dollying, end dolly
             mouseDolly (x, y);
             gDolly = GL_FALSE;
             glutMotionFunc (NULL);
             gTrackBallRotation [0] = gTrackBallRotation [1] = gTrackBallRotation [2] = gTrackBallRotation [3] = 0.0f;
             glutMotionFunc (NULL);
-        } else if (gPan) {
+        }
+        else if (gPan)
+        {
             mousePan (x, y);
             gPan = GL_FALSE;
             glutMotionFunc (NULL);
@@ -884,7 +918,14 @@ void mouse (int button, int state, int x, int y)
         startTrackball (x, y, 0, 0, gCamera.screenWidth, gCamera.screenHeight);
         glutMotionFunc (mouseTrackball);
         gTrackBall = GL_TRUE;
-    } else if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_UP)) {
+        
+        objPicking.ConvertScreenCoordTo3DCoord(org, vec, x, y);
+        D(cout << "mx: " << x << " my: " << y <<'\n');
+        
+        
+    }
+    else if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_UP))
+    {
         gTrackBall = GL_FALSE;
         glutMotionFunc (NULL);
         rollToTrackball (x, y, gTrackBallRotation);
@@ -894,15 +935,20 @@ void mouse (int button, int state, int x, int y)
     }
     
     
-    else if ((button == GLUT_RIGHT_BUTTON) && (state == GLUT_DOWN)) {
-        if (gTrackBall) {// if we are currently trackballing, end trackball
+    else if ((button == GLUT_RIGHT_BUTTON) && (state == GLUT_DOWN))
+    {
+        if (gTrackBall)
+        {
+            // if we are currently trackballing, end trackball
             gTrackBall = GL_FALSE;
             glutMotionFunc (NULL);
             rollToTrackball (x, y, gTrackBallRotation);
             if (gTrackBallRotation[0] != 0.0)
                 addToRotationTrackball (gTrackBallRotation, gWorldRotation);
             gTrackBallRotation [0] = gTrackBallRotation [1] = gTrackBallRotation [2] = gTrackBallRotation [3] = 0.0f;
-        } else if (gDolly) {
+        }
+        else if (gDolly)
+        {
             mouseDolly (x, y);
             gDolly = GL_FALSE;
             glutMotionFunc (NULL);
@@ -913,13 +959,13 @@ void mouse (int button, int state, int x, int y)
         gDollyPanStartPoint[1] = y;
         glutMotionFunc (mousePan);
         gPan = GL_TRUE;
-    } else if ((button == GLUT_RIGHT_BUTTON) && (state == GLUT_UP)) {
-        mousePan (x, y);
-        gPan = GL_FALSE;
-        glutMotionFunc (NULL);
-        gTrackBallRotation [0] = gTrackBallRotation [1] = gTrackBallRotation [2] = gTrackBallRotation [3] = 0.0f;
-        glutMotionFunc (NULL);
     }
+    
+
+    
+    
+
+    
 }
 
 void key(unsigned char inkey, int px, int py)
@@ -1034,7 +1080,9 @@ int main (int argc, const char * argv[])
     
     glutReshapeFunc (reshape);
     glutDisplayFunc (maindisplay);
+    
     Timer(0);
+    
     glutKeyboardFunc (key);
     glutSpecialFunc (special);
     

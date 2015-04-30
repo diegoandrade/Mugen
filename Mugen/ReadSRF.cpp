@@ -55,10 +55,10 @@ int * ReadSRF::getVerticesConnectedTo(int idl, VerticesOutput* vert)
     for(int i=0; i<numberOfFacesInFile  ; i++)
     {
          //cout << "i: " <<i << "\t";
-        if(idl == vert[i].id1)
+        if(idl == vert[i].id0)
         {
-            temp[j]= vert[i].id2;
-            temp[j+1]= vert[i].id3;
+            temp[j]= vert[i].id1;
+            temp[j+1]= vert[i].id2;
             D(
               cout << "idl: " <<idl << "\t";
               cout << "connection 1: " << temp[j] << "\t";
@@ -67,10 +67,10 @@ int * ReadSRF::getVerticesConnectedTo(int idl, VerticesOutput* vert)
 
             j=j+2;
         }
-        else if(idl == vert[i].id2)
+        else if(idl == vert[i].id1)
         {
-            temp[j]= vert[i].id1;
-            temp[j+1]= vert[i].id3;
+            temp[j]= vert[i].id0;
+            temp[j+1]= vert[i].id2;
 
              D(
                cout << "idl: " <<idl << "\t";
@@ -80,11 +80,11 @@ int * ReadSRF::getVerticesConnectedTo(int idl, VerticesOutput* vert)
 
             j=j+2;
         }
-        else if (idl == vert[i].id3)
+        else if (idl == vert[i].id2)
         {
             
-            temp[j]= vert[i].id1;
-            temp[j+1]= vert[i].id2;
+            temp[j]= vert[i].id0;
+            temp[j+1]= vert[i].id1;
 
             D(
               cout << "idl: " <<idl << "\t";
@@ -199,11 +199,11 @@ void ReadSRF::ReadSRFFile(const char* file)
                     //cout << "FOUND VERTEX when foundf=true" << '\n';
                     foundF = false;
                     tempValue = tokens[1];
-                    vert[faceCounter].id1 = stoi(tempValue, &sz);
+                    vert[faceCounter].id0 = stoi(tempValue, &sz);
                     tempValue = tokens[2];
-                    vert[faceCounter].id2 = stoi(tempValue, &sz);
+                    vert[faceCounter].id1 = stoi(tempValue, &sz);
                     tempValue = tokens[3];
-                    vert[faceCounter].id3 = stoi(tempValue, &sz);
+                    vert[faceCounter].id2 = stoi(tempValue, &sz);
                     faceCounter++;
                     
                 }
@@ -284,8 +284,8 @@ void ReadSRF::ReadSRFFile(const char* file)
         
         
         D(cout << "----------------------------------" <<  '\n';)
-        cout << "Interior Counter " << interiorCounter<< '\n';
-        cout << "Boundary Counter " << boundaryCounter << '\n';
+        //cout << "Interior Counter " << interiorCounter<< '\n';
+        //cout << "Boundary Counter " << boundaryCounter << '\n';
         
        
  

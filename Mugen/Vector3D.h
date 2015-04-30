@@ -4,12 +4,19 @@
 #include <math.h>
 
 class Vector3D{
+    
+    
+protected:
+    double value[3];
+    double value2[2];
+    
 public:
     inline Vector3D();
     inline Vector3D(double d);
     inline Vector3D(double a0, double b0, double c0);
     inline Vector3D(const Vector3D &a);
     inline Vector3D(const double *a);
+    inline void Set(const double &x,const double &y,const double &z);
     
     inline Vector3D &set(double a0, double b0,double c0);
     
@@ -43,6 +50,9 @@ public:
     inline double dot(const Vector3D &v, const Vector3D &b);
     inline Vector3D cross(const Vector3D &v);
     
+    inline double xa(void) const;
+    inline double yb(void) const;
+
     
     union{
         struct{
@@ -53,7 +63,11 @@ public:
         };
         double elements[3];
     };
+    
+
+    
 };
+
 
 
 inline Vector3D operator-(const Vector3D &v);
@@ -102,6 +116,79 @@ inline Vector3D::Vector3D(const double *v) {
     a = v[0];
     b = v[1];
     b = v[2];
+}
+
+inline void Vector3D::Set(const double &x,const double &y,const double &z)
+{
+    value[0]=x;
+    value[1]=y;
+    value[2]=z;
+}
+
+/*! Returns X component */
+inline double Vector3D::xa(void) const // 2001/04/17 : Don't make it const double &
+{
+    return value2[0];
+}
+/*! Returns Y component */
+inline double Vector3D::yb(void) const  // 2001/04/17 : Don't make it const double &
+{
+    return value2[1];
+}
+
+/*! Rotates the vector in XY plane (X goes to the right, Y goes up)
+ counter clockwise. */
+inline void RotateXY(const double &ang)
+{
+    double c,s,xx,yy;
+    c=cos(ang);
+    s=sin(ang);
+    xx=xa()*c-yb()*s;
+    yy=xa()*s+yb()*c;
+    SetX(xx);
+    SetY(yy);
+}
+/*! Rotates the vector in XY plane (X goes to the right, Y goes up)
+ clockwise. */
+inline void RotateYX(const double &ang)
+{
+    RotateXY(-ang);
+}
+/*! Rotates the vector in XZ plane (X goes to the right, Z goes up)
+ counter clockwise. */
+inline void RotateXZ(const double &ang)
+{
+    double c,s,xx,zz;
+    c=cos(ang);
+    s=sin(ang);
+    xx=x()*c-z()*s;
+    zz=x()*s+z()*c;
+    SetX(xx);
+    SetZ(zz);
+}
+/*! Rotates the vector in XZ plane (X goes to the right, Z goes up)
+ clockwise. */
+inline void RotateZX(const double &ang)
+{
+    RotateXZ(-ang);
+}
+/*! Rotates the vector in YZ plane (Y goes to the right, Z goes up)
+ counter clockwise. */
+inline void RotateYZ(const double &ang)
+{
+    double c,s,yy,zz;
+    c=cos(ang);
+    s=sin(ang);
+    yy=y()*c-z()*s;
+    zz=y()*s+z()*c;
+    SetY(yy);
+    SetZ(zz);
+}
+/*! Rotates the vector in YZ plane (Z goes to the right, Y goes up)
+ counter clockwise. */
+inline void RotateZY(const double &ang)
+{
+    RotateYZ(-ang);
 }
 
 
@@ -302,6 +389,7 @@ inline Vector3D cross(const Vector3D &v, const Vector3D &u) {
 inline Vector3D rotate(double angle, Vector3D axis, Vector3D v){
     return Vector3D(0.0);
 }
+
 
 
 #endif

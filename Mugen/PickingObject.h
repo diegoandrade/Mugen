@@ -18,6 +18,7 @@
 #include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #include <OpenGL/glext.h>
+//#include "AllColor.h"
 
 using namespace std;
 
@@ -58,12 +59,8 @@ public:
     
     bool ConvertScreenCoordTo3DCoord(Vector3D &org,Vector3D &vec,int mx,int my);
     
-    /*! This function returns actual viewing (camera) position in pos. */
-    const Vector3D &GetViewPosition(Vector3D &pos) const;
-    
-protected:
-    double value[3];
-    
+    double lengthd(const Vector3D &v);
+    void normalized(Vector3D &v);
 };
 
 

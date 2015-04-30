@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 CMU. All rights reserved.
 //
 
+#undef DEBUG
 #ifdef DEBUG
 #  define D(x) x
 #else
@@ -112,15 +113,16 @@ int PickingObject::idxClosestVertex(int idTriangle, VerticesOutput *VertexLocati
     return idV;
 }
 
-bool PickingObject::ConvertScreenCoordTo3DCoord(Vector3D &org,Vector3D &vec,int mx,int my)
+bool PickingObject::ConvertScreenCoordTo3DCoord(Vector3D &org, Vector3D &vec, int mx, int my)
 {
-    bool DFbool = true;
+    bool itISOK = true;
     
     int viewport[4];
     double modelMat[16],projMat[16];
     double x1,y1,z1,x2,y2,z2;
     
     glGetIntegerv(GL_VIEWPORT,viewport);
+    
     glGetDoublev(GL_MODELVIEW_MATRIX,modelMat);
     glGetDoublev(GL_PROJECTION_MATRIX,projMat);
     
@@ -129,25 +131,23 @@ bool PickingObject::ConvertScreenCoordTo3DCoord(Vector3D &org,Vector3D &vec,int 
     gluUnProject((double)mx,(double)my, 0.5,modelMat,projMat,viewport,&x1,&y1,&z1);
     gluUnProject((double)mx,(double)my, 0.7,modelMat,projMat,viewport,&x2,&y2,&z2);
     
-    org.a = x1;
-    org.b = y1;
-    org.c = z1;
+    org.a = x1 ;
+    org.b = y1 ;
+    org.c = z1 ;
     
-    vec.a = x2;
-    vec.b = y2;
-    vec.c = z2;
+    vec.a = x2 ;
+    vec.b = y2 ;
+    vec.c = z2 ;
     
     vec=vec-org;
+    normalized(vec);
     
-    normalize(vec);
-    
-    D(cout << "V x: " << vec.a << " y: " << vec.b << " z: " << vec.c <<'\n');
+     D(cout << "Vector normalize : " << vec.a << ", " << vec.b <<  ", " << vec.c <<'\n');
 
     
     
-    /*
-    YsVec3 itsc,viewPos,viewDir;
-    GetViewPosition(viewPos);
+    Vector3D itsc,viewPos,viewDir;
+   /* GetViewPosition(viewPos);
     GetViewDirection(viewDir);
     YsPlane pln;
     pln.Set(viewPos,viewDir);
@@ -155,20 +155,22 @@ bool PickingObject::ConvertScreenCoordTo3DCoord(Vector3D &org,Vector3D &vec,int 
     if(pln.GetIntersection(itsc,org,vec)==YSOK)
     {
         org=itsc;
-    }*/
+    }
+*/
     
     
-    //return YSOK;
+    return itISOK;
     
-    
-    return DFbool;
 }
 
-const Vector3D &PickingObject::GetViewPosition(Vector3D &pos) const
-{
-    pos.Set(0.0,0.0,viewDistance);
-    viewAttitude.Mul(pos,pos);
-    pos=viewTarget+pos;
-    return pos;
+double PickingObject::lengthd(const Vector3D &v) {
+    return sqrt(v.a * v.a + v.b * v.b + v.c * v.c);
 }
+
+void PickingObject::normalized(Vector3D &v) {
+    double m = length(v);
+    if (m != 0.0) v *= (1/m);
+}
+
+
 

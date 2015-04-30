@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */; };
 		B583EE681ACE37630093795C /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE661ACE37630093795C /* Vector3D.cpp */; };
+		B587DBEB1AF2D022001BDAAC /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B587DBE91AF2D022001BDAAC /* Geometry.cpp */; };
 		B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */; };
 		B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C01AC7133C00E64F62 /* trackball.c */; };
 		B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0C21AC7133C00E64F62 /* VerticesOutput.cpp */; };
@@ -38,6 +39,9 @@
 		B583EE641ACE36910093795C /* VectorRepresentationOGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorRepresentationOGL.h; sourceTree = "<group>"; };
 		B583EE661ACE37630093795C /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
 		B583EE671ACE37630093795C /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		B587DBE91AF2D022001BDAAC /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
+		B587DBEA1AF2D022001BDAAC /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		B587DBEC1AF2D38D001BDAAC /* ysdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ysdef.h; sourceTree = "<group>"; };
 		B58EA0BB1AC7133C00E64F62 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSRF.cpp; sourceTree = "<group>"; };
 		B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadSRF.h; sourceTree = "<group>"; };
@@ -115,6 +119,9 @@
 				B583EE641ACE36910093795C /* VectorRepresentationOGL.h */,
 				B583EE661ACE37630093795C /* Vector3D.cpp */,
 				B583EE671ACE37630093795C /* Vector3D.h */,
+				B587DBE91AF2D022001BDAAC /* Geometry.cpp */,
+				B587DBEA1AF2D022001BDAAC /* Geometry.h */,
+				B587DBEC1AF2D38D001BDAAC /* ysdef.h */,
 			);
 			path = Mugen;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */,
+				B587DBEB1AF2D022001BDAAC /* Geometry.cpp in Sources */,
 				B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */,
 				B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */,
 				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,

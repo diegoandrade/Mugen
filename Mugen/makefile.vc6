@@ -1,0 +1,46 @@
+LIB=lib.exe
+LIBFLAGS=/NOLOGO
+
+CC=cl.exe
+#/Ob0 for VC++5.0 -> Turn off inline expansion
+#CFLAGS=/nologo /W3 /GX /YX /Z7 /O2 /Ob0 /G5 /Fp /D "WIN32" /D "_WINDOWS" /c
+#CFLAGS=/nologo /W3 /GX /YX /Z7 /Od /G5 /Fp /D "WIN32" /D "_WINDOWS" /c
+CFLAGS=/nologo /W3 /GX /YX /Z7 /O2 /G5 /Fp /D "WIN32" /D "_WINDOWS" /c
+LISTFILE=nul
+
+CP=copy
+USERLIBDIR=$(LIBINST)
+USERINCDIR=$(INCLUDEINST)
+
+
+OBJ=ysprintf.obj ysclassmgr.obj ysbase.obj ysmath.obj ysmatrix.obj ysgeometry.obj ysadvgeometry.obj ysadvgeometryx.obj ysstring.obj ysreldir.obj ysargs.obj yshash.obj ysfilename.obj yswizard.obj ysproperty.obj ysshell.obj ysshelllattice.obj ysshellsearch.obj ysshellblend.obj yssword.obj ysequation.obj yspixelmap.obj ysshell2d.obj ysclip.obj yskdtree.obj
+
+
+TARGET=ysclass.lib
+
+
+$(TARGET) : $(OBJ)
+		$(LIB) @<<
+	$(LIBFLAGS) /OUT:"$(TARGET)" $(OBJ)
+<<
+		nmake -f makefile.vc6 inst
+
+inst :
+		$(CP) *.h C:\include\.
+		$(CP) ysbi\*.h C:\include\.
+		$(CP) *.lib c:\lib\.
+#		$(CP) $(TARGET) $(USERLIBDIR)
+#		$(CP) *.h $(USERINCDIR)
+#		$(CP) ysbi\*.h $(USERINCDIR)
+
+
+ysadvgeometryx.obj : ysadvgeometryx.cpp
+	$(CC) ysadvgeometryx.cpp $(CFLAGS) /Od
+
+.c.obj:
+	$(CC) $(CFLAGS) $*.c
+
+.cpp.obj:
+	$(CC) $(CFLAGS) $*.cpp
+
+

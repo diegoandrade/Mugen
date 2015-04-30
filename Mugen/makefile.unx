@@ -1,0 +1,32 @@
+.SUFFIXES: .c .cpp .obj
+
+TARGET=libysclass.a
+INCLUDE=.
+
+CC = gcc
+CPP= g++
+CFLAGS = -c -O3
+
+
+# .IGNORE:
+
+
+OBJ = yslist.o ysprintf.o ysclassmgr.o ysbase.o ysgeometry.o ysmath.o ysmatrix.o ysmatrix3x3.o ysmatrix4x4.o ysreldir.o ysargs.o ysadvgeometry.o yswizard.o ysproperty.o ysshellutil.o yssword.o ysequation.o ysadvgeometryx.o ysstring.o yspixelmap.o ysfilename.o ysshell2d.o ysclip.o ysshellsearch.o ysshellblend.o ysshelllattice.o yshash.o yskdtree.o yspredefined.o ysveci.o ysshellblend2.o ysshell.o ysshellstl.o ysexception.o
+
+
+
+
+
+
+$(TARGET) : $(OBJ)
+	ar cru $(TARGET) $(OBJ)
+	ranlib $(TARGET)
+
+
+
+.c.o:
+	$(CC) $(CFLAGS) $*.c
+
+.cpp.o:
+	$(CPP) $(CFLAGS) $*.cpp
+
