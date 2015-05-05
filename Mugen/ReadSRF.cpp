@@ -25,8 +25,8 @@ ReadSRF::ReadSRF()
     numberOfVerticesInFile=0;
     numberOfFacesInFile=0;
     
-    boundary = (int *)malloc(1000*sizeof(int));
-    interior = (int *)malloc(100*sizeof(int));
+    boundary = (int *)malloc(2000*sizeof(int));
+    interior = (int *)malloc(2000*sizeof(int));
     boundaryCounter = 0;
     boundarySize = 0;
     interiorCounter = 0;
@@ -39,7 +39,7 @@ ReadSRF::ReadSRF()
 
 ReadSRF::~ReadSRF()
 {
-   VertexLocation = (VerticesOutput *)malloc(1000*sizeof(VerticesOutput)); //another way of initializing that is dynamic
+   VertexLocation = (VerticesOutput *)malloc(10000*sizeof(VerticesOutput)); //another way of initializing that is dynamic
 }
 
 void ReadSRF::init()
@@ -124,7 +124,8 @@ int* ReadSRF::getVerticesConnectedInOrder (int* vert)
 void ReadSRF::ReadSRFFile(const char* file)
 {
 
-    VerticesOutput* vert = (VerticesOutput *)malloc(10000*sizeof(VerticesOutput)); //AQUI majke sure the size is correct
+    //Aqui hay un problema respecto al alloc de memoria
+    VerticesOutput* vert = (VerticesOutput *)malloc(2000*sizeof(VerticesOutput)); //AQUI majke sure the size is correct
     
     
     int vertexCounter = 0;
@@ -139,7 +140,7 @@ void ReadSRF::ReadSRFFile(const char* file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshd_sq.srf"); //AQUI this is a hardcoded direction change this
+        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshdm.srf"); //AQUI this is a hardcoded direction change this
         if (myfile.is_open())
         {
             bool foundGE = false;
@@ -298,6 +299,6 @@ void ReadSRF::ReadSRFFile(const char* file)
         
     }
     
-    
+    cout << "Yes we can";
     
 }

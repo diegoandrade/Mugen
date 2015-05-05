@@ -60,8 +60,8 @@ bool PickingObject::isInThisTriangle(Vector3D A, Vector3D B, Vector3D C, Vector3
 //Euclidena Distance
 double PickingObject::distanceToPoint(Vector3D A, Vector3D P)
 {
-    
-    double distance = sqrt((A.x-P.x)*(A.x-P.x)+(A.y-P.y)*(A.y-P.y)+(A.z-P.z)*(A.z-P.z));
+
+    double distance = sqrt((A.x1-P.x1)*(A.x1-P.x1)+(A.y1-P.y1)*(A.y1-P.y1)+(A.z1-P.z1)*(A.z1-P.z1));
     
     return distance;
 }
@@ -166,9 +166,9 @@ bool PickingObject::ConvertScreenCoordTo3DCoord(Vector3D &org,Vector3D &vec,int 
 
 const Vector3D &PickingObject::GetViewPosition(Vector3D &pos) const
 {
-    pos.Set(0.0,0.0,viewDistance);
-    viewAttitude.Mul(pos,pos);
-    pos=viewTarget+pos;
+   // pos::Vector3D.Set(0.0,0.0,viewDistance);
+   // pos::Vector3D.viewAttitude.Mul(pos,pos);
+   // pos=viewTarget+pos;
     return pos;
 }
 

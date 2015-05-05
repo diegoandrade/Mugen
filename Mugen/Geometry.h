@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Vector3D.h"
 #include "ysdef.h"
+#include "ysgeometry.h"
 
 
 
@@ -55,6 +56,8 @@ public:
 	    \param b [In] Bank angle in radian */
     YsAtt3(const double &h,const double &p,const double &b);
     
+    double hdg,pch,bnk;
+    
     /*! Returns heading angle */
     inline double h(void) const
     {
@@ -71,7 +74,7 @@ public:
         return bnk;
     }
     /*! Sets all three angles */
-    void Set(const double &h,const double &p,const double &b);
+    inline void Set(const double &h,const double &p,const double &b);
     /*! Sets heading angle */
     void SetH(const double &h);
     /*! Sets pitch angle */
@@ -85,156 +88,36 @@ public:
     /*! Sets bank angle */
     void AddB(const double &b);
     /*! Returns a forward vector */
-    Vector3D GetForwardVector(void) const;
+    YsVec3 GetForwardVector(void) const;
     /*! Returns a upward vector */
-    Vector3D GetUpVector(void) const;
+    YsVec3 GetUpVector(void) const;
     /*! Calculates Euler angle based on the forward vector and upward vector. */
-    YSRESULT SetTwoVector(const Vector3D &fwd,const Vector3D &up);
+    YSRESULT SetTwoVector(const YsVec3 &fwd,const YsVec3 &up);
     /*! Calculates heading and pitch angles based on the forward vector.  Bank angle will be set to zero. */
-    YSRESULT SetForwardVector(Vector3D vec);
+    YSRESULT SetForwardVector(YsVec3 vec);
     /*! Calculates bank angle based on the given upward vector.  Heading and pitch angles will not change. */
-    YSRESULT SetUpVector(Vector3D up);
+    YSRESULT SetUpVector(YsVec3 up);
     
-
-    
-    /*! Rotates a vector.
-	    \param to [Out] Output vector
-	    \param from [In] Input vector
-	    */
-    inline void Mul(Vector3D &to,const Vector3D &from) const
+    inline void Mul(YsVec3 &to,const YsVec3 &from) const
     {
         to=from;
-        
         to.RotateXY(bnk);
         to.RotateYZ(pch);  // RotateZY(-pch);
         to.RotateXZ(-hdg);
     }
     
-    /*! Inversely rotates a vector.
-	    \param to [Out] Output vector
-	    \param from [In] Input vector
-	    */
-    inline void MulInverse(Vector3D &to,const Vector3D &from) const
+    inline void MulInverse(YsVec3 &to,const YsVec3 &from) const
     {
         to=from;
         to.RotateXZ(hdg);
         to.RotateYZ(-pch);  // RotateZY(pch);
         to.RotateXY(-bnk);
     }
-    
-    /*! Rotates about the object's own X axis */
+
     void NoseUp(const double &d);
-    /*! Rotates about the object's own Y axis counter clockwise */
     void YawLeft(const double &d);
     
-    /*! Converts the Euler angle to a 4x4 matrix */
-    inline const YsMatrix4x4 &GetMatrix4x4(YsMatrix4x4 &mat) const
-    {
-        mat.Initialize();
-        switch(YsCoordSysModel)
-        {
-            case YSBLUEIMPULSE:
-                mat.RotateXZ(hdg);
-                mat.RotateZY(pch);
-                mat.RotateXY(bnk);
-                break;
-            case YSOPENGL:
-                mat.RotateXZ(-hdg);
-                mat.RotateZY(-pch);
-                mat.RotateXY(bnk);
-                break;
-        }
-        return mat;
-    }
-    
-    /*! Converts the Euler angle to a 3x3 matrix */
-    inline const YsMatrix3x3 &GetMatrix3x3(YsMatrix3x3 &mat) const
-    {
-        mat.Initialize();
-        switch(YsCoordSysModel)
-        {
-            case YSBLUEIMPULSE:
-                mat.RotateXZ(hdg);
-                mat.RotateZY(pch);
-                mat.RotateXY(bnk);
-                break;
-            case YSOPENGL:
-                mat.RotateXZ(-hdg);
-                mat.RotateZY(-pch);
-                mat.RotateXY(bnk);
-                break;
-        }
-        return mat;
-    }
-    
-    /// \cond
-protected:
-    double hdg,pch,bnk;
-    /// \endcond
 };
 
-/*! Rotates a vector by the rotation defined by the Euler angle. */
-inline Vector3D operator*(const YsAtt3 &att,const Vector3D &vec)
-{
-    Vector3D r;
-    att.Mul(r,vec);
-    return r;
-}
-
-/*! Multiplies a 3x3 matrix and the rotation defined by the Euler angle and returns a 3x3 matrix. */
-inline YsMatrix3x3 operator*(const YsMatrix3x3 &mat,const YsAtt3 &att)
-{
-    YsMatrix3x3 r(YSFALSE);
-    r=mat;
-    r.Rotate(att);
-    return r;
-}
-
-/*! Multiplies the rotation defined by the Euler angle and a 3x3 matrix and returns a 3x3 matrix. */
-inline YsMatrix3x3 operator*(const YsAtt3 &att,const YsMatrix3x3 &mat)
-{
-    YsMatrix3x3 r(YSFALSE);
-    att.GetMatrix3x3(r);
-    r=r*mat;
-    return r;
-}
-
-/*! Multiplies a 4x4 matrix and the rotation defined by the Euler angle and returns a 3x3 matrix. */
-inline YsMatrix4x4 operator*(const YsMatrix4x4 &mat,const YsAtt3 &att)
-{
-    YsMatrix4x4 r(YSFALSE);
-    r=mat;
-    r.Rotate(att);
-    return r;
-}
-
-/*! Multiplies the rotation defined by the Euler angle and a 4x4 matrix and returns a 3x3 matrix. */
-inline YsMatrix4x4 operator*(const YsAtt3 &att,const YsMatrix4x4 &mat)
-{
-    YsMatrix4x4 r(YSFALSE);
-    att.GetMatrix4x4(r);
-    r=r*mat;
-    return r;
-}
-
-/*! Compares two Euler angles. */
-inline int operator==(const YsAtt3 &a,const YsAtt3 &b)
-{
-    return (YsEqual(a.h(),b.h())==YSTRUE && YsEqual(a.p(),b.p())==YSTRUE && YsEqual(a.b(),b.b())==YSTRUE);
-}
-
-/*! Compares two Euler angles. */
-inline int operator!=(const YsAtt3 &a,const YsAtt3 &b)
-{
-    return (YsEqual(a.h(),b.h())!=YSTRUE || YsEqual(a.p(),b.p())!=YSTRUE || YsEqual(a.b(),b.b())!=YSTRUE);
-}
-
-inline void YsMatrix4x4::Multiply(const class YsVec3 &pos,const class YsAtt3 &att)
-{
-    Translate(pos);
-    RotateXZ(att.h());
-    RotateZY(att.p());
-    RotateXY(att.b());
-}
 
 #endif /* defined(__Mugen__Geometry__) */

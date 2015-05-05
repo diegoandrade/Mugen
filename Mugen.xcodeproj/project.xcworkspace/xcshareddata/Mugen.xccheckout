@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>182A2615-D847-40EA-A7AD-D0FEA7BD0733</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Mugen</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>878DB4018BE33F82C882BBE82685CB3876672CEB</key>
 		<string>https://github.com/diegoandrade/Mugen.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Mugen.xcodeproj</string>
+	<string>Mugen.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>878DB4018BE33F82C882BBE82685CB3876672CEB</key>

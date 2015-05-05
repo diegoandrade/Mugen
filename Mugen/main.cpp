@@ -186,6 +186,22 @@ PickingObject objPicking;
 Vector3D org;
 Vector3D vec;
 
+// Menu items
+enum MENU_TYPE
+{
+    MENU_FRONT,
+    MENU_SPOT,
+    MENU_BACK,
+    MENU_BACK_FRONT,
+};
+
+// Assign a default value
+MENU_TYPE show = MENU_BACK_FRONT;
+
+// Menu handling function declaration
+void menu(int);
+
+
 #pragma mark ---- gCamera control ----
 
 
@@ -209,7 +225,7 @@ Vector3D vec;
 void gCameraReset(void)
 {
     gCamera.aperture = 25;
-    gCamera.focalLength = 30; //THIS IS THE DEFAULT ZOOM
+    gCamera.focalLength = 50; //THIS IS THE DEFAULT ZOOM
     gCamera.rotPoint = gOrigin;
     
     gCamera.viewPos.x = 0.0;
@@ -512,8 +528,8 @@ void init (void)
         //int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
         //objReadSRF.getVerticesConnectedInOrder(temp);
     
-        const char* myFile = "/Users/diegoandrade/Documents/Mugen/Mugen/data/sq3.rosy";
-        objVRep.getVectors(myFile);
+        /*const char* myFile = "/Users/diegoandrade/Documents/Mugen/Mugen/data/sq3.rosy";
+        objVRep.getVectors(myFile);*/
         
         gInit =!gInit;
     }
@@ -616,13 +632,13 @@ void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
     char buffer [100];
     
     sprintf(buffer, "%d", id1);
-    outputTexto(vertex[id1].x, vertex[id1].y, vertex[id1].z+1, buffer);
+    outputTexto(vertex[id1].x, vertex[id1].y, vertex[id1].z, buffer);
     
     sprintf(buffer, "%d", id2);
-    outputTexto(vertex[id2].x, vertex[id2].y, vertex[id2].z+1, buffer);
+    outputTexto(vertex[id2].x, vertex[id2].y, vertex[id2].z, buffer);
     
     sprintf(buffer, "%d", id3);
-    outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z+1, buffer);
+    outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z, buffer);
     
 }
 
@@ -703,8 +719,7 @@ void maindisplay(void)
     glEnd();
     
    
-    
-    
+   
     
     for ( int i = 0; i < objReadSRF.numberOfFacesInFile; i++ )
     {
@@ -731,18 +746,19 @@ void maindisplay(void)
             glEnd();
   
     }
+     /*
     
-    for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
+   for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
     {
         DrawNRoSyField(i, objReadSRF.VertexLocation, objVRep.objNRoSyVer);
-    }
+    }*/
     
     //Test to see if a point is inside a triangle
     
     Vector3D A (objReadSRF.VertexLocation[2].x, objReadSRF.VertexLocation[2].y, objReadSRF.VertexLocation[2].z);
     Vector3D B (objReadSRF.VertexLocation[4].x, objReadSRF.VertexLocation[4].y, objReadSRF.VertexLocation[4].z);
     Vector3D C (objReadSRF.VertexLocation[39].x, objReadSRF.VertexLocation[39].y, objReadSRF.VertexLocation[39].z);
-    Vector3D P ((A.x+B.x+C.x)/3,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
+    Vector3D P ((A.x1+B.x1+C.x1)/3,(A.y1+B.y1+C.y1)/3, (A.z1+B.z1+C.z1)/3);
     //Vector3D P (,(A.y+B.y+C.y)/3, (A.z+B.z+C.z)/3);
     
     //int idxForVertexSelected;
@@ -760,14 +776,14 @@ void maindisplay(void)
         glPointSize(6);
         glBegin( GL_POINTS );
         glColor3f( 1.0f, 0.207, 0.41f );
-        glVertex3f( P.x, P.y, P.z);
+        glVertex3f( P.x1, P.y1, P.z1);
         glEnd();
         
       
-        bool isInThisTriangle = objPicking.isInThisTriangle(A, B, C, P);
-        double distanceAP = objPicking.distanceToPoint(A,P);
-        double distanceBP = objPicking.distanceToPoint(B,P);
-        double distanceCP = objPicking.distanceToPoint(C,P);
+       // bool isInThisTriangle = objPicking.isInThisTriangle(A, B, C, P);
+       // double distanceAP = objPicking.distanceToPoint(A,P);
+       // double distanceBP = objPicking.distanceToPoint(B,P);
+        //double distanceCP = objPicking.distanceToPoint(C,P);
 
         
         
@@ -778,7 +794,7 @@ void maindisplay(void)
     }
     
     //to find inside of what triangle the point P is located
-    while (wasTheVertexFound!=true)
+    /*while (wasTheVertexFound!=true)
     {
         idForTriangle = objPicking.idxVertex(objReadSRF.VertexLocation[ii].id0,
                                                   objReadSRF.VertexLocation[ii].id1,
@@ -1066,6 +1082,31 @@ void Timer(int iUnused)
     glutTimerFunc(30, Timer, 0);
 }
 
+#pragma mark ---- menu handling ----
+
+// Menu handling function definition
+void menu(int item)
+{
+    switch (item)
+    {
+        case MENU_FRONT:
+        case MENU_SPOT:
+        case MENU_BACK:
+        case MENU_BACK_FRONT:
+        {
+            show = (MENU_TYPE) item;
+        }
+            break;
+        default:
+        {       /* Nothing */       }
+            break;
+    }
+    
+    glutPostRedisplay();
+    
+    return;
+}
+
 #pragma mark ---- main ----
 
 int main (int argc, const char * argv[])
@@ -1090,6 +1131,18 @@ int main (int argc, const char * argv[])
     glutMotionFunc(drag);
     //glutSpaceballMotionFunc(spaceballmotion);
     //glutSpaceballRotateFunc(spaceballrotate);
+    
+    // Create a menu
+    glutCreateMenu(menu);
+    
+    // Add menu items
+    glutAddMenuEntry("Show Front", MENU_FRONT);
+    glutAddMenuEntry("Show Back", MENU_BACK);
+    glutAddMenuEntry("Spotlight", MENU_SPOT);
+    glutAddMenuEntry("Blend 'em all", MENU_BACK_FRONT);
+    
+    // Associate a mouse button with menu
+    glutAttachMenu(GLUT_MIDDLE_BUTTON);
     
     glutMainLoop();
     return 0;

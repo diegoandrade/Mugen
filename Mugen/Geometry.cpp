@@ -7,7 +7,7 @@
 //
 
 #include "Geometry.h"
-
+#include "ysgeometry.h"
 
 ////////////////////////////////////////////////////////////
 // Implementation //////////////////////////////////////////
@@ -53,34 +53,18 @@ void YsAtt3::AddB(const double &b)
     bnk+=b;
 }
 
-Vector3D YsAtt3::GetForwardVector(void) const
+YsVec3 YsAtt3::GetForwardVector(void) const
 {
-    Vector3D vec;
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
-            vec.Set(0.0,0.0,1.0);
-            break;
-        case YSOPENGL:
-            vec.Set(0.0,0.0,-1.0);
-            break;
-    }
+    YsVec3 vec;
+    vec.Set(0.0,0.0,-1.0);
     Mul(vec,vec);
     return vec;
 }
 
-Vector3D YsAtt3::GetUpVector(void) const
+YsVec3 YsAtt3::GetUpVector(void) const
 {
-    Vector3D vec;
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
-            vec.Set(0.0,1.0,0.0);
-            break;
-        case YSOPENGL:
-            vec.Set(0.0,1.0,0.0);
-            break;
-    }
+    YsVec3 vec;
+    vec.Set(0.0,1.0,0.0);
     Mul(vec,vec);
     return vec;
 }
@@ -94,10 +78,6 @@ YSRESULT YsAtt3::SetTwoVector(const YsVec3 &fwd,const YsVec3 &up)
 
 YSRESULT YsAtt3::SetForwardVector(YsVec3 ev)
 {
-    if(ev.IsNormalized()!=YSTRUE)
-    {
-        ev.Normalize();
-    }
     
     if(ev.y()>1.0)   // 2002/02/05
     {
@@ -108,18 +88,8 @@ YSRESULT YsAtt3::SetForwardVector(YsVec3 ev)
         ev.SetY(-1.0);
     }
     
-    
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
-            hdg=atan2(-ev.x(),ev.z());
-            pch=asin(ev.y());
-            break;
-        case YSOPENGL:
-            hdg=atan2(-ev.x(),-ev.z());
-            pch=asin(ev.y());
-            break;
-    }
+    hdg=atan2(-ev.x(),-ev.z());
+    pch=asin(ev.y());
     bnk=0.0;
     
     return YSOK;
@@ -137,15 +107,7 @@ YSRESULT YsAtt3::SetUpVector(YsVec3 uv)
     MulInverse(uv,uv);
     
     double dBnk=0.0;
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
             dBnk=atan2(-uv.x(),uv.y());
-            break;
-        case YSOPENGL:
-            dBnk=atan2(-uv.x(),uv.y());
-            break;
-    }
     SetB(dBnk);
     
     return YSOK;
@@ -154,37 +116,19 @@ YSRESULT YsAtt3::SetUpVector(YsVec3 uv)
 void YsAtt3::NoseUp(const double &d)
 {
     YsVec3 fwd,up;
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
-            fwd.Set(0.0,sin(d), cos(d));
-            up.Set (0.0,cos(d),-sin(d));
-            break;
-        case YSOPENGL:
-            fwd.Set(0.0,sin(d),-cos(d));
-            up.Set (0.0,cos(d), sin(d));
-            break;
-    }
+    fwd.Set(0.0,sin(d),-cos(d));
+    up.Set (0.0,cos(d), sin(d));
     Mul(fwd,fwd);
     Mul(up,up);
-    SetTwoVector(fwd,up);
+ //   SetTwoVector(fwd,up);
 }
 
 void YsAtt3::YawLeft(const double &d)
 {
     YsVec3 fwd,up;
-    switch(YsCoordSysModel)
-    {
-        case YSBLUEIMPULSE:
-            fwd.Set(-sin(d),0.0, cos(d));
-            up.Set (0.0,1.0,0.0);
-            break;
-        case YSOPENGL:
-            fwd.Set(-sin(d),0.0,-cos(d));
-            up.Set (0.0,1.0,0.0);
-            break;
-    }
+    fwd.Set(-sin(d),0.0,-cos(d));
+    up.Set (0.0,1.0,0.0);
     Mul(fwd,fwd);
     Mul(up,up);
-    SetTwoVector(fwd,up);
+  //  SetTwoVector(fwd,up);
 }
