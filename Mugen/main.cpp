@@ -134,6 +134,10 @@ GLboolean gShowInfo = GL_TRUE;
 GLboolean gShowSplineControlPoints = GL_TRUE;
 GLboolean gTrackBall = GL_FALSE;
 
+GLboolean gDrawNumberOnVertex = GL_FALSE;
+GLboolean gDrawTriangles = GL_FALSE;
+GLboolean gDrawPoints = GL_FALSE;
+GLboolean gDrawBoundary = GL_FALSE;
 GLboolean gInit = GL_FALSE;
 
 static GLboolean WIRE=0;		// draw mesh in wireframe?
@@ -508,6 +512,9 @@ void drawGLText (GLint window_width, GLint window_height)
  to work needs to be run before any other.
  */
 // ----------------------------------------------------------------------------
+
+
+
 void init (void)
 {
     glEnable(GL_DEPTH_TEST);
@@ -540,7 +547,12 @@ void init (void)
     gCameraReset ();
     
     
-
+  
+    
+    glEnable (GL_LINE_SMOOTH);
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
     
   
     
@@ -603,10 +615,10 @@ void outputTexto(double x, double y, double z, char *string)
 //FTOIO :  function to be on its owned
 void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 {
-    
-    glLineWidth(1.0);
-    glColor3fv(Ivory4);
+        glLineWidth(1.0);
+   // glColor3fv(Ivory4);
     glBegin( GL_TRIANGLES ); // Draw a triangle
+    glColor4f(1.0, 1.0, 0.0, 0.6);
     glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
     glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
     glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
@@ -619,17 +631,19 @@ void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
     glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
     glEnd();
     
-    glBegin( GL_LINES); // Draw a triangle
+    glBegin( GL_LINES);
     glVertex3f(  vertex[id2].x,  vertex[id2].y,  vertex[id2].z );
     glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
     glEnd();
     
-    glBegin( GL_LINES); // Draw a triangle
+    glBegin( GL_LINES);
     glVertex3f(  vertex[id3].x,  vertex[id3].y,  vertex[id3].z );
     glVertex3f(  vertex[id1].x,  vertex[id1].y,  vertex[id1].z );
     glEnd();
     
     char buffer [100];
+    
+    if (gDrawNumberOnVertex) {
     
     sprintf(buffer, "%d", id1);
     outputTexto(vertex[id1].x, vertex[id1].y, vertex[id1].z, buffer);
@@ -638,7 +652,9 @@ void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
     outputTexto(vertex[id2].x, vertex[id2].y, vertex[id2].z, buffer);
     
     sprintf(buffer, "%d", id3);
-    outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z, buffer);
+        outputTexto(vertex[id3].x, vertex[id3].y, vertex[id3].z, buffer);
+        
+    }
     
 }
 
@@ -659,7 +675,7 @@ void maindisplay(void)
 {
     GLdouble xmin, xmax, ymin, ymax;
     // far frustum plane
-    GLdouble zFar = -gCamera.viewPos.z + gShapeSize * 0.5;
+    GLdouble zFar = 100 ; //-gCamera.viewPos.z + gShapeSize * 0.5;
     // near frustum plane clamped at 1.0
     GLdouble zNear = MIN (-gCamera.viewPos.z - gShapeSize * 0.5, 1.0);
     // window aspect ratio
@@ -672,6 +688,10 @@ void maindisplay(void)
     
     //char file[] = "/Users/Serenity/Dropbox/CMU 2012/export_coor.txt";
     
+
+    
+   
+    
     if (aspect > 1.0) {
         ymax = zNear * tan (gCamera.aperture * 0.5 * DTOR);
         ymin = -ymax;
@@ -683,6 +703,7 @@ void maindisplay(void)
         ymin = xmin / aspect;
         ymax = xmax / aspect;
     }
+        
     
     glFrustum(xmin, xmax, ymin, ymax, zNear, zFar); // changes the projection to perpective
     
@@ -697,54 +718,59 @@ void maindisplay(void)
     glRotatef (gTrackBallRotation[0], gTrackBallRotation[1], gTrackBallRotation[2], gTrackBallRotation[3]);
     glRotatef (gWorldRotation[0], gWorldRotation[1], gWorldRotation[2], gWorldRotation[3]);
     
-    glTranslatef(-1.0, 0.0, -2); // this translations is done after a world rotation so we are looking at x-z and then translation
+    glTranslatef(-1.0, 0.0, -1.0); // this translations is done after a world rotation so we are looking at x-z and then translation
     
     glClearColor (0.2f, 0.2f, 0.4f, 1.0f);	// clear the surface
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     drawGLText (gCamera.screenWidth, gCamera.screenHeight);
     
-    
     glColor3fv(LightGoldenrod1);
     
     glPointSize(4.0);
     
-    glBegin( GL_POINTS );
-    glColor3f( 0.95f, 0.207, 0.031f );
-    for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
+    if(gDrawPoints)
     {
-        glVertex3f( objReadSRF.VertexLocation[i].x, objReadSRF.VertexLocation[i].y, objReadSRF.VertexLocation[i].z);
-        //cout << objReadSRF.VertexLocation[i].x << "\n";
-    }
-    glEnd();
-    
-   
-   
-    
-    for ( int i = 0; i < objReadSRF.numberOfFacesInFile; i++ )
-    {
-        trianglesInFile(objReadSRF.VertexLocation[i].id0,
-                        objReadSRF.VertexLocation[i].id1,
-                        objReadSRF.VertexLocation[i].id2,
-                        objReadSRF.VertexLocation);
-        
+        glBegin( GL_POINTS );
+        glColor3f( 0.95f, 0.207, 0.031f );
+        for ( int i = 0; i < objReadSRF.numberOfVerticesInFile; i++ )
+        {
+            glVertex3f( objReadSRF.VertexLocation[i].x, objReadSRF.VertexLocation[i].y, objReadSRF.VertexLocation[i].z);
+            //cout << objReadSRF.VertexLocation[i].x << "\n";
+        }
+        glEnd();
     }
     
-    
-    for (int i=0;i<objReadSRF.boundarySize-1; i++)
+   
+    if(gDrawTriangles)
     {
-           glLineWidth(5.0);
-            glColor3fv(Firebrick);
-            glBegin( GL_LINES); // Draw a triangle
-                glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i]].x,
-                           objReadSRF.VertexLocation[objReadSRF.boundary[i]].y,
-                           objReadSRF.VertexLocation[objReadSRF.boundary[i]].z);
+        for ( int i = 0; i < objReadSRF.numberOfFacesInFile; i++ )
+        {
+            trianglesInFile(objReadSRF.VertexLocation[i].id0,
+                            objReadSRF.VertexLocation[i].id1,
+                            objReadSRF.VertexLocation[i].id2,
+                            objReadSRF.VertexLocation);
             
-                glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].x,
+        }
+    }
+    
+    if(gDrawBoundary)
+    {
+        for (int i=0;i<objReadSRF.boundarySize-1; i++)
+        {
+            glLineWidth(5.0);
+            glColor3fv(Black);
+            glBegin( GL_LINES); // Draw a triangle
+            glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i]].x,
+                       objReadSRF.VertexLocation[objReadSRF.boundary[i]].y,
+                       objReadSRF.VertexLocation[objReadSRF.boundary[i]].z);
+            
+            glVertex3f(  objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].x,
                        objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].y,
                        objReadSRF.VertexLocation[objReadSRF.boundary[i+1]].z);
             glEnd();
-  
+            
+        }
     }
      /*
     
@@ -999,6 +1025,26 @@ void key(unsigned char inkey, int px, int py)
         case 'i': // info
         case 'I':
             gShowInfo =  1 - gShowInfo;
+            glutPostRedisplay();
+            break;
+        case 'n': // info
+        case 'N':
+            gDrawNumberOnVertex =  1 - gDrawNumberOnVertex;
+            glutPostRedisplay();
+            break;
+        case 't': // info
+        case 'T':
+            gDrawTriangles =  1 - gDrawTriangles;
+            glutPostRedisplay();
+            break;
+        case 'p': // info
+        case 'P':
+            gDrawPoints =  1 - gDrawPoints;
+            glutPostRedisplay();
+            break;
+        case 'b': // info
+        case 'B':
+            gDrawBoundary =  1 - gDrawBoundary;
             glutPostRedisplay();
             break;
         case 'r':
