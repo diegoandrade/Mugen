@@ -16,6 +16,9 @@
 		B58EA0CB1AC7137100E64F62 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CA1AC7137100E64F62 /* GLUT.framework */; };
 		B58EA0CD1AC7137800E64F62 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58EA0CC1AC7137800E64F62 /* OpenGL.framework */; };
 		B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */; };
+		B5AC6E361B02DB6300F88DF2 /* openTensorFieldData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AC6E341B02DB6300F88DF2 /* openTensorFieldData.cpp */; };
+		B5AC6E3B1B02EBB500F88DF2 /* Tensor3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AC6E391B02EBB500F88DF2 /* Tensor3D.cpp */; };
+		B5C9BAD81AFA6A2500A6B77F /* matrix3x3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C9BAD61AFA6A2500A6B77F /* matrix3x3.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,8 +55,16 @@
 		B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PickingObject.cpp; path = ../PickingObject.cpp; sourceTree = "<group>"; };
 		B5A953F21AE7961A00D6CB31 /* PickingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickingObject.h; path = ../PickingObject.h; sourceTree = "<group>"; };
 		B5A953F41AE7A49800D6CB31 /* sq3.rosy */ = {isa = PBXFileReference; lastKnownFileType = text; path = sq3.rosy; sourceTree = "<group>"; };
+		B5AC6E341B02DB6300F88DF2 /* openTensorFieldData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = openTensorFieldData.cpp; sourceTree = "<group>"; };
+		B5AC6E351B02DB6300F88DF2 /* openTensorFieldData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openTensorFieldData.h; sourceTree = "<group>"; };
+		B5AC6E371B02DBD100F88DF2 /* tensor.nt3m */ = {isa = PBXFileReference; lastKnownFileType = text; path = tensor.nt3m; sourceTree = "<group>"; };
+		B5AC6E381B02DEC400F88DF2 /* meshanid.nt3m */ = {isa = PBXFileReference; lastKnownFileType = text; path = meshanid.nt3m; sourceTree = "<group>"; };
+		B5AC6E391B02EBB500F88DF2 /* Tensor3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tensor3D.cpp; sourceTree = "<group>"; };
+		B5AC6E3A1B02EBB500F88DF2 /* Tensor3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tensor3D.h; sourceTree = "<group>"; };
 		B5B19E8A1AC711B6003788DB /* Mugen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B6FE5A1AF7F6EB00E8DED7 /* meshdm.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshdm.srf; sourceTree = "<group>"; };
+		B5C9BAD61AFA6A2500A6B77F /* matrix3x3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix3x3.cpp; sourceTree = "<group>"; };
+		B5C9BAD71AFA6A2500A6B77F /* matrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix3x3.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +83,8 @@
 		B583EE601ACE308C0093795C /* data */ = {
 			isa = PBXGroup;
 			children = (
+				B5AC6E381B02DEC400F88DF2 /* meshanid.nt3m */,
+				B5AC6E371B02DBD100F88DF2 /* tensor.nt3m */,
 				B52927E31AF7DD4C00BA1314 /* meshd.srf */,
 				B5A953F41AE7A49800D6CB31 /* sq3.rosy */,
 				B5B6FE5A1AF7F6EB00E8DED7 /* meshdm.srf */,
@@ -104,6 +117,8 @@
 		B5B19E8C1AC711B6003788DB /* Mugen */ = {
 			isa = PBXGroup;
 			children = (
+				B5AC6E341B02DB6300F88DF2 /* openTensorFieldData.cpp */,
+				B5AC6E351B02DB6300F88DF2 /* openTensorFieldData.h */,
 				B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */,
 				B5A953F21AE7961A00D6CB31 /* PickingObject.h */,
 				B5192FE71AC748390098FA67 /* AllColor.h */,
@@ -119,6 +134,10 @@
 				B583EE641ACE36910093795C /* VectorRepresentationOGL.h */,
 				B583EE661ACE37630093795C /* Vector3D.cpp */,
 				B583EE671ACE37630093795C /* Vector3D.h */,
+				B5AC6E391B02EBB500F88DF2 /* Tensor3D.cpp */,
+				B5AC6E3A1B02EBB500F88DF2 /* Tensor3D.h */,
+				B5C9BAD61AFA6A2500A6B77F /* matrix3x3.cpp */,
+				B5C9BAD71AFA6A2500A6B77F /* matrix3x3.h */,
 			);
 			path = Mugen;
 			sourceTree = "<group>";
@@ -180,7 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58EA0C61AC7133C00E64F62 /* trackball.c in Sources */,
+				B5AC6E3B1B02EBB500F88DF2 /* Tensor3D.cpp in Sources */,
+				B5C9BAD81AFA6A2500A6B77F /* matrix3x3.cpp in Sources */,
 				B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */,
+				B5AC6E361B02DB6300F88DF2 /* openTensorFieldData.cpp in Sources */,
 				B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */,
 				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,
 				B58EA0C91AC7135500E64F62 /* main.cpp in Sources */,

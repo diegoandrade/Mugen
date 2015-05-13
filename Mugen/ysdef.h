@@ -29,16 +29,7 @@ typedef enum
 } YSRESULT;
 #endif
 
-#ifndef YSBOOL_IS_DEFINED
-#define YSBOOL_IS_DEFINED
-/*! Enum for boolearn. */
-typedef enum
-{
-    YSFALSE,     /*!< False */
-    YSTRUE,      /*!< True */
-    YSTFUNKNOWN  /*!< Unable to tell true or false. */
-} YSBOOL;
-#endif
+		
 
 
 // Tested with:

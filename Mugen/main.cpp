@@ -64,10 +64,6 @@
 #endif // DEBUG
 
 
-#include <stdio.h>
-
-
-
 //Includes for system classes
 #include <GLUT/glut.h>
 #include <OpenGL/glu.h>
@@ -88,9 +84,13 @@
 //GEOMETRY CLASSES
 #include "ReadSRF.h"
 #include "VectorRepresentationOGL.h"
+#include "openTensorFieldData.h"
 
 //Picking obejct class
 #include "PickingObject.h"
+
+//EigenVector
+#include "matrix3x3.h"
 
 /*
  Costume #define pre-processor directives
@@ -185,6 +185,8 @@ recVec gOrigin = {0.0, 0.0, 0.0};
 ReadSRF objReadSRF;
 VectorRepresentationOGL objVRep; //Vectors used for NRoSy representation
 PickingObject objPicking;
+matrix3x3 objM;
+openTensorFieldData objTFD;
 
 //used for picking
 Vector3D org;
@@ -554,16 +556,76 @@ void init (void)
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
     
-  
-    
-    
     glPolygonOffset (1.0, 1.0);
     SetLighting(1); //Lighting function
     
     glEnable(GL_LIGHTING);
 
     
+    /*
+    objM.Set(1,1,0.10001493068540804);
+    objM.Set(1,2,0);
+    objM.Set(1,3,0);
     
+    objM.Set(2,1,0);
+    objM.Set(2,2,0.36174103118337642);
+    objM.Set(2,3,-0.00055580401645068697);
+    
+    objM.Set(3,1,0);
+    objM.Set(3,2,-0.00055580401645068697);
+    objM.Set(3,3,0.27172253595187856);
+    
+    double det = objM.GetDeterminant(det);
+     */
+    
+    matrix3x3 value(3,3);
+    matrix3x3 vector(3,3);
+    
+    
+    /*objM.FindEigenValueEigenVectorByJacobiMethod(value, vector, 0.000001); */
+    
+    double er = objM.sign(-4);
+    
+    cout << "er : " << er << endl;
+    
+    value.SetMtx(0,0,0.10001493068540804);
+    value.SetMtx(0,1,0);
+    value.SetMtx(0,2,0);
+    
+    value.SetMtx(1,0,0);
+    value.SetMtx(1,1,0.36174103118337642);
+    value.SetMtx(1,2,-0.00055580401645068697);
+    
+    value.SetMtx(2,0,0);
+    value.SetMtx(2,1,-0.00055580401645068697);
+    value.SetMtx(2,2,0.27172253595187856);
+    
+    objM.jacrot(value, vector);
+    
+   double value1[3][3];
+    value1[0][0] = 0.10001493068540804 ;    value1[0][1] = 0 ;                          value1[0][2] = 0 ;
+    value1[1][0] = 0 ;                      value1[1][1] = 0.36174103118337642 ;        value1[1][2] = -0.00055580401645068697 ;
+    value1[2][0] = 0 ;                      value1[2][1] = -0.00055580401645068697 ;    value1[2][2] = 0.27172253595187856 ;
+    
+    double vector1[3][3];
+    vector1[0][0] = 0 ;    vector1[0][1] = 0 ;    vector1[0][2] = 0 ;
+    vector1[1][0] = 0 ;    vector1[1][1] = 0 ;    vector1[1][2] = 0 ;
+    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 0 ;
+    
+   /* double value1[3][3];
+    value1[0][0] = 2 ;    value1[0][1] = -1;                          value1[0][2] = 0;
+    value1[1][0] = -1 ;                      value1[1][1] = 2 ;        value1[1][2] = -1 ;
+    value1[2][0] = 0 ;                      value1[2][1] = -1 ;    value1[2][2] = -2;
+    
+    double vector1[3][3];
+    vector1[0][0] = 0 ;    vector1[0][1] = 0 ;    vector1[0][2] = 0 ;
+    vector1[1][0] = 0 ;    vector1[1][1] = 0 ;    vector1[1][2] = 0 ;
+    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 0 ;*/
+
+    
+    objM.jacrot(value1, vector1);
+    
+    objTFD.ReadNt3mFile("hola");
     
 }
 
