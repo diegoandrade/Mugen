@@ -8,7 +8,7 @@
 
 #include "openTensorFieldData.h"
 
-//#undef DEBUG
+#undef DEBUG
 //#define DEBUG
 #ifdef DEBUG
 #  define D(x) x
@@ -19,7 +19,7 @@
 
 openTensorFieldData::openTensorFieldData()
 {
-    
+    numberOfElements = 0;
 }
 
 openTensorFieldData::~openTensorFieldData()
@@ -48,7 +48,8 @@ int openTensorFieldData::numberOfElementsInFile(const char *file)
             while ( getline (myfile,line))
             {
                 
-                D(cout << "lineCounter: " << lineCounter++ << endl;)
+                D(cout << "lineCounter: " << lineCounter << endl;)
+                lineCounter++;
             }
             
             myfile.close();
@@ -68,16 +69,18 @@ int openTensorFieldData::numberOfElementsInFile(const char *file)
     return lineCounter;
 }
 
-void openTensorFieldData::ReadNt3mFile(const char *file)
+Tensor3D* openTensorFieldData::ReadNt3mFile(const char *file)
 {
     
-    int numberOfElemInFile = numberOfElementsInFile(file);
+    numberOfElements = numberOfElementsInFile(file);
     
-    TFD = (Tensor3D *)malloc(numberOfElemInFile*sizeof(Tensor3D));
+    
+    TFD = (Tensor3D *)malloc(numberOfElements*sizeof(Tensor3D));
     
     int lineCounter = 0;
     
-    string tempValue = "";
+    string tempValue[6];
+    double tnVal[6];
     std::string::size_type sz;   // alias of size_t
     
     try
@@ -96,32 +99,21 @@ void openTensorFieldData::ReadNt3mFile(const char *file)
                 copy(istream_iterator<string>(iss),
                      istream_iterator<string>(),
                      back_inserter(tokens));
+            
                 
-                //tempValue = tokens[0];
-                //TFD[lineCounter].m0 = stoi(tempValue, &sz);
-                tempValue = tokens[2];
-                TFD[lineCounter].m0 = stod(tempValue, &sz);
-                tempValue = tokens[3];
-                TFD[lineCounter].m1 = stod(tempValue, &sz);
-                tempValue = tokens[4];
-                TFD[lineCounter].m2 = stod(tempValue, &sz);
-                tempValue = tokens[5];
-                TFD[lineCounter].m3 = stod(tempValue, &sz);
-                tempValue = tokens[6];
-                TFD[lineCounter].m4 = stod(tempValue, &sz);
-                tempValue = tokens[7];
-                TFD[lineCounter].m5 = stod(tempValue, &sz);
                 
-                //FIND A MORE ELEGANT WAY OF ASSIGNING VALUES SUCH AS INLINE
-                TFD[lineCounter].A[0][0] = TFD[lineCounter].m0;
-                TFD[lineCounter].A[0][1] = TFD[lineCounter].m1;
-                TFD[lineCounter].A[0][2] = TFD[lineCounter].m2;
-                TFD[lineCounter].A[1][0] = TFD[lineCounter].m1;
-                TFD[lineCounter].A[1][1] = TFD[lineCounter].m3;
-                TFD[lineCounter].A[1][2] = TFD[lineCounter].m4;
-                TFD[lineCounter].A[2][0] = TFD[lineCounter].m2;
-                TFD[lineCounter].A[2][1] = TFD[lineCounter].m3;
-                TFD[lineCounter].A[2][2] = TFD[lineCounter].m5;
+                for(int k=0; k < 6; k++){
+                    tempValue[k] = tokens[k+2];
+                    tnVal[k] = stod(tempValue[k], &sz);
+                }
+                
+                
+                TFD[lineCounter].m0 = tnVal[0];
+                TFD[lineCounter].m1 = tnVal[1];
+                TFD[lineCounter].m2 = tnVal[2];
+                TFD[lineCounter].m3 = tnVal[3];
+                TFD[lineCounter].m4 = tnVal[4];
+                TFD[lineCounter].m5 = tnVal[5];
                 
                 
                 D(cout <<  "TFD[" << lineCounter << "].m0 : " << setprecision(9) << TFD[lineCounter].m0 << endl;)
@@ -130,7 +122,33 @@ void openTensorFieldData::ReadNt3mFile(const char *file)
                 D(cout <<  "TFD[" << lineCounter << "].m3 : " << TFD[lineCounter].m3 << endl;)
                 D(cout <<  "TFD[" << lineCounter << "].m4 : " << TFD[lineCounter].m4 << endl;)
                 D(cout <<  "TFD[" << lineCounter << "].m5 : " << TFD[lineCounter].m5 << endl;)
+                D(cout <<" -----------------------------------------------------------" << endl;)
                 
+                //FIND A MORE ELEGANT WAY OF ASSIGNING VALUES SUCH AS INLIN
+                
+                TFD[lineCounter].A[0][0] = tnVal[0];
+                TFD[lineCounter].A[0][1] = tnVal[1];
+                TFD[lineCounter].A[0][2] = tnVal[2];
+                TFD[lineCounter].A[1][0] = tnVal[1];
+                TFD[lineCounter].A[1][1] = tnVal[3];
+                TFD[lineCounter].A[1][2] = tnVal[4];
+                TFD[lineCounter].A[2][0] = tnVal[2];
+                TFD[lineCounter].A[2][1] = tnVal[4];
+                TFD[lineCounter].A[2][2] = tnVal[5];
+                
+                for(int i=0;i<3; i++) {
+                    for(int j=0;j<3; j++) {
+                        TFD[lineCounter].R[i][j] = 0.0;
+                    }
+                }
+                
+                
+                D(cout <<  "A[0][0]: " << setprecision(9) << TFD[lineCounter].A[0][0] << endl;)
+                D(cout <<  "A[0][1]: " << TFD[lineCounter].A[0][1] << fixed << endl;)
+                D(cout <<  "A[0][2]: " << TFD[lineCounter].A[0][2] << endl;)
+                D(cout <<  "A[1][1]: " << TFD[lineCounter].A[1][1] << endl;)
+                D(cout <<  "A[1][2]: " << TFD[lineCounter].A[1][2]  << endl;)
+                D(cout <<  "A[2][2]: " << TFD[lineCounter].A[2][2]  << endl;)
                 D(cout <<" -----------------------------------------------------------" << endl;)
                 
                 lineCounter++;
@@ -152,4 +170,6 @@ void openTensorFieldData::ReadNt3mFile(const char *file)
         cout << "Exception ocurred";
         
     }
+    
+    return TFD;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5266E731B03FE8C00A70BC4 /* features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5266E711B03FE8C00A70BC4 /* features.cpp */; };
 		B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */; };
 		B583EE681ACE37630093795C /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B583EE661ACE37630093795C /* Vector3D.cpp */; };
 		B58EA0C51AC7133C00E64F62 /* ReadSRF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
+		B5266E711B03FE8C00A70BC4 /* features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = features.cpp; sourceTree = "<group>"; };
+		B5266E721B03FE8C00A70BC4 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
 		B52927E31AF7DD4C00BA1314 /* meshd.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd.srf; sourceTree = "<group>"; };
 		B583EE611ACE308C0093795C /* meshanid.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshanid.srf; sourceTree = "<group>"; };
 		B583EE621ACE308C0093795C /* meshd_sq.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd_sq.srf; sourceTree = "<group>"; };
@@ -80,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5266E701B03FE5C00A70BC4 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				B58EA0C81AC7135500E64F62 /* main.cpp */,
+				B5266E711B03FE8C00A70BC4 /* features.cpp */,
+				B5266E721B03FE8C00A70BC4 /* features.h */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
 		B583EE601ACE308C0093795C /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,12 +130,12 @@
 		B5B19E8C1AC711B6003788DB /* Mugen */ = {
 			isa = PBXGroup;
 			children = (
+				B5266E701B03FE5C00A70BC4 /* Drawing */,
 				B5AC6E341B02DB6300F88DF2 /* openTensorFieldData.cpp */,
 				B5AC6E351B02DB6300F88DF2 /* openTensorFieldData.h */,
 				B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */,
 				B5A953F21AE7961A00D6CB31 /* PickingObject.h */,
 				B5192FE71AC748390098FA67 /* AllColor.h */,
-				B58EA0C81AC7135500E64F62 /* main.cpp */,
 				B58EA0BB1AC7133C00E64F62 /* Common.h */,
 				B58EA0BE1AC7133C00E64F62 /* ReadSRF.cpp */,
 				B58EA0BF1AC7133C00E64F62 /* ReadSRF.h */,
@@ -202,6 +215,7 @@
 				B5AC6E3B1B02EBB500F88DF2 /* Tensor3D.cpp in Sources */,
 				B5C9BAD81AFA6A2500A6B77F /* matrix3x3.cpp in Sources */,
 				B583EE651ACE36910093795C /* VectorRepresentationOGL.cpp in Sources */,
+				B5266E731B03FE8C00A70BC4 /* features.cpp in Sources */,
 				B5AC6E361B02DB6300F88DF2 /* openTensorFieldData.cpp in Sources */,
 				B5A953F31AE7961A00D6CB31 /* PickingObject.cpp in Sources */,
 				B58EA0C71AC7133C00E64F62 /* VerticesOutput.cpp in Sources */,

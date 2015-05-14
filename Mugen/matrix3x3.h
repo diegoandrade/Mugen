@@ -115,7 +115,7 @@ public:
     void Transpose (double R[3][3]);
     
     void printMtrx ();
-    void printMtrx (double Mx[3][3]);
+    void printMtrx (double Mx[3][3], char * name);
 
 
     

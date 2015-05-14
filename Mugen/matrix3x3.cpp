@@ -9,6 +9,15 @@
 #include "matrix3x3.h"
 
 
+#undef DEBUG
+//#define DEBUG
+#ifdef DEBUG
+#  define D(x) x
+#else
+#  define D(x)
+#endif // DEBUG
+
+
 
 matrix3x3::matrix3x3()
 {
@@ -332,6 +341,11 @@ STATE matrix3x3::jacrot(double A[3][3] , double R[3][3])
 //  final A is diagonal matric of eigenvalues
 //  final R has eigenvectors in rows
 {
+    D(cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;);
+    D(printMtrx(A, (char*) "A"););
+    D(cout << "----------------------------------------------------------------------------------------------" << endl;);
+    D(printMtrx(R, (char*) "R"););
+    
     STATE S = ITERATING;
     int n = 3;
     for (int i=0; i< n ; ++i) R[i][i] = 1.0 ;//unit matrix
@@ -352,9 +366,13 @@ STATE matrix3x3::jacrot(double A[3][3] , double R[3][3])
             Transpose(R) ; //eigen vectors in rows
         }
     }
-    cout << "iter " << iter << endl;
-    printMtrx(A);
-    printMtrx(R);
+    D(cout << "iter " << iter << endl;);
+    D(printMtrx(A, (char*) "A"););
+    D(cout << "----------------------------------------------------------------------------------------------" << endl;);
+    D(printMtrx(R, (char*) "R"););
+    
+    
+
 
     
     return S;
@@ -426,13 +444,13 @@ void matrix3x3::printMtrx()
     
 }
 
-void matrix3x3::printMtrx(double Mx[3][3])
+void matrix3x3::printMtrx(double Mx[3][3], char* name)
 {
     for(int i = 0 ; i< 3; i++)
     {
         for(int j = 0 ; j < 3 ; j++)
         {
-            cout << "M[" << i << "][" << j << "]:\t" << Mx[i][j] << "\t" ;
+            cout << name <<"[" << i << "][" << j << "]:\t" << Mx[i][j] << "\t" ;
         }
         cout << endl;
     }

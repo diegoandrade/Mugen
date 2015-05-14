@@ -69,7 +69,6 @@
 #include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #include <OpenGL/glext.h>
-#include "AllColor.h"
 
 #include <math.h>
 #include <stdlib.h>
@@ -79,18 +78,23 @@
 //Includes for costume classes
 #include "Common.h"
 #include "trackball.h"
+#include "AllColor.h"
 
 
 //GEOMETRY CLASSES
 #include "ReadSRF.h"
 #include "VectorRepresentationOGL.h"
 #include "openTensorFieldData.h"
+#include "Tensor3D.h"
 
 //Picking obejct class
 #include "PickingObject.h"
 
 //EigenVector
 #include "matrix3x3.h"
+
+//features to draw
+#include "features.h"
 
 /*
  Costume #define pre-processor directives
@@ -141,6 +145,7 @@ GLboolean gDrawBoundary = GL_FALSE;
 GLboolean gInit = GL_FALSE;
 
 static GLboolean WIRE=0;		// draw mesh in wireframe?
+static GLuint ellipseList; //user for the list
 
 int gLastKey = ' ';
 int gMainWindow = 0;
@@ -187,6 +192,7 @@ VectorRepresentationOGL objVRep; //Vectors used for NRoSy representation
 PickingObject objPicking;
 matrix3x3 objM;
 openTensorFieldData objTFD;
+features objDrawFeatures;
 
 //used for picking
 Vector3D org;
@@ -519,12 +525,36 @@ void drawGLText (GLint window_width, GLint window_height)
 
 void init (void)
 {
+    
+    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 0.15 };
+    GLfloat mat_shininess[] = { 100.0 };
+    GLfloat position[] = { 0.5, 0.5, 1.0, 0.0 };
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    glLightfv(GL_LIGHT0, GL_POSITION, position);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
     
-    glShadeModel(GL_SMOOTH);
-    glFrontFace(GL_CCW);
+    glEnable (GL_LINE_SMOOTH);
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
     
-    glColor3f(1.0,1.0,1.0);
+    glPolygonOffset (1.0, 1.0);
+    SetLighting(1); //Lighting function
+    
+    glEnable(GL_LIGHTING);
+    glShadeModel(GL_SMOOTH);
+
+    
+   // glEnable(GL_DEPTH_TEST);
+    
+
+    
+  //  glFrontFace(GL_CCW);
+    
+   // glColor3f(1.0,1.0,1.0);
     
     
     glClearColor(0.0,0.0,0.0,0.0);         /* Background recColor */
@@ -551,15 +581,7 @@ void init (void)
     
   
     
-    glEnable (GL_LINE_SMOOTH);
-    glEnable (GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
-    
-    glPolygonOffset (1.0, 1.0);
-    SetLighting(1); //Lighting function
-    
-    glEnable(GL_LIGHTING);
+  
 
     
     /*
@@ -578,15 +600,15 @@ void init (void)
     double det = objM.GetDeterminant(det);
      */
     
-    matrix3x3 value(3,3);
+    /*matrix3x3 value(3,3);
     matrix3x3 vector(3,3);
     
     
-    /*objM.FindEigenValueEigenVectorByJacobiMethod(value, vector, 0.000001); */
+    objM.FindEigenValueEigenVectorByJacobiMethod(value, vector, 0.000001); s
     
-    double er = objM.sign(-4);
+    //sdouble er = objM.sign(-4);
     
-    cout << "er : " << er << endl;
+    //cout << "er : " << er << endl;
     
     value.SetMtx(0,0,0.10001493068540804);
     value.SetMtx(0,1,0);
@@ -600,7 +622,7 @@ void init (void)
     value.SetMtx(2,1,-0.00055580401645068697);
     value.SetMtx(2,2,0.27172253595187856);
     
-    objM.jacrot(value, vector);
+    //objM.jacrot(value, vector);
     
    double value1[3][3];
     value1[0][0] = 0.10001493068540804 ;    value1[0][1] = 0 ;                          value1[0][2] = 0 ;
@@ -610,22 +632,44 @@ void init (void)
     double vector1[3][3];
     vector1[0][0] = 0 ;    vector1[0][1] = 0 ;    vector1[0][2] = 0 ;
     vector1[1][0] = 0 ;    vector1[1][1] = 0 ;    vector1[1][2] = 0 ;
-    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 0 ;
+    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 0 ;*/
     
-   /* double value1[3][3];
-    value1[0][0] = 2 ;    value1[0][1] = -1;                          value1[0][2] = 0;
-    value1[1][0] = -1 ;                      value1[1][1] = 2 ;        value1[1][2] = -1 ;
-    value1[2][0] = 0 ;                      value1[2][1] = -1 ;    value1[2][2] = -2;
+    double value1[3][3];
+    value1[0][0] = 0.333333 ;    value1[0][1] = 0.25;                          value1[0][2] = 0.2;
+    value1[1][0] = 0.25 ;                      value1[1][1] = 0.2 ;        value1[1][2] = 0.166667 ;
+    value1[2][0] = 0.2 ;                      value1[2][1] = 0.166667 ;    value1[2][2] = 0.142857;
     
     double vector1[3][3];
     vector1[0][0] = 0 ;    vector1[0][1] = 0 ;    vector1[0][2] = 0 ;
     vector1[1][0] = 0 ;    vector1[1][1] = 0 ;    vector1[1][2] = 0 ;
-    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 0 ;*/
+    vector1[2][0] = 0 ;    vector1[2][1] = 0 ;    vector1[2][2] = 1000 ;
 
     
     objM.jacrot(value1, vector1);
     
-    objTFD.ReadNt3mFile("hola");
+    Tensor3D* TFD = objTFD.ReadNt3mFile("hola");
+    
+   // objM.printMtrx(TFD[0].R,(char*) "RA");
+    
+    //objM.jacrot(TFD[o].A, TFD[o].R);
+    
+    
+    for (int o=0;o<objTFD.numberOfElements;o++)
+    {
+        objM.jacrot(TFD[o].A, TFD[o].R);
+    }
+    
+    static GLuint sphereList [100];
+    
+    ellipseList = glGenLists(1);
+    objDrawFeatures.drawEllipse(2,3,ellipseList);
+    
+    sphereList [0] = glGenLists(2);
+    objDrawFeatures.drawEllipse(3,1,sphereList [0]);
+    
+    sphereList [1] = glGenLists(3);
+    objDrawFeatures.drawEllipse(4,1,sphereList [1]);
+    
     
 }
 
@@ -660,7 +704,7 @@ Vector3D GetOGLPos(int x, int y)
     return Vector3D (posX, posY, posZ);
 }
 
-#pragma mark <F> main display function
+#pragma mark  ---- Main display function ----
 
 //FTOIO :  function to be on its owned
 void outputTexto(double x, double y, double z, char *string)
@@ -742,6 +786,12 @@ void maindisplay(void)
     GLdouble zNear = MIN (-gCamera.viewPos.z - gShapeSize * 0.5, 1.0);
     // window aspect ratio
     GLdouble aspect = gCamera.screenWidth / (GLdouble)gCamera.screenHeight;
+    
+    GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
+    GLfloat mat_zero[] = { 0.0, 0.0, 0.0, 1.0 };
+    GLfloat mat_transparent[] = { 0.0, 0.8, 0.8, 0.6 };
+    GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 0.6 };
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glEnable(GL_LIGHTING); //not really used just put here to remind me to use it... CHANGE
     
@@ -920,6 +970,27 @@ void maindisplay(void)
     //glutSolidTeapot(.5);
     
     /* flush drawing routines to the window */
+   // glPushMatrix ();
+    for (int i=0; i<300;i++)
+    {
+        glTranslated(i/100*2, 0, 0);
+       // objDrawFeatures.drawEllipse(0.2,0.3,ellipseList);
+       // objDrawFeatures.drawTriangleList(ellipseList);
+       // objDrawFeatures.drawEllipse
+        
+        glPushMatrix ();
+        //glMaterialfv(GL_FRONT, GL_EMISSION, mat_zero);
+        //glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_solid);
+        glCallList (ellipseList);
+        glPopMatrix ();
+        
+    }
+    //glPopMatrix ();
+    
+     glCallList (ellipseList);
+    
+    
+    
     glFlush();
     glutSwapBuffers();
     

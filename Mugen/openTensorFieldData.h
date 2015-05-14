@@ -31,9 +31,11 @@ public:
     
     int numberOfElementsInFile(const char* file);
     
-    void ReadNt3mFile(const char* file);
+    Tensor3D * ReadNt3mFile(const char* file);
     
     Tensor3D * TFD; //= new Tensor3D();
+    
+    int numberOfElements;
     
 };
 

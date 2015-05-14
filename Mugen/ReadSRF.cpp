@@ -299,6 +299,6 @@ void ReadSRF::ReadSRFFile(const char* file)
         
     }
     
-    cout << "Yes we can";
+    cout << "Yes we can" << endl;
     
 }
