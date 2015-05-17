@@ -146,6 +146,7 @@ GLboolean gInit = GL_FALSE;
 
 static GLboolean WIRE=0;		// draw mesh in wireframe?
 static GLuint ellipseList; //user for the list
+ static GLuint featureList [100];
 
 int gLastKey = ' ';
 int gMainWindow = 0;
@@ -433,7 +434,7 @@ void drawGLText (GLint window_width, GLint window_height)
     glScalef(2.0f / window_width, -2.0f / window_height, 1.0f);
     glTranslatef(-window_width / 2.0f, -window_height / 2.0f, 0.0f);
     
-    int temp3 = NUMBER_OF_BUBBLES_IN_SIMULATION - NUMBER_OF_BUBBLES_L0 - NUMBER_OF_BUBBLES_L1 - NUMBER_OF_BUBBLES_L2 - NUMBER_OF_BUBBLES_L3 -3; //MAL
+    //int temp3 = NUMBER_OF_BUBBLES_IN_SIMULATION - NUMBER_OF_BUBBLES_L0 - NUMBER_OF_BUBBLES_L1 - NUMBER_OF_BUBBLES_L2 - NUMBER_OF_BUBBLES_L3 -3; //MAL
     
     // draw
     glDisable(GL_LIGHTING);
@@ -449,12 +450,6 @@ void drawGLText (GLint window_width, GLint window_height)
         sprintf (outString, "Aperture: %0.1f", gCamera.aperture);
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         sprintf (outString, "Focus Distance: %0.1f", gCamera.focalLength);
-        drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
-        
-        sprintf (outString, "Number in the surface: %0.1d",temp3);
-        drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
-        
-        sprintf (outString, "Max Number of Iterations for Runge Kutta: %0.1d", NUM_ITERATIONS);
         drawGLString (10, window_height - (lineSpacing * line++) - startOffest, outString);
         
         sprintf (outString, "Carnegie Mellon University 2015 : Diego Andrade");
@@ -478,9 +473,11 @@ void drawGLText (GLint window_width, GLint window_height)
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
         sprintf (outString, "I: toggle info\n");
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
-        sprintf (outString, "W: toggle wire frame\n");
+        sprintf (outString, "T: toggle wire frame\n");
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
-        sprintf (outString, "R: rungge kutta simulation\n");
+        sprintf (outString, "B: boundaries\n");
+        drawGLString (10, (lineSpacing * line++) + startOffest, outString);
+        sprintf (outString, "N: toggle numbers\n");
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
         
     }
@@ -546,7 +543,8 @@ void init (void)
     
     glEnable(GL_LIGHTING);
     glShadeModel(GL_SMOOTH);
-
+    
+    
     
    // glEnable(GL_DEPTH_TEST);
     
@@ -557,12 +555,14 @@ void init (void)
    // glColor3f(1.0,1.0,1.0);
     
     
-    glClearColor(0.0,0.0,0.0,0.0);         /* Background recColor */
+    glClearColor(0.0,0.0,0.0,0.0);         /* Background recColor */\
     
     
     if (!gInit)
     {
         objReadSRF.ReadSRFFile("hola");
+    
+      
     
         //int* temp = objReadSRF.getVerticesConnectedTo(27, objReadSRF.VertexLocation);
         //objReadSRF.getVerticesConnectedInOrder(temp);
@@ -659,17 +659,37 @@ void init (void)
         objM.jacrot(TFD[o].A, TFD[o].R);
     }
     
-    static GLuint sphereList [100];
+   
     
     ellipseList = glGenLists(1);
     objDrawFeatures.drawEllipse(2,3,ellipseList);
     
-    sphereList [0] = glGenLists(2);
-    objDrawFeatures.drawEllipse(3,1,sphereList [0]);
+    featureList [0] = glGenLists(2);
+    objDrawFeatures.drawEllipse(3,1,featureList [0]);
     
-    sphereList [1] = glGenLists(3);
-    objDrawFeatures.drawEllipse(4,1,sphereList [1]);
+    featureList [1] = glGenLists(3);
+    objDrawFeatures.drawEllipse(4,1,featureList [1]);
     
+    featureList [2] = glGenLists(4);
+    objDrawFeatures.drawEllipse(2,1,featureList [2]);
+    
+    featureList [3] = glGenLists(5);
+    objDrawFeatures.drawEllipse(4,6,featureList [3]);
+    
+    featureList [4] = glGenLists(6);
+    objDrawFeatures.drawEllipse(4,4,featureList [4]);
+    
+    featureList [5] = glGenLists(7);
+    objDrawFeatures.drawEllipse(4,9,featureList [5]);
+    
+    
+    
+    Vector3D gCoor(objReadSRF.VertexLocation[1].x,objReadSRF.VertexLocation[1].y,objReadSRF.VertexLocation[1].z);
+    cout << "x: " << objReadSRF.VertexLocation[1].x << " y: " <<  objReadSRF.VertexLocation[1].y << " z: " << objReadSRF.VertexLocation[1].z << endl;
+    featureList [6] = glGenLists(8);
+    objDrawFeatures.drawEllipse(3, 4, gCoor, featureList [6]);
+    
+
     
 }
 
@@ -721,7 +741,7 @@ void outputTexto(double x, double y, double z, char *string)
 //FTOIO :  function to be on its owned
 void trianglesInFile(int id1, int id2, int id3, VerticesOutput* vertex )
 {
-        glLineWidth(1.0);
+    glLineWidth(1.0);
    // glColor3fv(Ivory4);
     glBegin( GL_TRIANGLES ); // Draw a triangle
     glColor4f(1.0, 1.0, 0.0, 0.6);
@@ -787,10 +807,10 @@ void maindisplay(void)
     // window aspect ratio
     GLdouble aspect = gCamera.screenWidth / (GLdouble)gCamera.screenHeight;
     
-    GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
-    GLfloat mat_zero[] = { 0.0, 0.0, 0.0, 1.0 };
-    GLfloat mat_transparent[] = { 0.0, 0.8, 0.8, 0.6 };
-    GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 0.6 };
+   // GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
+   // GLfloat mat_zero[] = { 0.0, 0.0, 0.0, 1.0 };
+   // GLfloat mat_transparent[] = { 0.0, 0.8, 0.8, 0.6 };
+   // GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 0.6 };
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glEnable(GL_LIGHTING); //not really used just put here to remind me to use it... CHANGE
@@ -970,7 +990,7 @@ void maindisplay(void)
     //glutSolidTeapot(.5);
     
     /* flush drawing routines to the window */
-   // glPushMatrix ();
+    /*glPushMatrix (); //remember where you are
     for (int i=0; i<300;i++)
     {
         glTranslated(i/100*2, 0, 0);
@@ -985,10 +1005,61 @@ void maindisplay(void)
         glPopMatrix ();
         
     }
-    //glPopMatrix ();
+    glPopMatrix (); // remember where you were
+    */
     
-     glCallList (ellipseList);
+    /*glPushMatrix ();
+    glTranslated(0, 0, 0);
+    glRotated(20, 0.5,0.3,0.4);
+    glCallList (featureList[1]);
+    glPopMatrix ();
     
+    
+    
+    glPushMatrix ();
+    glTranslated(0, 0, 0);
+    glCallList (featureList[3]);
+    glPopMatrix ();*/
+    
+    glPushMatrix ();
+    glTranslated(0, 0, 0);
+    //glCallList (featureList[2]);
+    glPopMatrix ();
+    
+    
+    float pitch, roll, yaw; //specifies the angle of rotation in degrees
+    float ctrx, ctry, ctrz;
+    ctrx = 0;
+    ctry = 1;
+    ctrz = 0;
+    //pitch = roll = yaw = 10;
+    
+    
+    roll = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], XAXIS);
+    cout << "angle X : " << pitch << endl;
+    
+    pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], YAXIS);
+    cout << "angle Y : " << roll << endl;
+    
+    yaw = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], ZAXIS);
+    cout << "angle Z : " << yaw << endl;
+    
+    glPushMatrix ();
+   // glLoadIdentity();
+    glTranslatef(ctrx, ctry, ctrz);
+    glRotatef(pitch, 0, 1, 0);
+    glRotatef(roll, 1, 0, 0);
+    glRotatef(yaw, 0,0,1);
+                        
+     glCallList (featureList[6]);
+                        
+     glRotatef(-yaw,0,0,1);
+     glRotatef(-roll,1,0,0);
+     glRotatef(-pitch,0,1,0);
+     glTranslatef(-ctrx, -ctry, -ctrz);
+     glPopMatrix ();
+    
+   
     
     
     glFlush();

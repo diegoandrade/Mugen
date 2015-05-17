@@ -15,8 +15,13 @@
 #include <GLUT/glut.h>
 #include <OpenGL/glext.h>
 #include <math.h>
+#include "Vector3D.h"
+#include "VerticesOutput.h"
+#include "Tensor3D.h"
+#include <iomanip>
+#include <limits>
 
-
+#include "Common.h"
 
 class features
 {
@@ -24,11 +29,15 @@ public:
     features();		//Constructor
     ~features();     //Destructor
     
-    const float DEG2RAD = 3.14159/180.0;
+    const float DEG2RAD = PI/180.0;
+    const float RAD2DEG = 180/PI;
     
     void drawOval();
     void drawEllipse(float xradius, float yradius);
+    void drawEllipse(float xradius, float yradius, Vector3D vec, GLuint index);
     void drawEllipse(float xradius, float yradius, GLuint index);
+    
+    double rotateCoordinatSystem(VerticesOutput vert, Tensor3D tnsr, AXIS axis);
     
     void drawTriangleList( GLuint index);
     

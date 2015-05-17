@@ -134,7 +134,7 @@ void matrix3x3::FindEigenValueEigenVectorByJacobiMethod (matrix3x3 &value,matrix
     int p,q,n;
     p=q=n=0;
     bool done;
-    double cs,sn;
+    //double cs,sn;
     
     if(nr()==nc())
     {

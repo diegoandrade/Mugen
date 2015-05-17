@@ -36,6 +36,17 @@
 
 #define MAX_NUMBER_OF_BUBBLES_INITILIAZED 600 //FOR INTERIOR SURFACE
 
+#ifndef AXIS_IS_DEFINED
+#define AXIS_IS_DEFINED
+/*! Enum for boolearn. */
+typedef enum
+{
+    XAXIS,     /*!< False */
+    YAXIS,      /*!< True */
+    ZAXIS  /*!< Unable to tell true or false. */
+} AXIS;
+#endif
+
 
 
 typedef struct {
@@ -44,7 +55,7 @@ typedef struct {
 
 typedef struct {
 	float u;
-} Spoint1D; // this estructure represents the point in a parametrix space
+} Spoint1D; // this structure represents the point in a parametrix space
 
 //This is the bubble data structure
 struct bubble {
