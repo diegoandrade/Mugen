@@ -6,6 +6,14 @@
 //  Copyright (c) 2015 CMU. All rights reserved.
 //
 
+#undef DEBUG
+//#define DEBUG
+#ifdef DEBUG
+#  define D(x) x
+#else
+#  define D(x)
+#endif // DEBUG
+
 #include "features.h"
 
 
@@ -52,8 +60,8 @@ void features::drawEllipse(float xradius, float yradius, GLuint index)
 void features::drawEllipse(float xradius, float yradius, Vector3D vect, GLuint index)
 {
     glNewList(index, GL_COMPILE);
-    glPushMatrix ();
-    glTranslatef(vect.a,  vect.b, vect.c); // this translations is done after a world rotation so we are looking at x-z and then translation
+    //glPushMatrix ();
+    //glTranslatef(vect.a,  vect.b, vect.c); // this translations is done after a world rotation so we are looking at x-z and then translation
     glBegin(GL_LINE_LOOP);
     for(int i=0; i < 360; i++)
     {
@@ -65,7 +73,7 @@ void features::drawEllipse(float xradius, float yradius, Vector3D vect, GLuint i
         }
         
     }
-    glPushMatrix();
+    //glPushMatrix();
     glEnd();
     glEndList();
 }
@@ -118,8 +126,8 @@ double features::rotateCoordinatSystem(VerticesOutput vert, Tensor3D tnsr, AXIS 
         w.z1 = 1;
     }
     
-    cout << setprecision(8) << fixed << "v.x: " << v.x1 << setw(8) << "\tv.y: " << v.y1 << setw(8) << "\tv.z: " << v.z1 << endl;
-    cout << setprecision(8) << "w.x: " << w.x1 << setw(8) << "\tw.y: " << w.y1 << setw(8) << "\tw.z: " << w.z1 << endl;
+    D(cout << setprecision(8) << fixed << "v.x: " << v.x1 << setw(8) << "\tv.y: " << v.y1 << setw(8) << "\tv.z: " << v.z1 << endl;
+      cout << setprecision(8) << "w.x: " << w.x1 << setw(8) << "\tw.y: " << w.y1 << setw(8) << "\tw.z: " << w.z1 << endl;);
 
     
     double angle = acos(dot(v, w)/(length(v)*length(w))) * RAD2DEG;

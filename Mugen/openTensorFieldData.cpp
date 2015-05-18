@@ -41,7 +41,12 @@ int openTensorFieldData::numberOfElementsInFile(const char *file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshanid.nt3m"); //AQUI this is a hardcoded direction change this
+        string str = "/Users/diegoandrade/Documents/Mugen/Mugen/data/";
+        str.append(file);
+        str.append("/meshanid.nt3m");
+        
+        ifstream myfile (str); //AQUI this is a hardcoded direction change this
+        
         if (myfile.is_open())
         {
             
@@ -86,7 +91,13 @@ Tensor3D* openTensorFieldData::ReadNt3mFile(const char *file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshanid.nt3m"); //AQUI this is a hardcoded direction change this
+        
+        string str = "/Users/diegoandrade/Documents/Mugen/Mugen/data/";
+        str.append(file);
+        str.append("/meshanid.nt3m");
+        
+        ifstream myfile (str); //AQUI this is a hardcoded direction change this
+    
         if (myfile.is_open())
         {
             
@@ -126,15 +137,15 @@ Tensor3D* openTensorFieldData::ReadNt3mFile(const char *file)
                 
                 //FIND A MORE ELEGANT WAY OF ASSIGNING VALUES SUCH AS INLIN
                 
-                TFD[lineCounter].A[0][0] = tnVal[0];
-                TFD[lineCounter].A[0][1] = tnVal[1];
-                TFD[lineCounter].A[0][2] = tnVal[2];
-                TFD[lineCounter].A[1][0] = tnVal[1];
-                TFD[lineCounter].A[1][1] = tnVal[3];
-                TFD[lineCounter].A[1][2] = tnVal[4];
-                TFD[lineCounter].A[2][0] = tnVal[2];
-                TFD[lineCounter].A[2][1] = tnVal[4];
-                TFD[lineCounter].A[2][2] = tnVal[5];
+                TFD[lineCounter].L[0][0] = tnVal[0];
+                TFD[lineCounter].L[0][1] = tnVal[1];
+                TFD[lineCounter].L[0][2] = tnVal[2];
+                TFD[lineCounter].L[1][0] = tnVal[1];
+                TFD[lineCounter].L[1][1] = tnVal[3];
+                TFD[lineCounter].L[1][2] = tnVal[4];
+                TFD[lineCounter].L[2][0] = tnVal[2];
+                TFD[lineCounter].L[2][1] = tnVal[4];
+                TFD[lineCounter].L[2][2] = tnVal[5];
                 
                 for(int i=0;i<3; i++) {
                     for(int j=0;j<3; j++) {

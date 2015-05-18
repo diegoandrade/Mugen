@@ -8,7 +8,7 @@ class Vector3D{
     
 protected:
     double value[3];
-    double value2[2];
+    //double value2[2];
     
 public:
     inline Vector3D();
@@ -77,7 +77,7 @@ public:
             double x1, y1, z1;
         };
        
-        double elements[3];
+        //double elements[3];
     };
     
 

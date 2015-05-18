@@ -1,0 +1,16 @@
+06:26:52.8890000 ------------------------------------------------------------------------------
+06:26:52.8900000 Debug file 
+06:26:52.8900000 Calisto Project 
+06:26:52.8910000 ------------------------------------------------------------------------------
+06:26:53.7380000 Create STL file 
+06:26:53.8890000  >> createSTL() Elapsed Time to create STL file: 00:01:25.98
+06:26:54.9860000  >> createSTL() Elapsed Time to create SRF file:  00:01:27.08
+06:26:56.5920000 Creating Background Mesh 
+06:28:52.6510000  >> createMeshFromSRF() Elapsed Time to create mesh from SRF file: 00:03:23.14
+06:28:52.6520000  >> Elapsed Time to create backgroundMesh: 00:03:30.46
+06:29:42.7030000 Tensor Seed Executed
+06:29:54.8490000 Tensor Seed Executed
+06:30:05.8130000 BTN_AnisotropicPattern3D_Click 
+06:30:05.8210000 System.__ComObject
+06:30:05.8220000 The Selection is a Face
+06:32:25.2850000  >> BTN_AnisotropicPattern3D_Click() Elapsed Time Anisotropic PatternGeneration: 00:07:09.92

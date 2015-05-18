@@ -38,9 +38,6 @@
 		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
 		B5266E711B03FE8C00A70BC4 /* features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = features.cpp; sourceTree = "<group>"; };
 		B5266E721B03FE8C00A70BC4 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
-		B52927E31AF7DD4C00BA1314 /* meshd.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd.srf; sourceTree = "<group>"; };
-		B583EE611ACE308C0093795C /* meshanid.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshanid.srf; sourceTree = "<group>"; };
-		B583EE621ACE308C0093795C /* meshd_sq.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshd_sq.srf; sourceTree = "<group>"; };
 		B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorRepresentationOGL.cpp; sourceTree = "<group>"; };
 		B583EE641ACE36910093795C /* VectorRepresentationOGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorRepresentationOGL.h; sourceTree = "<group>"; };
 		B583EE661ACE37630093795C /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
@@ -57,15 +54,11 @@
 		B58EA0CC1AC7137800E64F62 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B5A953F11AE7961A00D6CB31 /* PickingObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PickingObject.cpp; path = ../PickingObject.cpp; sourceTree = "<group>"; };
 		B5A953F21AE7961A00D6CB31 /* PickingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickingObject.h; path = ../PickingObject.h; sourceTree = "<group>"; };
-		B5A953F41AE7A49800D6CB31 /* sq3.rosy */ = {isa = PBXFileReference; lastKnownFileType = text; path = sq3.rosy; sourceTree = "<group>"; };
 		B5AC6E341B02DB6300F88DF2 /* openTensorFieldData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = openTensorFieldData.cpp; sourceTree = "<group>"; };
 		B5AC6E351B02DB6300F88DF2 /* openTensorFieldData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openTensorFieldData.h; sourceTree = "<group>"; };
-		B5AC6E371B02DBD100F88DF2 /* tensor.nt3m */ = {isa = PBXFileReference; lastKnownFileType = text; path = tensor.nt3m; sourceTree = "<group>"; };
-		B5AC6E381B02DEC400F88DF2 /* meshanid.nt3m */ = {isa = PBXFileReference; lastKnownFileType = text; path = meshanid.nt3m; sourceTree = "<group>"; };
 		B5AC6E391B02EBB500F88DF2 /* Tensor3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tensor3D.cpp; sourceTree = "<group>"; };
 		B5AC6E3A1B02EBB500F88DF2 /* Tensor3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tensor3D.h; sourceTree = "<group>"; };
 		B5B19E8A1AC711B6003788DB /* Mugen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mugen; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5B6FE5A1AF7F6EB00E8DED7 /* meshdm.srf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meshdm.srf; sourceTree = "<group>"; };
 		B5C9BAD61AFA6A2500A6B77F /* matrix3x3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix3x3.cpp; sourceTree = "<group>"; };
 		B5C9BAD71AFA6A2500A6B77F /* matrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix3x3.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,13 +89,6 @@
 		B583EE601ACE308C0093795C /* data */ = {
 			isa = PBXGroup;
 			children = (
-				B5AC6E381B02DEC400F88DF2 /* meshanid.nt3m */,
-				B5AC6E371B02DBD100F88DF2 /* tensor.nt3m */,
-				B52927E31AF7DD4C00BA1314 /* meshd.srf */,
-				B5A953F41AE7A49800D6CB31 /* sq3.rosy */,
-				B5B6FE5A1AF7F6EB00E8DED7 /* meshdm.srf */,
-				B583EE611ACE308C0093795C /* meshanid.srf */,
-				B583EE621ACE308C0093795C /* meshd_sq.srf */,
 			);
 			name = data;
 			path = Mugen/data;

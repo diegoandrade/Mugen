@@ -140,7 +140,11 @@ void ReadSRF::ReadSRFFile(const char* file)
     try
     {
         string line;
-        ifstream myfile ("/Users/diegoandrade/Documents/Mugen/Mugen/data/meshanid.srf"); //AQUI this is a hardcoded direction change this
+        string str = "/Users/diegoandrade/Documents/Mugen/Mugen/data/";
+        str.append(file);
+        str.append("/meshanid.srf");
+        
+        ifstream myfile (str); //AQUI this is a hardcoded direction change this
         if (myfile.is_open())
         {
             bool foundGE = false;
@@ -234,7 +238,7 @@ void ReadSRF::ReadSRFFile(const char* file)
            
         }
             
-        else cout << "Unable to open file";
+        else cout << "Unable to open file" <<  endl;
         
         cout << "vertexCounter : " << vertexCounter << '\n';
         
