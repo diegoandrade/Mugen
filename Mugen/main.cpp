@@ -142,11 +142,15 @@ GLboolean gDrawNumberOnVertex = GL_FALSE;
 GLboolean gDrawTriangles = GL_FALSE;
 GLboolean gDrawPoints = GL_FALSE;
 GLboolean gDrawBoundary = GL_FALSE;
+GLboolean gDrawUDCS = GL_FALSE;
+GLboolean gDrawFeatures = GL_FALSE;
 GLboolean gInit = GL_FALSE;
+
 
 static GLboolean WIRE=0;		// draw mesh in wireframe?
 static GLuint ellipseList; //user for the list
-static GLuint featureList [1000]; // CHANGE HERE this number
+static GLuint featureList [1000]; // CHANGE HERE this limmit number
+static GLuint udcsList [1000]; // CHANGE HERE this limit number
 
 int gLastKey = ' ';
 int gMainWindow = 0;
@@ -561,7 +565,7 @@ void init (void)
     
     if (!gInit)
     {
-        objReadSRF.ReadSRFFile("t");
+        objReadSRF.ReadSRFFile("q");
     
       
     
@@ -648,7 +652,7 @@ void init (void)
     
     objM.jacrot(value1, vector1);
     
-    Tensor3D* TFD = objTFD.ReadNt3mFile("t");
+    Tensor3D* TFD = objTFD.ReadNt3mFile("q");
     
     numberOfFeature = objTFD.numberOfElements;
     
@@ -692,13 +696,32 @@ void init (void)
  //   objDrawFeatures.drawEllipse(TFD[1].L[1][1], TFD[1].L[0][0], featureList [6]);
   //  cout << "m11: " << TFD[1].L[1][1]<< " m22: " <<  TFD[1].L[0][0] << " m33: " <<  TFD[1].L[2][2] << endl;
     
+    int glGenList = 0;
+    
     for(int k=0; k<numberOfFeature;k++)
     {
         featureList [k] = glGenLists(k+1);
-        objDrawFeatures.drawEllipse(TFD[k].L[1][1]/10, TFD[k].L[2][2]/10, featureList[k]);
-        cout << "m11: " << TFD[k].L[0][0]<< " m22: " <<  TFD[k].L[1][1] << " m33: " <<  TFD[k].L[2][2] << endl;
+        objDrawFeatures.drawEllipse(TFD[k].L[2][2]/5, TFD[k].L[0][0]/5, featureList[k]);
+        cout << "k: " << k << " m11: " << TFD[k].L[0][0]<< " m22: " <<  TFD[k].L[1][1] << " m33: " <<  TFD[k].L[2][2] << endl;
+        
+        glGenList = k;
+    }
+    
+    cout << "glGenList: " << glGenList <<  endl;
+    
+    for(int k=0; k<numberOfFeature;k++)
+    {
+        udcsList [k] = glGenLists(k+glGenList+1);
+        Vector3D n(3,2,4);
+        objDrawFeatures.drawUDCS(n, udcsList[k]);
+       // objDrawFeatures.drawEllipse(TFD[k].L[1][1]/10, TFD[k].L[2][2]/10, featureList[k]);
+       // cout << "k: " << k << " m11: " << TFD[k].L[0][0]<< " m22: " <<  TFD[k].L[1][1] << " m33: " <<  TFD[k].L[2][2] << endl;
+        
+        glGenList = k;
     }
 
+
+    cout << "glGenList: " << glGenList <<  endl;
 
     
 }
@@ -1045,9 +1068,9 @@ void maindisplay(void)
     //pitch = roll = yaw = 10;
     
    
-    roll = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], XAXIS);
+    roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], XAXIS);
     pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], YAXIS);
-    yaw = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], ZAXIS);
+    yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], ZAXIS);
     
     D(
     cout << "angle X : " << pitch << endl;
@@ -1059,37 +1082,87 @@ void maindisplay(void)
 
     Vector3D gCoor(0,0,0);
     
-    #pragma mark >>>>>> CURRENT
-    
-    for(int k=0; k<numberOfFeature; k++)
+
+    if(gDrawFeatures)
     {
-        ctrx = objReadSRF.VertexLocation[k].x;
-        ctry = objReadSRF.VertexLocation[k].y;
-        ctrz = objReadSRF.VertexLocation[k].z;
-        
-        D(cout << "x: " << ctrx << " y: " <<  ctry << " z: " << ctrz << endl;);
-        
-        
-        glPushMatrix ();
-        //glLoadIdentity();
-        glTranslatef(ctrx, ctry, ctrz);
-        glRotatef(pitch, 0, 1, 0);
-        glRotatef(roll, 1, 0, 0);
-        glRotatef(yaw, 0,0,1);
-        
-        glCallList (featureList[k]);
-        
-        
-        glRotatef(-yaw,0,0,1);
-        glRotatef(-roll,1,0,0);
-        glRotatef(-pitch,0,1,0);
-        glTranslatef(-ctrx, -ctry, -ctrz);
-        glPopMatrix ();
-        
+        for(int k=0; k<numberOfFeature; k++)
+        {
+            
+            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
+            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
+            
+            D(
+              cout << "angle X : " << pitch << endl;
+              cout << "angle Y : " << roll << endl;
+              cout << "angle Z : " << yaw << endl;
+              );
+            
+            
+            ctrx = objReadSRF.VertexLocation[k].x;
+            ctry = objReadSRF.VertexLocation[k].y;
+            ctrz = objReadSRF.VertexLocation[k].z;
+            
+            D(cout << "x: " << ctrx << " y: " <<  ctry << " z: " << ctrz << endl;);
+            
+#pragma mark >>>>>> roll pitch and yaw need to change
+            
+            glPushMatrix ();
+            //glLoadIdentity();
+            glTranslatef(ctrx, ctry, ctrz);
+            glRotatef(pitch, 1, 0, 0);
+            glRotatef(roll, 0, 1, 0);
+            glRotatef(yaw, 0,0,1);
+            
+            glCallList (featureList[k]);
+            
+            
+            glRotatef(-yaw,0,0,1);
+            glRotatef(-roll,0,1,0);
+            glRotatef(-pitch,1,1,0);
+            glTranslatef(-ctrx, -ctry, -ctrz);
+            glPopMatrix ();
+            
+        }
     }
     
     
     
+    if(gDrawUDCS)
+    {
+        for(int k=0; k<numberOfFeature; k++)
+        {
+            ctrx = objReadSRF.VertexLocation[k].x;
+            ctry = objReadSRF.VertexLocation[k].y;
+            ctrz = objReadSRF.VertexLocation[k].z;
+            
+            D(cout << "x: " << ctrx << " y: " <<  ctry << " z: " << ctrz << endl;);
+            
+#pragma mark >>>>>> CURRENT UDCS
+            
+            glPushMatrix ();
+            //glLoadIdentity();
+            glTranslatef(ctrx, ctry, ctrz);
+            glRotatef(pitch, 1, 0, 0);
+            glRotatef(roll, 0, 1, 0);
+            glRotatef(yaw, 0,0,1);
+            
+            glCallList (udcsList[k]);
+            
+            
+            glRotatef(-yaw,0,0,1);
+            glRotatef(-roll,0,1,0);
+            glRotatef(-pitch,1,1,0);
+            glTranslatef(-ctrx, -ctry, -ctrz);
+            glPopMatrix ();
+            
+        }
+    }
+    
+   
+
+    
+   
 
     
     
@@ -1284,6 +1357,16 @@ void key(unsigned char inkey, int px, int py)
         case 'b': // info
         case 'B':
             gDrawBoundary =  1 - gDrawBoundary;
+            glutPostRedisplay();
+            break;
+        case 'c': // User Defined Coordinate System
+        case 'C':
+            gDrawUDCS =  1 - gDrawUDCS;
+            glutPostRedisplay();
+            break;
+        case 'f': // User Defined Coordinate System
+        case 'F':
+            gDrawFeatures =  1 - gDrawFeatures;
             glutPostRedisplay();
             break;
         case 'r':

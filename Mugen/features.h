@@ -37,6 +37,8 @@ public:
     void drawEllipse(float xradius, float yradius, Vector3D vec, GLuint index);
     void drawEllipse(float xradius, float yradius, GLuint index);
     
+    void drawUDCS(Vector3D vec, GLuint index);
+    
     double rotateCoordinatSystem(VerticesOutput vert, Tensor3D tnsr, AXIS axis);
     
     void drawTriangleList( GLuint index);

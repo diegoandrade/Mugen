@@ -945,11 +945,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "453633360.64186"
+            timestampString = "454672680.827812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "660"
-            endingLineNumber = "660"
+            startingLineNumber = "664"
+            endingLineNumber = "664"
             landmarkName = "init (void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -961,11 +961,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "453634590.225334"
+            timestampString = "454672680.827812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1101"
-            endingLineNumber = "1101"
+            startingLineNumber = "1172"
+            endingLineNumber = "1172"
             landmarkName = "maindisplay(void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -977,11 +977,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mugen/main.cpp"
-            timestampString = "453638764.384774"
+            timestampString = "454672680.827812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "651"
-            endingLineNumber = "651"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
             landmarkName = "init (void)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1000,6 +1000,22 @@
             endingLineNumber = "241"
             landmarkName = "ReadSRF::ReadSRFFile(const char* file)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mugen/main.cpp"
+            timestampString = "454672680.827812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "715"
+            endingLineNumber = "715"
+            landmarkName = "init (void)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -134,3 +134,29 @@ double features::rotateCoordinatSystem(VerticesOutput vert, Tensor3D tnsr, AXIS 
   
     return  (angle);
 }
+
+
+void features::drawUDCS(Vector3D vec, GLuint index)
+{
+    glNewList(index, GL_COMPILE);
+    glBegin(GL_LINES);
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.5f, 0.0f, 0.0f);
+    glEnd();
+    glBegin(GL_LINES);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.5f, 0.0f);
+    glEnd();
+    glBegin(GL_LINES);
+        glColor3f(0.0f, 0.0f, 1.0f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, 0.5f);
+    glEnd();
+    glEndList();
+    
+    cout << setprecision(8) << "vec.a: " << vec.a << setw(8) << "\tvec.b: " << vec.b << setw(8) << endl;
+
+    
+}

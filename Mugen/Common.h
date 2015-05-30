@@ -38,6 +38,8 @@
 
 #ifndef AXIS_IS_DEFINED
 #define AXIS_IS_DEFINED
+
+#define COLOR_FACTOR 256
 /*! Enum for boolearn. */
 typedef enum
 {
