@@ -140,6 +140,7 @@ GLboolean gTrackBall = GL_FALSE;
 
 GLboolean gDrawNumberOnVertex = GL_FALSE;
 GLboolean gDrawTriangles = GL_FALSE;
+GLboolean gDrawCoordinateSystem = GL_FALSE;
 GLboolean gDrawPoints = GL_FALSE;
 GLboolean gDrawBoundary = GL_FALSE;
 GLboolean gDrawUDCS = GL_FALSE;
@@ -565,7 +566,7 @@ void init (void)
     
     if (!gInit)
     {
-        objReadSRF.ReadSRFFile("q");
+        objReadSRF.ReadSRFFile("sb");
     
       
     
@@ -652,7 +653,7 @@ void init (void)
     
     objM.jacrot(value1, vector1);
     
-    Tensor3D* TFD = objTFD.ReadNt3mFile("q");
+    Tensor3D* TFD = objTFD.ReadNt3mFile("sb");
     
     numberOfFeature = objTFD.numberOfElements;
     
@@ -697,12 +698,13 @@ void init (void)
   //  cout << "m11: " << TFD[1].L[1][1]<< " m22: " <<  TFD[1].L[0][0] << " m33: " <<  TFD[1].L[2][2] << endl;
     
     int glGenList = 0;
+    double fct = 2;
     
     for(int k=0; k<numberOfFeature;k++)
     {
         featureList [k] = glGenLists(k+1);
-        objDrawFeatures.drawEllipse(TFD[k].L[2][2]/5, TFD[k].L[0][0]/5, featureList[k]);
-        cout << "k: " << k << " m11: " << TFD[k].L[0][0]<< " m22: " <<  TFD[k].L[1][1] << " m33: " <<  TFD[k].L[2][2] << endl;
+        objDrawFeatures.drawEllipse(TFD[k].L[2][2]/fct, TFD[k].L[0][0]/fct, featureList[k]);
+        cout << "k: " << k << " m00: " << TFD[k].L[0][0]<< " m11: " <<  TFD[k].L[1][1] << " m22: " <<  TFD[k].L[2][2] << endl;
         
         glGenList = k;
     }
@@ -712,8 +714,7 @@ void init (void)
     for(int k=0; k<numberOfFeature;k++)
     {
         udcsList [k] = glGenLists(k+glGenList+1);
-        Vector3D n(3,2,4);
-        objDrawFeatures.drawUDCS(n, udcsList[k]);
+        objDrawFeatures.drawUDCS(udcsList[k]);
        // objDrawFeatures.drawEllipse(TFD[k].L[1][1]/10, TFD[k].L[2][2]/10, featureList[k]);
        // cout << "k: " << k << " m11: " << TFD[k].L[0][0]<< " m22: " <<  TFD[k].L[1][1] << " m33: " <<  TFD[k].L[2][2] << endl;
         
@@ -722,8 +723,11 @@ void init (void)
 
 
     cout << "glGenList: " << glGenList <<  endl;
-
     
+  
+    objDrawFeatures.drawLocalCoordinateSystem(TFD[0], objReadSRF.VertexLocation[0]);
+    
+
 }
 
 void reshape (int w, int h)
@@ -1054,33 +1058,24 @@ void maindisplay(void)
     glCallList (featureList[3]);
     glPopMatrix ();*/
     
-    glPushMatrix ();
-    glTranslated(0, 0, 0);
-    //glCallList (featureList[2]);
-    glPopMatrix ();
     
     
     float pitch, roll, yaw; //specifies the angle of rotation in degrees
     float ctrx, ctry, ctrz;
     ctrx = 0;
-    ctry = 1;
+    ctry = 0;
     ctrz = 0;
-    //pitch = roll = yaw = 10;
-    
-   
-    roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], XAXIS);
-    pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], YAXIS);
-    yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[1], objTFD.TFD[1], ZAXIS);
-    
-    D(
-    cout << "angle X : " << pitch << endl;
-    cout << "angle Y : " << roll << endl;
-    cout << "angle Z : " << yaw << endl;
-      );
-    
+    pitch = roll = yaw = 0;
 
 
     Vector3D gCoor(0,0,0);
+    
+    if(gDrawCoordinateSystem)
+    {
+         glPushMatrix ();
+        objDrawFeatures.drawGLobalCoordinateSystem();
+        glPopMatrix();
+    }
     
 
     if(gDrawFeatures)
@@ -1088,15 +1083,15 @@ void maindisplay(void)
         for(int k=0; k<numberOfFeature; k++)
         {
             
-            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
-            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
             yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
             
-            D(
-              cout << "angle X : " << pitch << endl;
-              cout << "angle Y : " << roll << endl;
-              cout << "angle Z : " << yaw << endl;
-              );
+            
+            D(  cout << "pitch X : " << pitch << endl;
+              cout << "roll Y : " << roll << endl;
+              cout << "yaw Z : " << yaw << endl;);
+            
             
             
             ctrx = objReadSRF.VertexLocation[k].x;
@@ -1109,6 +1104,7 @@ void maindisplay(void)
             
             glPushMatrix ();
             //glLoadIdentity();
+            glColor3f( 0.95f, 0.207, 0.031f );
             glTranslatef(ctrx, ctry, ctrz);
             glRotatef(pitch, 1, 0, 0);
             glRotatef(roll, 0, 1, 0);
@@ -1119,7 +1115,7 @@ void maindisplay(void)
             
             glRotatef(-yaw,0,0,1);
             glRotatef(-roll,0,1,0);
-            glRotatef(-pitch,1,1,0);
+            glRotatef(-pitch,1,0,0);
             glTranslatef(-ctrx, -ctry, -ctrz);
             glPopMatrix ();
             
@@ -1130,8 +1126,13 @@ void maindisplay(void)
     
     if(gDrawUDCS)
     {
-        for(int k=0; k<numberOfFeature; k++)
+        for(int k=0; k<numberOfFeature; k++)//numberOfFeature
         {
+            
+            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
+            yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
+            
             ctrx = objReadSRF.VertexLocation[k].x;
             ctry = objReadSRF.VertexLocation[k].y;
             ctrz = objReadSRF.VertexLocation[k].z;
@@ -1152,7 +1153,7 @@ void maindisplay(void)
             
             glRotatef(-yaw,0,0,1);
             glRotatef(-roll,0,1,0);
-            glRotatef(-pitch,1,1,0);
+            glRotatef(-pitch,1,0,0);
             glTranslatef(-ctrx, -ctry, -ctrz);
             glPopMatrix ();
             
@@ -1369,6 +1370,12 @@ void key(unsigned char inkey, int px, int py)
             gDrawFeatures =  1 - gDrawFeatures;
             glutPostRedisplay();
             break;
+        case 'u': // Global Coordinate System
+        case 'U':
+            gDrawCoordinateSystem =  1 - gDrawCoordinateSystem;
+            glutPostRedisplay();
+            break;
+
         case 'r':
         case 'R': //Read SRF
             //objReadSRF.ReadSRFFile((char*) "meshd.srf");

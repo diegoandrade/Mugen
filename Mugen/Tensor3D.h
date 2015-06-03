@@ -10,6 +10,15 @@
 #define __Mugen__Tensor3D__
 
 #include <stdio.h>
+#include <iomanip>
+#include <limits>
+#include <iostream>
+#include <math.h>
+#include "Vector3D.h"
+
+#include "Common.h"
+
+using namespace std;
 
 class Tensor3D
 {
@@ -47,6 +56,9 @@ public:
     double L[3][3];
     double R[3][3];
     
+    void printTensor ();
+    
+    
     
 };
 
@@ -55,6 +67,15 @@ inline Tensor3D::Tensor3D() {
     L[0][0]=L[0][1]=L[0][2]=L[1][0]=L[1][1]=L[1][2]=L[2][0]=L[2][1]=L[2][2]=0.0;
     R[0][0]=R[0][1]=R[0][2]=R[1][0]=R[1][1]=R[1][2]=R[2][0]=R[2][1]=R[2][2]=0.0;
 }
+
+inline double length(double a, double b, double c)
+{
+    return sqrt(a*a+b*b+c*c);
+    
+}
+
+
+
 
 //-------------------------------------------------------------------
 

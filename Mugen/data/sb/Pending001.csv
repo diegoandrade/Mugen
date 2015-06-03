@@ -1,0 +1,2564 @@
+Will expire on 20160430
+Today          20150429
+YsBubbleMain Version : 1
+.
+..
+...
+Passed License Check
+@@@Module Start BUB
+@@@Module Progress 0
+Module   0.00, Overall   0.00, [BUB]
+Loading meshd.srf
+Building Face Info.
+2520/2520
+Done!
+Building Edge Infos.
+@@@Module Progress 1
+Module   1.00, Overall   1.00, [BUB]
+Making Sizing/Anisotropy/Directionality function.
+@@@Module Progress 4
+Module   4.00, Overall   4.00, [BUB]
+@@@Module Progress 6
+Module   6.00, Overall   6.00, [BUB]
+@@@Module Progress 8
+Module   8.00, Overall   8.00, [BUB]
+Preparing Shell Lattice
+Building Shell Lattice
+Set Vertices
+1375/1375
+Done!
+Setting Polygons
+2520/2520
+Done!
+Filling Undetermined Blocks
+5096/5096
+Done!
+.
+Inspecting Unconstrained Const-edge Intersections...
+Done.
+Preparing Shell Lattice
+Building Shell Lattice
+Set Vertices
+1375/1375
+Done!
+Setting Polygons
+2520/2520
+Done!
+Filling Undetermined Blocks
+5096/5096
+Done!
+.
+0.000000
+Estimated # of face bubbles 78
+Estimated # of edge bubbles 65
+Estimated # of free bubbles 1
+0x0x0=0
+@@@Module Progress 10
+Module  10.00, Overall  10.00, [BUB]
+Start Packing.
+@@@Module Progress 10
+Module  10.00, Overall  10.00, [BUB]
+Mode 0
+Inserting Edge Bubbles
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+@@@Module Progress 10
+Module  10.00, Overall  10.00, [BUB]
+Eliminate Runaway Bubbles
+70/70
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (50/2000) Aniso
+  66 edge  0 face  0 free
+@@@Module Progress 10
+Module  10.00, Overall  10.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+34 bubbles have been deleted.
+Eliminate Runaway Bubbles
+36/36
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 11
+Module  11.00, Overall  11.00, [BUB]
+Mode 1:Edge Bubbles (100/2000) Aniso
+  32 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+68/68
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 11
+Module  11.00, Overall  11.00, [BUB]
+Mode 1:Edge Bubbles (150/2000) Aniso
+  64 edge  0 face  0 free
+@@@Module Progress 11
+Module  11.00, Overall  11.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+36/36
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 12
+Module  12.00, Overall  12.00, [BUB]
+Mode 1:Edge Bubbles (200/2000) Aniso
+  32 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+68/68
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 12
+Module  12.00, Overall  12.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+36/36
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (250/2000) Aniso
+  32 edge  0 face  0 free
+@@@Module Progress 13
+Module  13.00, Overall  13.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+1 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 13
+Module  13.00, Overall  13.00, [BUB]
+Mode 1:Edge Bubbles (300/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 13
+Module  13.00, Overall  13.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (350/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 14
+Module  14.00, Overall  14.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.03
+@@@Module Progress 14
+Module  14.00, Overall  14.00, [BUB]
+Mode 1:Edge Bubbles (400/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 14
+Module  14.00, Overall  14.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 15
+Module  15.00, Overall  15.00, [BUB]
+Mode 1:Edge Bubbles (450/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 15
+Module  15.00, Overall  15.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (500/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 16
+Module  16.00, Overall  16.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 16
+Module  16.00, Overall  16.00, [BUB]
+Mode 1:Edge Bubbles (550/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 16
+Module  16.00, Overall  16.00, [BUB]
+Mode 1:Edge Bubbles (600/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 17
+Module  17.00, Overall  17.00, [BUB]
+@@@Module Progress 17
+Module  17.00, Overall  17.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (650/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 18
+Module  18.00, Overall  18.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (700/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 18
+Module  18.00, Overall  18.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 18
+Module  18.00, Overall  18.00, [BUB]
+Mode 1:Edge Bubbles (750/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 19
+Module  19.00, Overall  19.00, [BUB]
+@@@Module Progress 19
+Module  19.00, Overall  19.00, [BUB]
+Mode 1:Edge Bubbles (800/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 19
+Module  19.00, Overall  19.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (850/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 20
+Module  20.00, Overall  20.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 20
+Module  20.00, Overall  20.00, [BUB]
+Mode 1:Edge Bubbles (900/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 21
+Module  21.00, Overall  21.00, [BUB]
+Mode 1:Edge Bubbles (950/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 21
+Module  21.00, Overall  21.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 21
+Module  21.00, Overall  21.00, [BUB]
+Mode 1:Edge Bubbles (1000/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 22
+Module  22.00, Overall  22.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1050/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 22
+Module  22.00, Overall  22.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 23
+Module  23.00, Overall  23.00, [BUB]
+Mode 1:Edge Bubbles (1100/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 23
+Module  23.00, Overall  23.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1150/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 23
+Module  23.00, Overall  23.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 24
+Module  24.00, Overall  24.00, [BUB]
+Mode 1:Edge Bubbles (1200/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 24
+Module  24.00, Overall  24.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 24
+Module  24.00, Overall  24.00, [BUB]
+Mode 1:Edge Bubbles (1250/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 25
+Module  25.00, Overall  25.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1300/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 25
+Module  25.00, Overall  25.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 26
+Module  26.00, Overall  26.00, [BUB]
+Mode 1:Edge Bubbles (1350/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 26
+Module  26.00, Overall  26.00, [BUB]
+Mode 1:Edge Bubbles (1400/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 26
+Module  26.00, Overall  26.00, [BUB]
+@@@Module Progress 27
+Module  27.00, Overall  27.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1450/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 27
+Module  27.00, Overall  27.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1500/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 28
+Module  28.00, Overall  28.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 28
+Module  28.00, Overall  28.00, [BUB]
+Mode 1:Edge Bubbles (1550/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 28
+Module  28.00, Overall  28.00, [BUB]
+@@@Module Progress 29
+Module  29.00, Overall  29.00, [BUB]
+Mode 1:Edge Bubbles (1600/2000) Aniso
+  63 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 29
+Module  29.00, Overall  29.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1650/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 29
+Module  29.00, Overall  29.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.01
+@@@Module Progress 30
+Module  30.00, Overall  30.00, [BUB]
+Mode 1:Edge Bubbles (1700/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 30
+Module  30.00, Overall  30.00, [BUB]
+Mode 1:Edge Bubbles (1750/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 31
+Module  31.00, Overall  31.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 31
+Module  31.00, Overall  31.00, [BUB]
+Mode 1:Edge Bubbles (1800/2000) Aniso
+  31 edge  0 face  0 free
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 31
+Module  31.00, Overall  31.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1850/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 32
+Module  32.00, Overall  32.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 32
+Module  32.00, Overall  32.00, [BUB]
+Mode 1:Edge Bubbles (1900/2000) Aniso
+  63 edge  0 face  0 free
+@@@Module Progress 33
+Module  33.00, Overall  33.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+32 bubbles have been deleted.
+Eliminate Runaway Bubbles
+35/35
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 1:Edge Bubbles (1950/2000) Aniso
+  31 edge  0 face  0 free
+@@@Module Progress 33
+Module  33.00, Overall  33.00, [BUB]
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+67/67
+Done!
+Shuffling...
+done.
+Build Adjacency (Edge-Edge)
+4/4
+Done!
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 33
+Module  33.00, Overall  33.00, [BUB]
+Mode 1:Edge Bubbles (2000/2000) Aniso
+  63 edge  0 face  0 free
+Inserting Face Bubbles
+1/1
+Done!
+80 bubbles.
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+@@@Module Progress 34
+Module  34.00, Overall  34.00, [BUB]
+Eliminate Runaway Bubbles
+80/80
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 34
+Module  34.00, Overall  34.00, [BUB]
+Mode 2:Face Bubbles (50/3000) Aniso
+  63 edge  13 face  0 free
+@@@Module Progress 34
+Module  34.00, Overall  34.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+0 bubbles have been deleted.
+Eliminate Runaway Bubbles
+89/89
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (100/3000) Aniso
+  63 edge  22 face  0 free
+@@@Module Progress 35
+Module  35.00, Overall  35.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+2 bubbles have been deleted.
+Eliminate Runaway Bubbles
+97/97
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 35
+Module  35.00, Overall  35.00, [BUB]
+Mode 2:Face Bubbles (150/3000) Aniso
+  63 edge  30 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+6 bubbles have been deleted.
+Eliminate Runaway Bubbles
+100/100
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 36
+Module  36.00, Overall  36.00, [BUB]
+Mode 2:Face Bubbles (200/3000) Aniso
+  63 edge  33 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+6 bubbles have been deleted.
+Eliminate Runaway Bubbles
+108/108
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 36
+Module  36.00, Overall  36.00, [BUB]
+@@@Module Progress 36
+Module  36.00, Overall  36.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+110/110
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (250/3000) Aniso
+  63 edge  43 face  0 free
+@@@Module Progress 37
+Module  37.00, Overall  37.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+111/111
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (300/3000) Aniso
+  63 edge  44 face  0 free
+@@@Module Progress 37
+Module  37.00, Overall  37.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+109/109
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 38
+Module  38.00, Overall  38.00, [BUB]
+Mode 2:Face Bubbles (350/3000) Aniso
+  63 edge  42 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+8 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 38
+Module  38.00, Overall  38.00, [BUB]
+@@@Module Progress 38
+Module  38.00, Overall  38.00, [BUB]
+Mode 2:Face Bubbles (400/3000) Aniso
+  63 edge  47 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 39
+Module  39.00, Overall  39.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (450/3000) Aniso
+  63 edge  48 face  0 free
+@@@Module Progress 39
+Module  39.00, Overall  39.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+14 bubbles have been deleted.
+Eliminate Runaway Bubbles
+112/112
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 39
+Module  39.00, Overall  39.00, [BUB]
+Mode 2:Face Bubbles (500/3000) Aniso
+  63 edge  45 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+7 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 40
+Module  40.00, Overall  40.00, [BUB]
+Mode 2:Face Bubbles (550/3000) Aniso
+  63 edge  52 face  0 free
+@@@Module Progress 40
+Module  40.00, Overall  40.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 41
+Module  41.00, Overall  41.00, [BUB]
+Mode 2:Face Bubbles (600/3000) Aniso
+  63 edge  48 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 41
+Module  41.00, Overall  41.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (650/3000) Aniso
+  63 edge  51 face  0 free
+@@@Module Progress 41
+Module  41.00, Overall  41.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 42
+Module  42.00, Overall  42.00, [BUB]
+Mode 2:Face Bubbles (700/3000) Aniso
+  63 edge  48 face  0 free
+@@@Module Progress 42
+Module  42.00, Overall  42.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (750/3000) Aniso
+  63 edge  52 face  0 free
+@@@Module Progress 43
+Module  43.00, Overall  43.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 43
+Module  43.00, Overall  43.00, [BUB]
+Mode 2:Face Bubbles (800/3000) Aniso
+  63 edge  51 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+15 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 43
+Module  43.00, Overall  43.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 44
+Module  44.00, Overall  44.00, [BUB]
+Mode 2:Face Bubbles (850/3000) Aniso
+  63 edge  52 face  0 free
+@@@Module Progress 44
+Module  44.00, Overall  44.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (900/3000) Aniso
+  63 edge  51 face  0 free
+@@@Module Progress 44
+Module  44.00, Overall  44.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+113/113
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 45
+Module  45.00, Overall  45.00, [BUB]
+Mode 2:Face Bubbles (950/3000) Aniso
+  63 edge  46 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 45
+Module  45.00, Overall  45.00, [BUB]
+Mode 2:Face Bubbles (1000/3000) Aniso
+  63 edge  47 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 46
+Module  46.00, Overall  46.00, [BUB]
+@@@Module Progress 46
+Module  46.00, Overall  46.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1050/3000) Aniso
+  63 edge  49 face  0 free
+@@@Module Progress 46
+Module  46.00, Overall  46.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.01
+Mode 2:Face Bubbles (1100/3000) Aniso
+  63 edge  49 face  0 free
+@@@Module Progress 47
+Module  47.00, Overall  47.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 47
+Module  47.00, Overall  47.00, [BUB]
+Mode 2:Face Bubbles (1150/3000) Aniso
+  63 edge  47 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 48
+Module  48.00, Overall  48.00, [BUB]
+@@@Module Progress 48
+Module  48.00, Overall  48.00, [BUB]
+Mode 2:Face Bubbles (1200/3000) Aniso
+  63 edge  47 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 48
+Module  48.00, Overall  48.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1250/3000) Aniso
+  63 edge  50 face  0 free
+@@@Module Progress 49
+Module  49.00, Overall  49.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 49
+Module  49.00, Overall  49.00, [BUB]
+Mode 2:Face Bubbles (1300/3000) Aniso
+  63 edge  48 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+8 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 49
+Module  49.00, Overall  49.00, [BUB]
+Mode 2:Face Bubbles (1350/3000) Aniso
+  63 edge  48 face  0 free
+@@@Module Progress 50
+Module  50.00, Overall  50.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+120/120
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 50
+Module  50.00, Overall  50.00, [BUB]
+Mode 2:Face Bubbles (1400/3000) Aniso
+  63 edge  53 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 51
+Module  51.00, Overall  51.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+113/113
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1450/3000) Aniso
+  63 edge  46 face  0 free
+@@@Module Progress 51
+Module  51.00, Overall  51.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 51
+Module  51.00, Overall  51.00, [BUB]
+Mode 2:Face Bubbles (1500/3000) Aniso
+  63 edge  49 face  0 free
+@@@Module Progress 52
+Module  52.00, Overall  52.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+120/120
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1550/3000) Aniso
+  63 edge  53 face  0 free
+@@@Module Progress 52
+Module  52.00, Overall  52.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+14 bubbles have been deleted.
+Eliminate Runaway Bubbles
+112/112
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 53
+Module  53.00, Overall  53.00, [BUB]
+Mode 2:Face Bubbles (1600/3000) Aniso
+  63 edge  45 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+5 bubbles have been deleted.
+Eliminate Runaway Bubbles
+122/122
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 53
+Module  53.00, Overall  53.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+16 bubbles have been deleted.
+Eliminate Runaway Bubbles
+112/112
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 53
+Module  53.00, Overall  53.00, [BUB]
+Mode 2:Face Bubbles (1650/3000) Aniso
+  63 edge  45 face  0 free
+@@@Module Progress 54
+Module  54.00, Overall  54.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+6 bubbles have been deleted.
+Eliminate Runaway Bubbles
+121/121
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1700/3000) Aniso
+  63 edge  54 face  0 free
+@@@Module Progress 54
+Module  54.00, Overall  54.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+15 bubbles have been deleted.
+Eliminate Runaway Bubbles
+110/110
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 54
+Module  54.00, Overall  54.00, [BUB]
+Mode 2:Face Bubbles (1750/3000) Aniso
+  63 edge  43 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+6 bubbles have been deleted.
+Eliminate Runaway Bubbles
+120/120
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 55
+Module  55.00, Overall  55.00, [BUB]
+Mode 2:Face Bubbles (1800/3000) Aniso
+  63 edge  53 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+14 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 55
+Module  55.00, Overall  55.00, [BUB]
+@@@Module Progress 56
+Module  56.00, Overall  56.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1850/3000) Aniso
+  63 edge  50 face  0 free
+@@@Module Progress 56
+Module  56.00, Overall  56.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (1900/3000) Aniso
+  63 edge  48 face  0 free
+@@@Module Progress 56
+Module  56.00, Overall  56.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 57
+Module  57.00, Overall  57.00, [BUB]
+Mode 2:Face Bubbles (1950/3000) Aniso
+  63 edge  50 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.01
+@@@Module Progress 57
+Module  57.00, Overall  57.00, [BUB]
+@@@Module Progress 58
+Module  58.00, Overall  58.00, [BUB]
+Mode 2:Face Bubbles (2000/3000) Aniso
+  63 edge  47 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 58
+Module  58.00, Overall  58.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+14 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2050/3000) Aniso
+  63 edge  47 face  0 free
+@@@Module Progress 58
+Module  58.00, Overall  58.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 59
+Module  59.00, Overall  59.00, [BUB]
+Mode 2:Face Bubbles (2100/3000) Aniso
+  63 edge  48 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 59
+Module  59.00, Overall  59.00, [BUB]
+Mode 2:Face Bubbles (2150/3000) Aniso
+  63 edge  47 face  0 free
+@@@Module Progress 59
+Module  59.00, Overall  59.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 60
+Module  60.00, Overall  60.00, [BUB]
+Mode 2:Face Bubbles (2200/3000) Aniso
+  63 edge  49 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+110/110
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 60
+Module  60.00, Overall  60.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+6 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2250/3000) Aniso
+  63 edge  51 face  0 free
+@@@Module Progress 61
+Module  61.00, Overall  61.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 61
+Module  61.00, Overall  61.00, [BUB]
+Mode 2:Face Bubbles (2300/3000) Aniso
+  63 edge  48 face  0 free
+@@@Module Progress 61
+Module  61.00, Overall  61.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2350/3000) Aniso
+  63 edge  50 face  0 free
+@@@Module Progress 62
+Module  62.00, Overall  62.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 62
+Module  62.00, Overall  62.00, [BUB]
+Mode 2:Face Bubbles (2400/3000) Aniso
+  63 edge  48 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+8 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 62
+Module  62.00, Overall  62.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 63
+Module  63.00, Overall  63.00, [BUB]
+Mode 2:Face Bubbles (2450/3000) Aniso
+  63 edge  49 face  0 free
+@@@Module Progress 63
+Module  63.00, Overall  63.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2500/3000) Aniso
+  63 edge  50 face  0 free
+@@@Module Progress 64
+Module  64.00, Overall  64.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+115/115
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 64
+Module  64.00, Overall  64.00, [BUB]
+Mode 2:Face Bubbles (2550/3000) Aniso
+  63 edge  48 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 64
+Module  64.00, Overall  64.00, [BUB]
+Mode 2:Face Bubbles (2600/3000) Aniso
+  63 edge  52 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+116/116
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 65
+Module  65.00, Overall  65.00, [BUB]
+@@@Module Progress 65
+Module  65.00, Overall  65.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+119/119
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2650/3000) Aniso
+  63 edge  52 face  0 free
+@@@Module Progress 66
+Module  66.00, Overall  66.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+13 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2700/3000) Aniso
+  63 edge  47 face  0 free
+@@@Module Progress 66
+Module  66.00, Overall  66.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+112/112
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 66
+Module  66.00, Overall  66.00, [BUB]
+Mode 2:Face Bubbles (2750/3000) Aniso
+  63 edge  45 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+113/113
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 67
+Module  67.00, Overall  67.00, [BUB]
+@@@Module Progress 67
+Module  67.00, Overall  67.00, [BUB]
+Mode 2:Face Bubbles (2800/3000) Aniso
+  63 edge  46 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+9 bubbles have been deleted.
+Eliminate Runaway Bubbles
+118/118
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 67
+Module  67.00, Overall  67.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+11 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+Mode 2:Face Bubbles (2850/3000) Aniso
+  63 edge  50 face  0 free
+@@@Module Progress 68
+Module  68.00, Overall  68.00, [BUB]
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+10 bubbles have been deleted.
+Eliminate Runaway Bubbles
+117/117
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 68
+Module  68.00, Overall  68.00, [BUB]
+Mode 2:Face Bubbles (2900/3000) Aniso
+  63 edge  50 face  0 free
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+12 bubbles have been deleted.
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 69
+Module  69.00, Overall  69.00, [BUB]
+Mode 2:Face Bubbles (2950/3000) Aniso
+  63 edge  47 face  0 free
+@@@Module Progress 69
+Module  69.00, Overall  69.00, [BUB]
+Eliminate Runaway Bubbles
+114/114
+Done!
+Shuffling...
+done.
+Trimming Adjacencies Step 1.
+Trimming Adjacencies Step 2.
+Time to compute connectivity : 0.00
+@@@Module Progress 69
+Module  69.00, Overall  69.00, [BUB]
+Mode 2:Face Bubbles (3000/3000) Aniso
+  63 edge  47 face  0 free
+@@@Module Progress 70
+Module  70.00, Overall  70.00, [BUB]
+@@@Module Progress 75
+Module  75.00, Overall  75.00, [BUB]
+Remeshing.
+Deleting Bubbles Too Close To A Const-Edge.
+114/114
+Done!
+<<Blending face bubbles in edges/nodes>>
+0 bubbles became node bubbles.
+6 bubbles became edge bubbles.
+0 bubbles are deleted.
+0 bubbles have been deleted because they were on no-bubble edge or face.
+<<Converting edge bubbles into node bubbles>>
+234/234
+Done!
+69 bubbles became node bubbles.
+0 bubbles have been deleted.
+<<Re-making vertex list of constrained edge>>
+<<Decimating Shallow Curved Region>>
+Marking Constrained Vertices
+1440/1440
+Done!
+1/1
+Done!
+<<Blending face bubbles>>
+2520/2520
+Done!
+<<Decimating Polygons>>
+Marking Constrained Vertices
+1480/1480
+Done!
+2671/2671
+Done!
+4034 polygons have been deleted.
+Go to next try.
+Marking Constrained Vertices
+550/550
+Done!
+811/811
+Done!
+13 polygons have been deleted.
+Go to next try.
+Marking Constrained Vertices
+547/547
+Done!
+805/805
+Done!
+0 polygons have been deleted.
+<<Decimating vertices>>
+Marking Constrained Vertices
+547/547
+Done!
+Pass 0
+214/214
+Done!
+Pass 1
+Done!
+214 vertices have been deleted.
+<<Decimating vertices on edges>>
+4/4
+Done!
+220 vertices have been deleted.
+<<Improving surface triangles>>
+157/157
+Done!
+24 new triangles.
+Go to next iteration.
+157/157
+Done!
+2 new triangles.
+Go to next iteration.
+157/157
+Done!
+0 new triangles.
+Building Face Info.
+157/157
+Done!
+Building Edge Infos.
+Overall process took 265 ms.
+@@@Module Progress 80
+Module  80.00, Overall  80.00, [BUB]
+Saving SRM
+Writing Polygons.
+157/157
+Done!
+Writing Vertex Tracking.
+114/114
+Done!
+Wrinting Constrained Edges.
+Wrinting Constrained Nodes.
+Writing Face Groups.
+157/157
+Done!
+Overall 17 seconds (including File IO, pre-process, etc.)
+@@@Module Progress 100
+Module 100.00, Overall 100.00, [BUB]
+Total Elapsed Time=17 sec (batch)
+@@@Success
+YsBubbleMain Version : 1

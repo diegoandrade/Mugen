@@ -37,7 +37,9 @@ public:
         //struct{
             //double x, y, z;
         //};
-    };  double elements[3];
+    };
+    
+    double elements[3];
 
     
 };

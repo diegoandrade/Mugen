@@ -18,6 +18,8 @@
 #include "Vector3D.h"
 #include "VerticesOutput.h"
 #include "Tensor3D.h"
+
+
 #include <iomanip>
 #include <limits>
 
@@ -37,13 +39,34 @@ public:
     void drawEllipse(float xradius, float yradius, Vector3D vec, GLuint index);
     void drawEllipse(float xradius, float yradius, GLuint index);
     
-    void drawUDCS(Vector3D vec, GLuint index);
+    void drawUDCS(GLuint index);
+    void drawGLobalCoordinateSystem();
     
     double rotateCoordinatSystem(VerticesOutput vert, Tensor3D tnsr, AXIS axis);
+    Tensor3D sortSmallToLarge (Tensor3D &tnsr);
+    Tensor3D switchColumns (int column1, int column2, Tensor3D &tnsr);
+    Tensor3D switchRows (int row1, int row2, Tensor3D &tnsr);
+    
+    void drawLocalCoordinateSystem ( Tensor3D &tnsr, VerticesOutput vert);
+
     
     void drawTriangleList( GLuint index);
     
+    void normalize(Tensor3D &v) ;
+    double length (const Vector3D &v);
+    void normalize (Vector3D &v);
+    
+   
+
+    //temporal values to switch columns, this can be more elegant someday!
+    double r, s, t;
+    double R, S, T;
+    Tensor3D tensorTemp;
+    
+    void printVertice (VerticesOutput vert);
     
 };
+
+
 
 #endif /* defined(__Mugen__features__) */

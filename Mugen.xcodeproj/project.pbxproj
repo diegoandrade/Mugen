@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		B5192FE71AC748390098FA67 /* AllColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllColor.h; sourceTree = "<group>"; };
 		B5266E711B03FE8C00A70BC4 /* features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = features.cpp; sourceTree = "<group>"; };
-		B5266E721B03FE8C00A70BC4 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		B571161C1B1D0E34005A8A45 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
 		B583EE631ACE36910093795C /* VectorRepresentationOGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorRepresentationOGL.cpp; sourceTree = "<group>"; };
 		B583EE641ACE36910093795C /* VectorRepresentationOGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorRepresentationOGL.h; sourceTree = "<group>"; };
 		B583EE661ACE37630093795C /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				B58EA0C81AC7135500E64F62 /* main.cpp */,
+				B571161C1B1D0E34005A8A45 /* features.h */,
 				B5266E711B03FE8C00A70BC4 /* features.cpp */,
-				B5266E721B03FE8C00A70BC4 /* features.h */,
 			);
 			name = Drawing;
 			sourceTree = "<group>";

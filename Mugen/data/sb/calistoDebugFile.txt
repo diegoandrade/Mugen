@@ -1,0 +1,120 @@
+15:24:32.5596000 ------------------------------------------------------------------------------
+15:24:32.5606000 Debug file 
+15:24:32.5616000 Calisto Project 
+15:24:32.5616000 ------------------------------------------------------------------------------
+15:24:33.3086000 Create STL file 
+15:24:33.3246000  >> createSTL() Elapsed Time to create STL file: 00:00:00.01
+15:24:33.4556000  >> createSTL() Elapsed Time to create SRF file:  00:00:00.14
+15:24:34.0186000 Creating Background Mesh 
+15:24:47.5526000  >> createMeshFromSRF() Elapsed Time to create mesh from SRF file: 00:00:13.67
+15:24:47.5526000  >> Elapsed Time to create backgroundMesh: 00:00:16.02
+15:25:30.8716000 Tensor Seed Executed
+15:25:38.6976000 Tensor Seed Executed
+15:25:44.5506000 BTN_AnisotropicPattern3D_Click 
+15:25:44.5556000 System.__ComObject
+15:25:44.5576000 The Selection is a Face
+15:27:28.6606000  >> BTN_AnisotropicPattern3D_Click() Elapsed Time Anisotropic PatternGeneration: 00:01:44.10
+15:28:31.6186000  >> ReadFileDataToConnectivityList() Elapsed Time to create read SRF file: 00:00:00.00
+15:28:31.6196000 Reading meshanid.srf
+15:28:31.6236000 Reading meshanid.nt3m
+15:28:31.7146000 EigenDecomposition
+15:28:31.7146000 User Coordinate System
+15:28:31.7356000  >> Number of Elements: 47
+15:28:32.0486000 0 >>> change direction because >>> det :  1
+15:28:32.0496000 0 >>> det :  1
+15:28:33.3076000 Element [0]: >> on UCS feature elapsed time :  
+15:28:33.3086000 1 >>> det :  1
+15:28:33.3086000 1 >>> det :  1
+15:28:34.1956000 2 >>> change direction because >>> det :  1
+15:28:34.1966000 2 >>> det :  1
+15:28:35.0826000 3 >>> change direction because >>> det :  1
+15:28:35.0826000 3 >>> det :  1
+15:28:36.0106000 4 >>> change direction because >>> det :  -1
+15:28:36.0116000 4 >>> det :  -1
+15:28:37.0196000 5 >>> det :  1
+15:28:37.0196000 5 >>> det :  1
+15:28:38.0346000 6 >>> change direction because >>> det :  -1
+15:28:38.0356000 6 >>> det :  -1
+15:28:38.9516000 7 >>> det :  1
+15:28:38.9526000 7 >>> det :  1
+15:28:39.9746000 8 >>> change direction because >>> det :  -1
+15:28:39.9756000 8 >>> det :  -1
+15:28:41.0616000 9 >>> change direction because >>> det :  -1
+15:28:41.0616000 9 >>> det :  -1
+15:28:42.2386000 10 >>> change direction because >>> det :  -1
+15:28:42.2406000 10 >>> det :  -1
+15:28:43.4196000 11 >>> change direction because >>> det :  -1
+15:28:43.4196000 11 >>> det :  -1
+15:28:44.4466000 12 >>> change direction because >>> det :  -1
+15:28:44.4476000 12 >>> det :  -1
+15:28:45.7766000 13 >>> det :  1
+15:28:45.7766000 13 >>> det :  1
+15:28:47.0856000 14 >>> change direction because >>> det :  -1
+15:28:47.0866000 14 >>> det :  -1
+15:28:48.4436000 15 >>> det :  1
+15:28:48.4446000 15 >>> det :  1
+15:28:49.8106000 16 >>> change direction because >>> det :  -1
+15:28:49.8116000 16 >>> det :  -1
+15:28:51.2316000 17 >>> change direction because >>> det :  -1
+15:28:51.2326000 17 >>> det :  -1
+15:28:52.2086000 18 >>> change direction because >>> det :  -1
+15:28:52.2096000 18 >>> det :  -1
+15:28:53.7216000 19 >>> det :  1
+15:28:53.7216000 19 >>> det :  1
+15:28:55.2706000 20 >>> change direction because >>> det :  1
+15:28:55.2716000 20 >>> det :  1
+15:28:56.8456000 21 >>> det :  1
+15:28:56.8466000 21 >>> det :  1
+15:28:58.4376000 22 >>> change direction because >>> det :  1
+15:28:58.4376000 22 >>> det :  1
+15:29:00.1056000 23 >>> det :  1
+15:29:00.1066000 23 >>> det :  1
+15:29:01.3196000 24 >>> change direction because >>> det :  1
+15:29:01.3196000 24 >>> det :  1
+15:29:03.0766000 25 >>> det :  1
+15:29:03.0766000 25 >>> det :  1
+15:29:04.7636000 Element [25]: >> on UCS feature elapsed time :  
+15:29:04.7636000 26 >>> det :  1
+15:29:04.7636000 26 >>> det :  1
+15:29:06.4676000 27 >>> change direction because >>> det :  1
+15:29:06.4686000 27 >>> det :  1
+15:29:08.2866000 28 >>> change direction because >>> det :  -1
+15:29:08.2866000 28 >>> det :  -1
+15:29:10.1336000 29 >>> det :  1
+15:29:10.1336000 29 >>> det :  1
+15:29:12.0006000 30 >>> change direction because >>> det :  -1
+15:29:12.0016000 30 >>> det :  -1
+15:29:13.9706000 31 >>> det :  1
+15:29:13.9716000 31 >>> det :  1
+15:29:15.9156000 32 >>> change direction because >>> det :  1
+15:29:15.9156000 32 >>> det :  1
+15:29:17.9006000 33 >>> det :  1
+15:29:17.9016000 33 >>> det :  1
+15:29:19.8696000 34 >>> change direction because >>> det :  -1
+15:29:19.8696000 34 >>> det :  -1
+15:29:21.8136000 35 >>> change direction because >>> det :  -1
+15:29:21.8146000 35 >>> det :  -1
+15:29:24.0056000 36 >>> det :  1
+15:29:24.0056000 36 >>> det :  1
+15:29:26.2356000 37 >>> change direction because >>> det :  1
+15:29:26.2366000 37 >>> det :  1
+15:29:28.3396000 38 >>> det :  1
+15:29:28.3396000 38 >>> det :  1
+15:29:30.5746000 39 >>> change direction because >>> det :  1
+15:29:30.5756000 39 >>> det :  1
+15:29:32.8206000 40 >>> change direction because >>> det :  1
+15:29:32.8216000 40 >>> det :  1
+15:29:34.6066000 41 >>> change direction because >>> det :  -1
+15:29:34.6076000 41 >>> det :  -1
+15:29:36.9226000 42 >>> change direction because >>> det :  1
+15:29:36.9236000 42 >>> det :  1
+15:29:39.3366000 43 >>> change direction because >>> det :  1
+15:29:39.3376000 43 >>> det :  1
+15:29:41.7276000 44 >>> change direction because >>> det :  -1
+15:29:41.7286000 44 >>> det :  -1
+15:29:44.0906000 45 >>> det :  1
+15:29:44.0916000 45 >>> det :  1
+15:29:46.5666000 46 >>> change direction because >>> det :  -1
+15:29:46.5676000 46 >>> det :  -1
+15:29:48.3276000  BTN_User_Coordinate_System_Click() Elapsed Time Create Anisotropic Pattern 00:03:00.83
+15:29:48.3306000 >> Number of correct user define coordinate system:  23
