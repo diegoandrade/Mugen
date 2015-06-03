@@ -20,6 +20,8 @@
 #include <iomanip>
 
 #include "Tensor3D.h"
+#include "VerticesOutput.h"
+#include "matrix3x3.h"
 
 using namespace std;
 
@@ -36,6 +38,25 @@ public:
     Tensor3D * TFD; //= new Tensor3D();
     
     int numberOfElements;
+    
+    Tensor3D sortSmallToLarge (Tensor3D &tnsr);
+    Tensor3D switchColumns (int column1, int column2, Tensor3D &tnsr);
+    Tensor3D switchRows (int row1, int row2, Tensor3D &tnsr);
+    
+    void normalize(Tensor3D &v) ;
+    double length (const Vector3D &v);
+    void normalize (Vector3D &v);
+    
+
+    
+    //temporal values to switch columns, this can be more elegant someday!
+    double r, s, t;
+    double R, S, T;
+    Tensor3D tensorTemp;
+    
+    void printVertice (VerticesOutput vert);
+    
+    matrix3x3 objM;
     
 };
 
