@@ -130,8 +130,6 @@ GLfloat gShapeSize = 11.0f;
 GLfloat gTrackBallRotation [4] = {0.0, 0.0, 0.0, 0.0};
 GLfloat gWorldRotation [4] = {180, 0.0, 1.0, 0.0}; //{155.0, 0.0, -1.0, 0.0};
 
-GLdouble gSize = 3.5;
-
 GLboolean gDolly = GL_FALSE;
 GLboolean gPan = GL_FALSE;
 
@@ -485,8 +483,6 @@ void drawGLText (GLint window_width, GLint window_height)
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
         sprintf (outString, "B: boundaries\n");
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
-        sprintf (outString, "U: Coordinate System\n");
-        drawGLString (10, (lineSpacing * line++) + startOffest, outString);
         sprintf (outString, "N: toggle numbers\n");
         drawGLString (10, (lineSpacing * line++) + startOffest, outString);
         
@@ -665,14 +661,13 @@ void init (void)
     
     //objM.jacrot(TFD[o].A, TFD[o].R);
     
-    /*
     
     for (int k=0;k<numberOfFeature;k++)
     {
         objM.jacrot(TFD[k].L, TFD[k].R);
     }
     
-   */
+   
     
    /* ellipseList = glGenLists(1);
     objDrawFeatures.drawEllipse(2,3,ellipseList);
@@ -703,11 +698,12 @@ void init (void)
   //  cout << "m11: " << TFD[1].L[1][1]<< " m22: " <<  TFD[1].L[0][0] << " m33: " <<  TFD[1].L[2][2] << endl;
     
     int glGenList = 0;
+    double fct = 2;
     
     for(int k=0; k<numberOfFeature;k++)
     {
         featureList [k] = glGenLists(k+1);
-        objDrawFeatures.drawEllipse(TFD[k].L[1][1]/gSize, TFD[k].L[0][0]/gSize, featureList[k]);
+        objDrawFeatures.drawEllipse(TFD[k].L[2][2]/fct, TFD[k].L[0][0]/fct, featureList[k]);
         cout << "k: " << k << " m00: " << TFD[k].L[0][0]<< " m11: " <<  TFD[k].L[1][1] << " m22: " <<  TFD[k].L[2][2] << endl;
         
         glGenList = k;
@@ -729,7 +725,7 @@ void init (void)
     cout << "glGenList: " << glGenList <<  endl;
     
   
-    //objDrawFeatures.drawLocalCoordinateSystem(TFD[0], objReadSRF.VertexLocation[0]);
+    objDrawFeatures.drawLocalCoordinateSystem(TFD[0], objReadSRF.VertexLocation[0]);
     
 
 }
@@ -848,6 +844,10 @@ void maindisplay(void)
     // window aspect ratio
     GLdouble aspect = gCamera.screenWidth / (GLdouble)gCamera.screenHeight;
     
+   // GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
+   // GLfloat mat_zero[] = { 0.0, 0.0, 0.0, 1.0 };
+   // GLfloat mat_transparent[] = { 0.0, 0.8, 0.8, 0.6 };
+   // GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 0.6 };
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glEnable(GL_LIGHTING); //not really used just put here to remind me to use it... CHANGE
@@ -856,6 +856,10 @@ void maindisplay(void)
     glLoadIdentity ();
     
     //char file[] = "/Users/Serenity/Dropbox/CMU 2012/export_coor.txt";
+    
+
+    
+   
     
     if (aspect > 1.0) {
         ymax = zNear * tan (gCamera.aperture * 0.5 * DTOR);
@@ -1015,7 +1019,44 @@ void maindisplay(void)
     
    // isInsideTriangle = GL_FALSE;
 
- */
+    
+    /* clear window */
+    //glClear(GL_COLOR_BUFFER_BIT);
+    
+    /* draw scene */
+    //glutSolidTeapot(.5);
+    
+    /* flush drawing routines to the window */
+    /*glPushMatrix (); //remember where you are
+    for (int i=0; i<300;i++)
+    {
+        glTranslated(i/100*2, 0, 0);
+       // objDrawFeatures.drawEllipse(0.2,0.3,ellipseList);
+       // objDrawFeatures.drawTriangleList(ellipseList);
+       // objDrawFeatures.drawEllipse
+        
+        glPushMatrix ();
+        //glMaterialfv(GL_FRONT, GL_EMISSION, mat_zero);
+        //glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_solid);
+        glCallList (ellipseList);
+        glPopMatrix ();
+        
+    }
+    glPopMatrix (); // remember where you were
+    */
+    
+    /*glPushMatrix ();
+    glTranslated(0, 0, 0);
+    glRotated(20, 0.5,0.3,0.4);
+    glCallList (featureList[1]);
+    glPopMatrix ();
+    
+    
+    
+    glPushMatrix ();
+    glTranslated(0, 0, 0);
+    glCallList (featureList[3]);
+    glPopMatrix ();*/
     
     
     
@@ -1042,14 +1083,16 @@ void maindisplay(void)
         for(int k=0; k<numberOfFeature; k++)
         {
             
-            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS); //this angles are counter-clock wise
-            pitch = -90;objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
-            yaw   = 0;objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
+            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
+            yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
             
             
             D(  cout << "pitch X : " << pitch << endl;
               cout << "roll Y : " << roll << endl;
               cout << "yaw Z : " << yaw << endl;);
+            
+            
             
             ctrx = objReadSRF.VertexLocation[k].x;
             ctry = objReadSRF.VertexLocation[k].y;
@@ -1063,18 +1106,16 @@ void maindisplay(void)
             //glLoadIdentity();
             glColor3f( 0.95f, 0.207, 0.031f );
             glTranslatef(ctrx, ctry, ctrz);
-            
-            glRotatef(roll, 0, 1, 0);
             glRotatef(pitch, 1, 0, 0);
+            glRotatef(roll, 0, 1, 0);
             glRotatef(yaw, 0,0,1);
             
             glCallList (featureList[k]);
-            glCallList (udcsList[k]);
-        
-            glRotatef(-yaw,0,0,1);
             
-            glRotatef(-pitch,1,0,0);
+            
+            glRotatef(-yaw,0,0,1);
             glRotatef(-roll,0,1,0);
+            glRotatef(-pitch,1,0,0);
             glTranslatef(-ctrx, -ctry, -ctrz);
             glPopMatrix ();
             
@@ -1088,9 +1129,9 @@ void maindisplay(void)
         for(int k=0; k<numberOfFeature; k++)//numberOfFeature
         {
             
-            roll  = 0;//objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
-            pitch = 0;//objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
-            yaw   = 0;//objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
+            roll  = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], YAXIS);
+            pitch = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], XAXIS);
+            yaw   = objDrawFeatures.rotateCoordinatSystem(objReadSRF.VertexLocation[k], objTFD.TFD[k], ZAXIS);
             
             ctrx = objReadSRF.VertexLocation[k].x;
             ctry = objReadSRF.VertexLocation[k].y;
@@ -1108,7 +1149,8 @@ void maindisplay(void)
             glRotatef(yaw, 0,0,1);
             
             glCallList (udcsList[k]);
-
+            
+            
             glRotatef(-yaw,0,0,1);
             glRotatef(-roll,0,1,0);
             glRotatef(-pitch,1,0,0);
@@ -1139,7 +1181,7 @@ void special(int key, int px, int py)
 {
     gLastKey = key;
     switch (key) {
-        /*case GLUT_KEY_UP: // arrow forward, close in on world
+        case GLUT_KEY_UP: // arrow forward, close in on world
             gCamera.focalLength -= 1.5f;
             if (gCamera.focalLength < 0.0f)
                 gCamera.focalLength = 0.0f;
@@ -1149,7 +1191,6 @@ void special(int key, int px, int py)
             gCamera.focalLength += 1.5f;
             glutPostRedisplay();
             break;
-         */
         case GLUT_KEY_LEFT: // arrow left, smaller aperture
             gCamera.aperture -= 1.5f;
             if (gCamera.aperture < 0.0f)
@@ -1158,14 +1199,6 @@ void special(int key, int px, int py)
             break;
         case GLUT_KEY_RIGHT: // arrow right, larger aperture
             gCamera.aperture += 1.5f;
-            glutPostRedisplay();
-            break;
-        case GLUT_KEY_UP: // arrow forward, close in on world
-            gSize -= 1.5f;
-            glutPostRedisplay();
-            break;
-        case GLUT_KEY_DOWN: // arrow back, back away from world
-            gSize -= 1.5f;
             glutPostRedisplay();
             break;
     }
@@ -1192,8 +1225,8 @@ void mouseDolly (int x, int y)
 void mousePan (int x, int y)
 {
     if (gPan) {
-        GLfloat panX = (gDollyPanStartPoint[0] - x) / (999.0f / -gCamera.viewPos.z);
-        GLfloat panY = (gDollyPanStartPoint[1] - y) / (999.0f / -gCamera.viewPos.z);
+        GLfloat panX = (gDollyPanStartPoint[0] - x) / (900.0f / -gCamera.viewPos.z);
+        GLfloat panY = (gDollyPanStartPoint[1] - y) / (900.0f / -gCamera.viewPos.z);
         gCamera.viewPos.x -= panX;
         gCamera.viewPos.y -= panY;
         gDollyPanStartPoint[0] = x;
@@ -1342,10 +1375,7 @@ void key(unsigned char inkey, int px, int py)
             gDrawCoordinateSystem =  1 - gDrawCoordinateSystem;
             glutPostRedisplay();
             break;
-        case '+': // size of ellipse
-            gDrawCoordinateSystem =  1 - gDrawCoordinateSystem;
-            glutPostRedisplay();
-            break;
+
         case 'r':
         case 'R': //Read SRF
             //objReadSRF.ReadSRFFile((char*) "meshd.srf");

@@ -34,12 +34,13 @@ VerticesOutput::VerticesOutput(string V, int v0, int v1, int v2)
     
 }
 
-//Location of the points
+
 VerticesOutput::VerticesOutput(string V, double v0, double v1, double v2)
 {
     this->x = v0;
     this->y = v1;
     this->z = v2;
+    
 }
 
 

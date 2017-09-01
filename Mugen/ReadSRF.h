@@ -52,6 +52,7 @@ public:
     
     int* getVerticesConnectedTo (int idx, VerticesOutput* vert);
     int numberOfVerticesConnectedTo;
+    
     int* getVerticesConnectedInOrder (int* vert);
 
 };
